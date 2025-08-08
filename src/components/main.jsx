@@ -1,8 +1,12 @@
+import {Footer, Header, HeaderTop, Home} from "./index";
 
 const Main = () => {
     return (
         <div>
-            Main
+            <HeaderTop />
+            <Header />
+            <Home />
+            <Footer />
         </div>
     );
 };
