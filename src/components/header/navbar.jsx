@@ -5,9 +5,11 @@ import NavbarLinks from "./navbar/navbar-links";
 const Navbar = () => {
     return (
         <div class = 'container' className="main-header" id="main-header"
-             sx={{position: 'sticky',
-            top: 0,
-            zIndex: 999}}>
+             sx={{
+                 position: 'sticky',
+                 top: 0,
+                 zIndex: 999
+        }}>
             <div className="container-custom">
                 <div className="row align-items-center">
                     <Link to={'/'} className="col-lg-3">
