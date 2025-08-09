@@ -1,10 +1,11 @@
+import {Link} from "react-router-dom";
 
-const Header = () => {
+const Navbar = () => {
     return (
-        <header className="main-header" id="main-header">
+        <div class = 'container' className="main-header" id="main-header">
             <div className="container-custom">
                 <div className="row align-items-center">
-                    <div className="col-lg-3">
+                    <Link to={'/'} className="col-lg-3">
                         <h1
                             id="main-logo"
                             style={{
@@ -16,31 +17,26 @@ const Header = () => {
                         >
                             PRIME<span style={{ color: "#ff6b6b" }}>77</span>
                         </h1>
-                    </div>
+                    </Link>
 
-                    <div className="col-lg-6">
+                    <div class="col-lg-6">
                         <nav className="navbar navbar-expand-lg">
                             <div className="collapse navbar-collapse justify-content-start">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/assets/pages/desktop/catalog.html">
+                                        <Link to={'/catalog'} className="nav-link">
                                             KATALOG
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/assets/pages/desktop/collection.html">
-                                            KOLLEKSIYA
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="/assets/pages/desktop/about.html">
+                                        <Link to={'/about-us'} className="nav-link">
                                             BIZ HAQIMIZDA
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="/assets/pages/desktop/contact.html">
+                                        <Link to={'/contact'} className="nav-link">
                                             KONTAKTLAR
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -64,7 +60,7 @@ const Header = () => {
 
                                 <span className="header-separator">|</span>
 
-                                <a href="#" className="header-icon" id="profileBtn">
+                                <Link to={'/login'} className="header-icon">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"
@@ -74,7 +70,7 @@ const Header = () => {
                                     >
                                         <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
                                     </svg>
-                                </a>
+                                </Link>
 
                                 <div className="position-relative">
                                     <a href="#" className="header-icon" id="cartIcon">
@@ -93,11 +89,10 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </header>
+        </div>
     );
 };
 
-export default Header;
+export default Navbar;

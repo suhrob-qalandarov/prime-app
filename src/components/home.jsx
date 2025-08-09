@@ -16,47 +16,47 @@ const Home = () => {
 
                     {/* Desktop Brand Showcase */}
                     <div className="brand-showcase desktop-only">
-                        <div className="brand-item loropiana-logo" data-product="polo">
+                        <div className="brand-item loropiana-logo">
                             <img
                                 src="https://tw.loropiana.com/on/demandware.static/Sites-loropiana-b2c-sa-Site/-/default/dw00aaaf6a/images/LoroPiana-logo.svg"
                                 alt="Loro Piana"
                             />
                         </div>
-                        <div className="brand-item polo-logo" data-product="cap">
-                            <img src="/images/polo-ralph-lauren.png" alt="Polo Ralph Lauren" />
+                        <div className="brand-item polo-logo">
+                            <img src="/images/brands/ralphlauren.svg" alt="Polo" />
                         </div>
-                        <div className="brand-item louboutin-logo" data-product="watch">
-                            <img src="/images/louboutin-logo.svg" alt="Louboutin" />
+                        <div className="brand-item louboutin-logo">
+                            <img src="/images/brands/louboutin-logo.svg" alt="Louboutin" />
                         </div>
-                        <div className="brand-item hermes-logo" data-product="pants">
-                            <img src="/images/hermes-orange.png" alt="Hermes" />
+                        <div className="brand-item hermes-logo">
+                            <img src="/images/brands/hermes-orange.png" alt="Hermes" />
                         </div>
-                        <div className="brand-item versace-medusa-logo" data-product="pants">
-                            <img src="/images/versace-medusa-logo.png" alt="Versace" />
+                        <div className="brand-item versace-medusa-logo">
+                            <img src="/images/brands/versace-medusa-logo.png" alt="Versace" />
                         </div>
-                        <div className="brand-item brunello-logo" data-product="pants">
-                            <img src="/images/brunello_cucinelli-logo.png" alt="Brunello Cucinelli" />
+                        <div className="brand-item brunello-logo">
+                            <img src="/images/brands/brunello_cucinelli-logo.png" alt="Brunello Cucinelli" />
                         </div>
-                        <div className="brand-item burberry-logo" data-product="pants">
-                            <img src="/images/burberry-logo.png" alt="Burberry" />
+                        <div className="brand-item burberry-logo">
+                            <img src="/images/brands/burberry-logo.png" alt="Burberry" />
                         </div>
-                        <div className="brand-item balenciaga-logo" data-product="pants">
-                            <img src="/images/balenciaga-logo.png" alt="Balenciaga" />
+                        <div className="brand-item balenciaga-logo">
+                            <img src="/images/brands/balenciaga-logo.png" alt="Balenciaga" />
                         </div>
-                        <div className="brand-item levis-logo" data-product="pants">
-                            <img src="/images/levis-logo.png" alt="Levi's" />
+                        <div className="brand-item levis-logo">
+                            <img src="/images/brands/levis-logo.png" alt="Levi's" />
                         </div>
-                        <div className="brand-item moncler-logo" data-product="pants">
-                            <img src="/images/moncler-logo.jpg" alt="Moncler" />
+                        <div className="brand-item moncler-logo">
+                            <img src="/images/brands/moncler-logo.jpg" alt="Moncler" />
                         </div>
-                        <div className="brand-item dolce-gabbana-logo" data-product="wallet">
-                            <img src="/images/dolce-gabbana-logo.png" alt="Dolce & Gabbana" />
+                        <div className="brand-item dolce-gabbana-logo">
+                            <img src="/images/brands/dolce-gabbana-logo.png" alt="Dolce & Gabbana" />
                         </div>
-                        <div className="brand-item louis_vuitton-logo" data-product="wallet">
-                            <img src="/images/louis_vuitton-logo.svg" alt="Louis Vuitton" />
+                        <div className="brand-item louis_vuitton-logo">
+                            <img src="/images/brands/louis_vuitton-logo.svg" alt="Louis Vuitton" />
                         </div>
-                        <div className="brand-item zegna-logo" data-product="shoes">
-                            <img src="/images/zegna-logo.svg" alt="Zegna" />
+                        <div className="brand-item zegna-logo">
+                            <img src="/images/brands/zegna-logo.svg" alt="Zegna" />
                         </div>
                     </div>
 

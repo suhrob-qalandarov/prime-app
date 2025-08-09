@@ -1,10 +1,12 @@
+import {payments} from '../constants/index';
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-3 col-md-6 col-6 mb-4">
+                    <Link to={'/'} className="col-lg-3 col-md-6 col-6 mb-4">
                         <h1
                             style={{
                                 fontWeight: 700,
@@ -15,16 +17,20 @@ const Footer = () => {
                         >
                             PRIME<span style={{ color: "#ff6b6b" }}>77</span>
                         </h1>
-                    </div>
+                    </Link>
 
                     <div className="col-lg-2 col-md-6 col-6 mb-4">
                         <h3 className="footer-title">KOMPANIYA</h3>
                         <ul className="footer-links">
                             <li>
-                                <a href="#">Biz bilan bog'lanish</a>
+                                <Link to={'/about-us'}>
+                                    Biz haqimizda
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">Biz haqimizda</a>
+                                <Link to={'/'}>
+                                    Biz bilan bog'lanish
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -33,10 +39,14 @@ const Footer = () => {
                         <h3 className="footer-title">QO'LLAB-QUVVATLASH</h3>
                         <ul className="footer-links">
                             <li>
-                                <a href="#">Yetkazib berish</a>
+                                <Link to={'/'}>
+                                    Yetkazib berish
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">FAQ</a>
+                                <Link to={'/'}>
+                                    FAQ
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -44,14 +54,14 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-6 col-6 mb-4">
                         <h3 className="footer-title">IJTIMOIY TARMOQLAR</h3>
                         <div className="social-links">
-                            <a href="#" className="social-link">
+                            <Link to={''} className="social-link">
                                 <i className="fab fa-telegram-plane" aria-hidden="true"></i>
                                 <span>Telegram</span>
-                            </a>
-                            <a href="#" className="social-link">
+                            </Link>
+                            <Link to={''} className="social-link">
                                 <i className="fab fa-instagram" aria-hidden="true"></i>
                                 <span>Instagram</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -65,8 +75,13 @@ const Footer = () => {
                             <div className="payment-methods">
                                 <span>To'lov turlari:</span>
                                 <div className="payment-images">
-                                    <img src="/images/click.webp" alt="Click" />
-                                    <img src="/images/payme.webp" alt="Payme" />
+                                    {payments.map((payment) => (
+                                        <img
+                                            key={payment.name}
+                                            src={payment.image}
+                                            alt={payment.name}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </div>
