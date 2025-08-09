@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import {Main, Login, Catalog, AboutUs, Contact, HeaderTop, Navbar, Footer, Home} from "./components/index";
+import {Login, Catalog, AboutUs, Contact, HeaderTop, Navbar, Footer, Home, Profile} from "./components/index";
 
 const App = () => {
     return (
@@ -12,6 +12,7 @@ const App = () => {
                 <Route path="/about-us" element={ <AboutUs /> }/>
                 <Route path="/contact" element={ <Contact /> }/>
                 <Route path="/login" element={ <Login /> }/>
+                <Route path="/profile" element={ <Profile /> }/>
             </Routes>
             <Footer />
         </div>

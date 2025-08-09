@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 
 const HeaderTop = () => {
     return (
@@ -9,8 +10,8 @@ const HeaderTop = () => {
                         <div className="col-md-6">
                             <div className="d-flex align-items-center justify-content-end">
                                 <div className="social-icons me-4">
-                                    <a href="#"><i className="fab fa-telegram-plane"></i></a>
-                                    <a href="#"><i className="fab fa-instagram"></i></a>
+                                    <Link to={''} className="fab fa-telegram-plane"></Link>
+                                    <Link to={''} className="fab fa-instagram"></Link>
                                 </div>
                                 <div>
                                     <i className="fas fa-phone-alt me-2"></i>

@@ -1,5 +1,6 @@
 export {default as Home} from "./home";
 export {default as Login} from "./login";
+export {default as Profile} from "./profile";
 export {default as Navbar} from "./navbar";
 export {default as HeaderTop} from "./header-top";
 export {default as Footer} from "./footer";

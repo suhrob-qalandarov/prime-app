@@ -1,9 +1,10 @@
+import {Box, Stack} from "@mui/material";
 
 const Login = () => {
     return (
-        <div>
+        <Stack>
             Login
-        </div>
+        </Stack>
     );
 };
 

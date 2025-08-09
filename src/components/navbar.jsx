@@ -2,7 +2,10 @@ import {Link} from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div class = 'container' className="main-header" id="main-header">
+        <div class = 'container' className="main-header" id="main-header"
+             sx={{position: 'sticky',
+            top: 0,
+            zIndex: 999}}>
             <div className="container-custom">
                 <div className="row align-items-center">
                     <Link to={'/'} className="col-lg-3">
@@ -60,7 +63,10 @@ const Navbar = () => {
 
                                 <span className="header-separator">|</span>
 
-                                <Link to={'/login'} className="header-icon">
+                                <Link
+                                    to={localStorage.getItem("prime-token") ? "/profile" : "/login"}
+                                    className="header-icon header-icon-profile"
+                                >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"
