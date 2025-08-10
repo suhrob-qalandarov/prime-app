@@ -1,0 +1,61 @@
+/* HEADER ICONS */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-icon {
+    color: var(--burgundy-dark);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+}
+
+.header-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.header-separator {
+    color: var(--burgundy-dark);
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.main-header.scrolled-up .header-separator {
+    color: var(--light-color);
+}
+
+.header-icon .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--burgundy-color), var(--burgundy-light));
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border: 2px solid var(--light-color);
+    min-width: 18px;
+    line-height: 1;
+}
+
+.main-header.scrolled-up .header-icon {
+    color: var(--light-color);
+}
+
+.header-icon,
+.header-icon:focus,
+.header-icon:active {
+    outline: none;
+    border: none;
+    background: none;
+}
