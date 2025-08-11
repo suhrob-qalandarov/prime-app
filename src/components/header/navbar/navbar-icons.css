@@ -25,10 +25,6 @@
     margin: 0 5px;
 }
 
-.main-header.scrolled-up .header-separator {
-    color: var(--light-color);
-}
-
 .header-icon .badge {
     position: absolute;
     top: 0;
@@ -46,10 +42,6 @@
     border: 2px solid var(--light-color);
     min-width: 18px;
     line-height: 1;
-}
-
-.main-header.scrolled-up .header-icon {
-    color: var(--light-color);
 }
 
 .header-icon,
