@@ -88,19 +88,6 @@ body {
   font-size: 16px;
 }
 
-.main-header {
-  background: #f0f0f0;
-  padding: 20px 0;
-  position: fixed;
-  top: 40px;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  transition: all 0.3s ease;
-  transform: translateY(0);
-  display: block;
-}
-
 /* ======================================================
    DESKTOP MESSAGE BUTTON
 ====================================================== */
@@ -1116,9 +1103,9 @@ body {
     display: none !important; /* Hide top header on mobile */
   }
 
-  .main-header {
+/*  .main-header {
     display: none !important;
-  }
+  }*/
 
   .desktop-only {
     display: none !important;

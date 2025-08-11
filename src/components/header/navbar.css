@@ -1,0 +1,11 @@
+.main-header {
+    background: var(--accent-color);
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    display: block;
+}
