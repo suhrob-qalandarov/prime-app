@@ -4,14 +4,8 @@ import {CloseIcon} from "../../icons";
 import {Link} from "react-router-dom";
 
 const CartModal = ({ isOpen, onClose }) => {
-    const cartItems = [localStorage.getItem('cartItems')];
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     if (!isOpen) return null;
-
-    const handleBackdropClick = (e) => {
-        if (e.target.classList.contains('cart-modal')) {
-            onClose();
-        }
-    };
 
     return (
         <div>
