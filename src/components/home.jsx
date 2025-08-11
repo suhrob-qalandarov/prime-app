@@ -31,6 +31,9 @@ const Home = () => {
                         <div className="brand-item hermes-logo">
                             <img src="/images/brands/hermes-orange.png" alt="Hermes" />
                         </div>
+                        <div className="brand-item lacoste-logo">
+                            <img src="/images/brands/lacoste-logo.svg" alt="Hermes" />
+                        </div>
                         <div className="brand-item versace-medusa-logo">
                             <img src="/images/brands/versace-medusa-logo.png" alt="Versace" />
                         </div>

@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: var(--text-color);
   overflow-x: hidden;
   background-color: #f5f5dc;
@@ -606,8 +606,8 @@ body {
 .hero-section {
   position: relative;
   overflow: hidden;
+  top: 18px;
   height: 650px;
-  margin-top: 0;
   display: flex;
   align-items: center;
   background: #f0f0f0;
@@ -735,9 +735,23 @@ body {
   animation: float 5s ease-in-out infinite 1.5s;
 }
 
+.lacoste-logo {
+  bottom: 200px;
+  left: -90px;
+  width: 110px;
+  animation: float 4s ease-in-out infinite 0.7s;
+}
+
+.balenciaga-logo {
+  top: 60px;
+  left: -100px;
+  width: 100px;
+  animation: float 6s ease-in-out infinite 0.9s;
+}
+
 .versace-medusa-logo {
-  bottom: 60px;
-  left: -45px;
+  bottom: 40px;
+  left: -50px;
   width: 120px;
   height: 120px;
   animation: float 3s ease-in-out infinite 0.8s;
@@ -754,14 +768,6 @@ body {
 .burberry-logo {
   bottom: 40px;
   right: 85px;
-  width: 120px;
-  height: 120px;
-  animation: float 3s ease-in-out infinite 0.8s;
-}
-
-.balenciaga-logo {
-  bottom: 120px;
-  right: -70px;
   width: 120px;
   height: 120px;
   animation: float 3s ease-in-out infinite 0.8s;
