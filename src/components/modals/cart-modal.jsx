@@ -1,52 +1,69 @@
+import './cart-modal.css'
+import {Box, Stack, Typography} from "@mui/material";
+import {CloseIcon} from "../../icons";
+import {Link} from "react-router-dom";
+
 const CartModal = ({ isOpen, onClose }) => {
+    const cartItems = [localStorage.getItem('cartItems')];
     if (!isOpen) return null;
 
+    const handleBackdropClick = (e) => {
+        if (e.target.classList.contains('cart-modal')) {
+            onClose();
+        }
+    };
+
     return (
-        <div className="cart-modal-content">
-            {/* Header */}
-            <div className="cart-header">
-                <h3 className="cart-title">Savat</h3>
-                <button className="cart-close" onClick={onClose}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        viewBox="0 0 256 256"
-                    >
-                        <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
-                    </svg>
-                </button>
-            </div>
-
-            {/* Body */}
-            <div className="cart-body" id="cartBody">
-                <div className="cart-empty" id="cartEmpty">
-                    <small>Ha ul-bul narsa qo'shmaymizmi bu yerga?</small>
-                </div>
-                <div className="cart-items" id="cartItems">
-                    {/* Cart items will be populated dynamically */}
-                </div>
-            </div>
-
-            {/* Footer */}
-            <div className="cart-footer" id="cartFooter" style={{ display: "none" }}>
-                <div className="cart-total">
-                    <span className="cart-total-label">Summa</span>
-                    <span className="cart-total-price" id="cartTotalPrice">0 so&apos;m</span>
-                </div>
-                <div className="cart-buttons">
-                    <button className="cart-checkout-btn" id="cartCheckoutBtn" disabled>
-                        Buyurtma berish
+        <div>
+            <Stack className="cart-modal-content">
+                {/* Header */}
+                <Box className="cart-header">
+                    <h3 className="cart-title">Savat</h3>
+                    <button className="cart-close" onClick={onClose}>
+                        <CloseIcon />
                     </button>
-                    <button className="cart-view-btn" id="cartViewBtn">
-                        Savat
-                    </button>
-                </div>
-                <div className="anti-stop">
-                    <span>Yoki xaridlarni anti-to&apos;xtatish</span>
-                </div>
-            </div>
+                </Box>
+
+                {/* Body */}
+                <Box className="cart-body" id="cartBody">
+
+                    <div className="cart-empty" id="cartEmpty">
+                        <small>Ha ul-bul narsa qo'shmaymizmi bu yerga?</small>
+                    </div>
+                    <Typography className="cart-items" id="cartItems">
+                        {/* Cart items will be populated dynamically */}
+                    </Typography>
+                </Box>
+
+                {/* Footer */}
+                <Box className="cart-footer" id="cartFooter">
+                    <div className="cart-total">
+                        <span className="cart-total-label">Summa</span>
+                        <span className="cart-total-price" id="cartTotalPrice">0 So&apos;m</span>
+                    </div>
+                    <Box className="cart-buttons">
+                        <Link to='/order' className="cart-checkout-btn" id="cartCheckoutBtn" onClick={onClose}>
+                            Buyurtma qilish
+                        </Link>
+                        <Link to='/cart' className="cart-view-btn" id="cartViewBtn" onClick={onClose}>
+                            Savat
+                        </Link>
+                    </Box>
+                    <Typography sx={{
+                        textAlign: 'center',
+                        fontSize: '15px',
+                        marginBottom: '-5px',
+                        fontWeight: 'normal',
+                        letterSpacing: '0.8px',
+                        padding: '8px',
+                        color: '#6B7280',
+                        fontFamily: "Noto Sans",
+                        cursor: 'pointer'
+                    }}>
+                        <span onClick={onClose}>Yoki xaridlarni anti-to&apos;xtatish</span>
+                    </Typography>
+                </Box>
+            </Stack>
         </div>
     );
 };
