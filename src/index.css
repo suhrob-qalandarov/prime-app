@@ -63,7 +63,7 @@ body {
 .top-header {
   background: linear-gradient(135deg, var(--burgundy-color), var(--burgundy-light));
   color: #f5f5dc;
-  padding: 12px 0;
+  padding: 10px 0;
   font-size: 14px;
   display: block;
 }
@@ -99,123 +99,6 @@ body {
   transition: all 0.3s ease;
   transform: translateY(0);
   display: block;
-}
-
-.main-header.scrolled-up {
-  padding: 8px 0;
-  background: linear-gradient(135deg, var(--burgundy-color), var(--burgundy-light));
-  backdrop-filter: blur(10px);
-  box-shadow: var(--box_shadow);
-  position: fixed;
-  top: 0;
-  transform: translateY(0);
-}
-
-.main-header.scrolled-down {
-  transform: translateY(-100%);
-  position: fixed;
-  top: 0;
-}
-
-.navbar-nav {
-  margin-left: -120px;
-}
-
-.navbar-nav .nav-link {
-  color: var(--burgundy-dark);
-  font-weight: 600;
-  padding: 5px 20px;
-  position: relative;
-  transition: var(--transition);
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.main-header.scrolled-up .navbar-nav .nav-link {
-  color: var(--light-color);
-  text-shadow: none;
-}
-
-.navbar-nav .nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--burgundy-light);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.main-header.scrolled-up .navbar-nav .nav-link::after {
-  background: var(--light-color);
-}
-
-.navbar-nav .nav-link:hover::after {
-  width: 70%;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #000000;
-}
-
-.main-header.scrolled-up .navbar-nav .nav-link:hover {
-  color: black;
-}
-
-.header-icons {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.header-icon {
-  color: var(--burgundy-dark);
-  text-decoration: none;
-  cursor: pointer;
-  padding: 8px;
-  position: relative;
-}
-
-.header-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
-
-.header-separator {
-  color: var(--burgundy-dark);
-  font-size: 20px;
-  margin: 0 5px;
-}
-
-.main-header.scrolled-up .header-separator {
-  color: var(--light-color);
-}
-
-.header-icon .badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: linear-gradient(135deg, var(--burgundy-color), var(--burgundy-light));
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  border: 2px solid var(--light-color);
-  min-width: 18px;
-  line-height: 1;
-}
-
-.main-header.scrolled-up .header-icon {
-  color: var(--light-color);
 }
 
 /* ======================================================
