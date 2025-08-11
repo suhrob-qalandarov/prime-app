@@ -4,7 +4,7 @@ import {Login, Catalog, AboutUs, Contact, HeaderTop, Navbar, Footer, Home, Profi
 const App = () => {
     return (
         <div>
-            <HeaderTop />
+            {/*<HeaderTop />*/}
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />}/>
