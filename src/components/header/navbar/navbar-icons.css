@@ -21,14 +21,16 @@
 
 .header-separator {
     color: var(--burgundy-dark);
-    font-size: 20px;
-    margin: 0 5px;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: -10px;
 }
 
 .header-icon .badge {
     position: absolute;
     top: 0;
-    right: 3px;
+    right: 5px;
     background: var(--burgundy-light);
     color:  var(--light-color);
     border-radius: 50%;
