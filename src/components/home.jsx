@@ -1,5 +1,10 @@
+import {categories} from '../constants'
+import './home.css';
+import {Box, Container, Stack} from "@mui/material";
+import {Link} from "react-router-dom";
 
 const Home = () => {
+
     return (
         <div>
             {/* 3D Hero Showcase Section */}
@@ -97,50 +102,23 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Categories Section */}
-            <section className="category-section">
-                <div className="container-fluid px-0">
-                    {/* Loading State */}
-                    <div
-                        className="category-loading"
-                        id="categoryLoading"
-                        style={{ display: "none" }}
-                    >
-                        <div className="text-center py-5">
-                            <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Yuklanmoqda...</span>
+            {/* Spotlight Categories Section */}
+            <Stack className="category-section">
+                <Stack className="container-fluid px-0">
+                    <Box className="row g-0" id="categoriesContainer">
+                        {categories.map((cat, index) => (
+                            <div className="col-6 col-md-3" key={index}>
+                                <Link to={cat.url} className="category-card">
+                                    <img src={cat.image} alt={cat.name} className="category-img"/>
+                                    <div className="category-overlay">
+                                        <div className="category-title">{cat.name}</div>
+                                    </div>
+                                </Link>
                             </div>
-                            <p className="mt-3">Spotlight kategoriyalar yuklanmoqda...</p>
-                        </div>
-                    </div>
-
-                    {/* Error State */}
-                    <div
-                        className="category-error"
-                        id="categoryError"
-                        style={{ display: "none" }}
-                    >
-                        <div className="text-center py-5">
-                            <i
-                                className="fas fa-exclamation-triangle text-warning"
-                                style={{ fontSize: "3rem" }}
-                            ></i>
-                            <h4 className="mt-3">Backend bilan bog'lanishda xatolik</h4>
-                            <p className="text-muted">
-                                Backend serverga ulanib bo'lmadi. Server ishlab turganini tekshiring.
-                            </p>
-                            {/*<button className="btn btn-primary" onClick={() => loadCategories()}>
-                                Qayta urinish
-                            </button>*/}
-                        </div>
-                    </div>
-
-                    {/* Spotlight Categories Container */}
-                    <div className="row g-0" id="categoriesContainer">
-                        {/* Spotlight categories will be loaded here dynamically */}
-                    </div>
-                </div>
-            </section>
+                        ))}
+                    </Box>
+                </Stack>
+            </Stack>
 
             {/* Featured Products Section */}
             <section className="featured-products-section">

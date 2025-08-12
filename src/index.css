@@ -607,7 +607,7 @@ body {
   position: relative;
   overflow: hidden;
   top: 18px;
-  height: 650px;
+  height: 600px;
   display: flex;
   align-items: center;
   background: #f0f0f0;
@@ -805,93 +805,6 @@ body {
   50% {
     transform: translateY(-10px);
   }
-}
-
-/* ======================================================
-   CATEGORY SECTION STYLES
-====================================================== */
-.category-section {
-  padding: 0;
-  margin-top: -58px;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 60px;
-  padding-top: 80px;
-}
-
-.section-title h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(135deg, var(--burgundy-color), var(--burgundy-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(135deg, var(--burgundy-color), var(--burgundy-light));
-  border-radius: 2px;
-}
-
-.category-card {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 60px;
-  box-shadow: none;
-  transition: var(--transition);
-  height: 290px;
-  cursor: pointer;
-  border-radius: 0;
-}
-
-.category-card:hover {
-  box-shadow: var(--hover_shadow);
-}
-
-.category-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.category-card:hover .category-img {
-  transform: scale(1.2);
-}
-
-.category-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  transition: var(--transition);
-}
-
-.category-title {
-  color: #f5f5dc;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin: 0;
-  transition: var(--transition);
-  text-align: center;
 }
 
 /* ======================================================
@@ -1159,29 +1072,6 @@ body {
     display: block; /* Show on mobile instead of none */
     line-height: 1.4;
     color: var(--burgundy-color);
-  }
-
-  /* Mobile Category Section */
-  .category-section {
-    margin-top: 0;
-  }
-
-  .section-title {
-    padding-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .section-title h2 {
-    font-size: 1.8rem;
-  }
-
-  .category-card {
-    height: 200px;
-    margin-bottom: 0;
-  }
-
-  .category-title {
-    font-size: 1.2rem;
   }
 
   /* Featured products mobile adjustments */

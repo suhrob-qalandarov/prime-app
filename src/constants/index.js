@@ -3,6 +3,13 @@ export const payments = [
     {name : 'Payme', image : '/images/payments/payme.webp'}
 ]
 
+export const categories = [
+    {name : 'Kiyimlar', image : '/images/spotlights/clothes.jpeg',  url: '/catalog/clothes'},
+    {name : 'Aksessuarlar', image : '/images/spotlights/accessories.jpeg',  url: '/catalog/accessory'},
+    {name : 'Oyoq kiyimlar', image : '/images/spotlights/sneakers.jpg',  url: '/catalog/sneakers'},
+    {name : 'Kolleksiyalar', image : '/images/spotlights/collections.jpeg',  url: '/catalog/collections'},
+]
+
 export const brands = [
     {
         name : 'loropiana-logo',
