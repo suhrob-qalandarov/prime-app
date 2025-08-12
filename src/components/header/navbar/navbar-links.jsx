@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./navbar-links.css";
+import {Stack} from "@mui/material";
 
 const NavbarLinks = () => {
     const links = [
@@ -10,8 +11,8 @@ const NavbarLinks = () => {
     ];
 
     return (
-        <div className="col-lg-6">
-            <nav className="navbar navbar-expand-lg">
+        <Stack className="col-lg-6">
+            <Stack className="navbar navbar-expand-lg">
                 <div className="collapse navbar-collapse justify-content-start">
                     <ul className="navbar-nav">
                         {links.map(({ to, label }) => (
@@ -28,8 +29,8 @@ const NavbarLinks = () => {
                         ))}
                     </ul>
                 </div>
-            </nav>
-        </div>
+            </Stack>
+        </Stack>
     );
 };
 
