@@ -623,7 +623,7 @@ body {
   perspective: 1000px;
 }
 
-.hero-content {
+/*.hero-content {
   position: absolute;
   left: 220px;
   top: 50%;
@@ -631,9 +631,10 @@ body {
   z-index: 10;
   max-width: 500px;
   color: white;
-}
+}*/
 
 .hero-title {
+  text-align: center;
   font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 25px;
@@ -652,12 +653,15 @@ body {
 }
 
 .brand-showcase {
-  position: absolute;
-  right: 250px;
-  top: 50%;
+  position: relative;
+  right: 0;
+  left: 0;
   transform: translateY(-50%);
-  width: 600px;
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  align-content: center;
 }
 
 .brand-item {
@@ -667,17 +671,17 @@ body {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
 }
 
-.brand-item:hover {
+/*.brand-item:hover {
   transform: scale(1.1) translateZ(20px);
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
   z-index: 5;
-}
+}*/
 
-.brand-item.selected {
+/*.brand-item.selected {
   transform: scale(1.2);
   filter: drop-shadow(0 0 30px var(--light-color));
   z-index: 6;
-}
+}*/
 
 .brand-item img {
   width: 100%;
@@ -688,8 +692,8 @@ body {
 
 /* Product positioning */
 .loropiana-logo {
-  top: -30px;
-  left: 40px;
+  top: -70px;
+  right: 550px;
   width: 200px;
   height: 200px;
   animation: float 4s ease-in-out infinite 0.6s;
@@ -697,23 +701,23 @@ body {
 
 .polo-logo {
   top: 15px;
-  right: -20px;
-  width: 140px;
+  right: 330px;
+  width: 160px;
   height: 140px;
   animation: float 4s ease-in-out infinite 0.6s;
 }
 
 .levis-logo {
-  top: 10px;
-  right: 120px;
+  top: 40px;
+  right: 80px;
   width: 120px;
   height: 120px;
   animation: float 3s ease-in-out infinite 0.5s;
 }
 
 .louis_vuitton-logo {
-  top: 350px;
-  right: 350px;
+  bottom: 80px;
+  right: 590px;
   width: 160px;
   height: 150px;
   animation: float 3s ease-in-out infinite 0.5s;
@@ -721,23 +725,23 @@ body {
 
 .zegna-logo {
   top: 160px;
-  right: 40px;
+  right: 380px;
   width: 120px;
   height: 125px;
   animation: float 3s ease-in-out infinite 1.2s;
 }
 
 .hermes-logo {
-  bottom: 150px;
-  left: 50px;
+  bottom: 50px;
+  right: 250px;
   width: 150px;
   height: 180px;
   animation: float 5s ease-in-out infinite 1.5s;
 }
 
 .lacoste-logo {
-  bottom: 200px;
-  left: -90px;
+  bottom: 140px;
+  left: -30px;
   width: 110px;
   animation: float 4s ease-in-out infinite 0.7s;
 }
@@ -750,15 +754,15 @@ body {
 }
 
 .versace-medusa-logo {
-  bottom: 40px;
-  left: -50px;
+  bottom: -20px;
+  left: 100px;
   width: 120px;
   height: 120px;
   animation: float 3s ease-in-out infinite 0.8s;
 }
 
 .brunello-logo {
-  top: 170px;
+  top: 70px;
   right: 150px;
   width: 200px;
   height: 200px;
@@ -766,32 +770,32 @@ body {
 }
 
 .burberry-logo {
-  bottom: 40px;
-  right: 85px;
+  top: 30px;
+  left: -15px;
   width: 120px;
   height: 120px;
   animation: float 3s ease-in-out infinite 0.8s;
 }
 
 .moncler-logo {
-  bottom: 60px;
-  right: 240px;
+  top: 60px;
+  right: 540px;
   width: 150px;
   height: 150px;
   animation: float 4s ease-in-out infinite 0.7s;
 }
 
 .dolce-gabbana-logo {
-  top: 70px;
-  left: 0;
+  top: 100px;
+  left: 70px;
   width: 190px;
   height: 205px;
   animation: float 4s ease-in-out infinite 1s;
 }
 
 .louboutin-logo {
-  top: 110px;
-  left: 250px;
+  bottom: 40px;
+  right: 470px;
   width: 120px;
   height: 90px;
   animation: float 6s ease-in-out infinite 0.9s;

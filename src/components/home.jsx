@@ -10,16 +10,8 @@ const Home = () => {
             {/* 3D Hero Showcase Section */}
             <section className="hero-section">
                 <div className="hero-3d-showcase">
-                    {/* Hero Content */}
-                    <div className="hero-content">
-                        <h1 className="hero-title">BREND KOLLEKSIYASI</h1>
-                        <p className="hero-text">
-                            Zamonaviy va sifatli erkaklar kiyimi kolleksiyasi. Har bir mahsulot
-                            diqqat bilan tanlab olingan va yuqori sifat standartlariga javob beradi.
-                        </p>
-                    </div>
-
-                    {/* Desktop Brand Showcase */}
+                    {/* Brand Showcase */}
+                    <h1 className="hero-title">BREND KOLLEKSIYASI</h1>
                     <div className="brand-showcase desktop-only">
                         <div className="brand-item loropiana-logo">
                             <img
@@ -69,7 +61,7 @@ const Home = () => {
                     </div>
 
                     {/* Mobile Brand Carousel */}
-                    <div className="mobile-brand-carousel mobile-only">
+                    {/*<div className="mobile-brand-carousel mobile-only">
                         <div className="mobile-brand-track" id="mobileBrandTrack">
                             {[
                                 "https://tw.loropiana.com/on/demandware.static/Sites-loropiana-b2c-sa-Site/-/default/dw00aaaf6a/images/LoroPiana-logo.svg",
@@ -98,7 +90,7 @@ const Home = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
             </section>
 
