@@ -3,7 +3,7 @@
 ====================================================== */
 .category-section {
     padding: 0;
-    margin-top: 0;
+    margin-top: 70px;
 }
 
 .section-title {
@@ -51,7 +51,7 @@
 
 .category-img {
     width: 100%;
-    height: 320px;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: var(--transition);
