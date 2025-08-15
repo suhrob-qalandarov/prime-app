@@ -7,16 +7,16 @@ const Footer = () => {
         <footer className="footer">
             <div className="container">
                 <div className="row">
-                    <Link to={'/'} className="col-lg-3 col-md-6 col-6 mb-4">
+                    <Link to={'/'} className="col-lg-3" style={{textDecoration: "none"}}>
                         <h1
                             style={{
                                 fontWeight: 700,
                                 fontSize: "24px",
-                                marginBottom: "25px",
-                                color: "rgba(195,164,9,0.84)",
+                                margin: 0,
+                                color: "rgba(195,164,9,0.84)"
                             }}
                         >
-                            PRIME<span style={{ color: "#ff6b6b" }}>77</span>
+                            PRIME<span style={{color: "#ff6b6b"}}>77</span>
                         </h1>
                     </Link>
 
@@ -69,7 +69,7 @@ const Footer = () => {
 
                 <div className="footer-bottom">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-6" sx={{textDecoration: "none"}}>
                             <p>&copy; 2025 PRIME77, Barcha huquqlar himoyalangan</p>
                         </div>
                         <div className="col-md-6 d-none d-md-block">
