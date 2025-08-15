@@ -3,7 +3,13 @@ import './login.css';
 
 const Login = () => {
     return (
-        <Stack className="collection-page">
+        <Stack sx={{
+                   minHeight: '100vh',
+                   backgroundColor: '#f0f0f0',
+                   display: 'flex',
+                   alignItems: 'center',
+                   padding: '40px 0'
+               }}>
             <section className="page-header">
                 <div className="container-custom">
                     <div className="login-content">
