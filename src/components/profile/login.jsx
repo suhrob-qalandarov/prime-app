@@ -32,7 +32,8 @@ const Login = () => {
                              }}>
                             <a
                                 className='login-bot-name'
-                                href="https://t.me/prime_77_bot"
+                                //href="https://t.me/prime_77_bot"
+                                href='https://t.me/ooddiiy_bot'
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
