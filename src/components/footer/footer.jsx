@@ -1,5 +1,6 @@
-import {payments} from '../constants/index';
+import {payments} from '../../constants';
 import {Link} from "react-router-dom";
+import './footer.css';
 
 const Footer = () => {
     return (
