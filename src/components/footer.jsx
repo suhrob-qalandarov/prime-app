@@ -69,7 +69,7 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <div className="row">
                         <div className="col-md-6">
-                            <p>&copy; 2024 Prime77. All Rights Reserved.</p>
+                            <p>&copy; 2025 PRIME77, Barcha huquqlar himoyalangan</p>
                         </div>
                         <div className="col-md-6 d-none d-md-block">
                             <div className="payment-methods">
