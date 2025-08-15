@@ -12,7 +12,7 @@ const Contact = () => {
                         <nav className="breadcrumb-nav">
                             <a href="/" className="breadcrumb-link">Asosiy</a>
                             <span className="breadcrumb-separator">/</span>
-                            <span className="breadcrumb-current">Biz bilan bog'lanish</span>
+                            <span className="breadcrumb-current">Kontaktlar</span>
                         </nav>
                     </div>
                 </Container>
