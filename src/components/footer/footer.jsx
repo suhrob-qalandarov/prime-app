@@ -29,7 +29,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={'/'}>
+                                <Link to={'/contact'}>
                                     Biz bilan bog'lanish
                                 </Link>
                             </li>
@@ -40,12 +40,12 @@ const Footer = () => {
                         <h3 className="footer-title">QO'LLAB-QUVVATLASH</h3>
                         <ul className="footer-links">
                             <li>
-                                <Link to={'/'}>
+                                <Link to={'/delivery'}>
                                     Yetkazib berish
                                 </Link>
                             </li>
                             <li>
-                                <Link to={'/'}>
+                                <Link to={'/about-us'}>
                                     FAQ
                                 </Link>
                             </li>
