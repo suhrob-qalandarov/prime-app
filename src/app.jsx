@@ -1,7 +1,10 @@
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import {Login, Catalog, AboutUs, Contact, Navbar, Footer, Home, Profile} from "./components/index";
 
 const App = () => {
+    const location = useLocation();
+    const hideFooterPages = ["/login"];
+
     return (
         <div>
             <Navbar />
@@ -15,7 +18,7 @@ const App = () => {
                 <Route path="/cart" element={ <Profile /> }/>
                 <Route path="/order" element={ <Profile /> }/>
             </Routes>
-            <Footer />
+            {!hideFooterPages.includes(location.pathname) && <Footer />}
         </div>
     )
 }
