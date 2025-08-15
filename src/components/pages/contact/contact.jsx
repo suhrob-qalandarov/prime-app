@@ -10,7 +10,7 @@ const Contact = () => {
                     <div className="page-header-content">
                         <h1 className="page-title">Biz bilan bog'lanish</h1>
                         <nav className="breadcrumb-nav">
-                            <a href="/index.html" className="breadcrumb-link">Asosiy</a>
+                            <a href="/" className="breadcrumb-link">Asosiy</a>
                             <span className="breadcrumb-separator">/</span>
                             <span className="breadcrumb-current">Biz bilan bog'lanish</span>
                         </nav>
