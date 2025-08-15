@@ -27,7 +27,7 @@ const Contact = () => {
                                 <div className="contact-content">
                                     <i className="fab fa-telegram-plane"></i>
                                     <span>Telegram:
-                                <a href="https://t.me/prime77_fam" target="_blank" rel="noreferrer">@prime77_fam</a>
+                                <a href="https://t.me/prime77admin" target="_blank" rel="noreferrer">{" "}@prime77admin</a>
                             </span>
                                 </div>
                             </div>
