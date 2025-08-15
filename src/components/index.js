@@ -1,9 +1,9 @@
-export {default as Home} from "./home";
+export {default as Home} from "./pages/home/home";
 export {default as Login} from "./profile/login";
 export {default as Profile} from "./profile/profile";
 export {default as Navbar} from "./header/navbar";
 export {default as HeaderTop} from "./header/header-top";
 export {default as Footer} from "./footer/footer";
-export {default as Catalog} from "./catalog"
-export {default as AboutUs} from './about-us'
-export {default as Contact} from "./contact"
+export {default as Catalog} from "./pages/catalog"
+export {default as AboutUs} from './pages/about-us'
+export {default as Contact} from "./pages/contact/contact"

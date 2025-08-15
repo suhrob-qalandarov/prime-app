@@ -1,4 +1,4 @@
-import {categories} from '../constants'
+import {categories} from '../../../constants'
 import './home.css';
 import {Box, Stack} from "@mui/material";
 import {Link} from "react-router-dom";
