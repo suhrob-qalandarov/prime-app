@@ -6,7 +6,7 @@ export const payments = [
 export const categories = [
     {name : 'Kiyimlar', image : '/images/spotlights/clothes.jpeg',  url: '/catalog/clothes'},
     {name : 'Aksessuarlar', image : '/images/spotlights/accessories.jpeg',  url: '/catalog/accessory'},
-    {name : 'Oyoq kiyimlar', image : '/images/spotlights/sneakers.jpg',  url: '/catalog/sneakers'},
+    {name : 'Oyoq kiyimlar', image : '/images/spotlights/sneakers.jpeg',  url: '/catalog/sneakers'},
     {name : 'Kolleksiyalar', image : '/images/spotlights/collections.jpeg',  url: '/catalog/collections'},
 ]
 
