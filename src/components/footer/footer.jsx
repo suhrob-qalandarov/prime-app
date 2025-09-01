@@ -9,14 +9,22 @@ const Footer = () => {
                 <div className="row">
                     <Link to={'/'} className="col-lg-3" style={{textDecoration: "none"}}>
                         <h1
+                            id="main-logo"
                             style={{
                                 fontWeight: 700,
                                 fontSize: "24px",
                                 margin: 0,
-                                color: "rgba(195,164,9,0.84)"
+                                letterSpacing: "1px",
+                                color: "rgba(198,176,33,0.95)"
                             }}
                         >
-                            PRIME<span style={{color: "#ff6b6b"}}>77</span>
+                            PRIME
+                            <span style={{
+                                color: "rgba(160,27,71,0.9)"
+                            }}
+                            >
+                                77
+                            </span>
                         </h1>
                     </Link>
 
