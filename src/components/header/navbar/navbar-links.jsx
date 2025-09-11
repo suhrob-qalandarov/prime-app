@@ -1,14 +1,13 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
-import "./navbar-links.css";
-import {Stack} from "@mui/material";
+import { NavLink } from "react-router-dom"
+import "./navbar-links.css"
+import { Stack } from "@mui/material"
 
 const NavbarLinks = () => {
     const links = [
         { to: "/catalog", label: "KATALOG" },
         { to: "/about-us", label: "BIZ HAQIMIZDA" },
-        { to: "/contact", label: "KONTAKTLAR" }
-    ];
+        { to: "/contact", label: "KONTAKTLAR" },
+    ]
 
     return (
         <Stack className="col-lg-6">
@@ -17,12 +16,7 @@ const NavbarLinks = () => {
                     <ul className="navbar-nav">
                         {links.map(({ to, label }) => (
                             <li className="nav-item" key={to}>
-                                <NavLink
-                                    to={to}
-                                    className={({ isActive }) =>
-                                        `nav-link ${isActive ? "active" : ""}`
-                                    }
-                                >
+                                <NavLink to={to} className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                                     {label}
                                 </NavLink>
                             </li>
@@ -31,7 +25,7 @@ const NavbarLinks = () => {
                 </div>
             </Stack>
         </Stack>
-    );
-};
+    )
+}
 
-export default NavbarLinks;
+export default NavbarLinks

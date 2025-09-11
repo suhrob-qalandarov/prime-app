@@ -1,7 +1,14 @@
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
 .navbar-nav {
     display: flex;
     gap: 15px;
-    margin-left: -50vh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .navbar-nav .nav-link {
