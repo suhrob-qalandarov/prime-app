@@ -1,10 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import { Link } from "react-router-dom" // Added Link import for profile navigation
 import "./bottom-navbar.css"
 
-const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchClick, onMessageClick }) => {
+const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchClick, onProfileClick }) => {
+    // Changed onMessageClick to onProfileClick
     const [activeItem, setActiveItem] = useState("")
+    const isLoggedIn = Boolean(localStorage.getItem("prime-token")) // Added login check
 
     const handleItemClick = (itemName, callback) => {
         setActiveItem(itemName)
@@ -72,16 +75,27 @@ const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchC
                 <span>Qidirish</span>
             </div>
 
-            <div
-                className={`bottom-nav-item ${activeItem === "message" ? "active" : ""}`}
-                onClick={() => handleItemClick("message", onMessageClick)}
+            <Link
+                to={isLoggedIn ? "/profile" : "/login"}
+                className={`bottom-nav-item ${activeItem === "profile" ? "active" : ""}`}
+                onClick={() => handleItemClick("profile", onProfileClick)}
             >
-                <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"></path>
-                    <path d="M0 0h24v24H0z" fill="none"></path>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                <span>Xabar</span>
-            </div>
+                <span>Profil</span>
+            </Link>
         </div>
     )
 }
