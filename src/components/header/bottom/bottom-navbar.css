@@ -29,12 +29,6 @@
     min-width: 70px;
 }
 
-.bottom-nav-item:hover,
-.bottom-nav-item.active {
-    color: #000;
-    background: transparent;
-}
-
 .bottom-nav-item svg {
     flex-shrink: 0;
     width: 20px;
