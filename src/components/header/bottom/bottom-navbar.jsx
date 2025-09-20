@@ -75,7 +75,7 @@ const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchC
                 <span>Qidirish</span>
             </div>
 
-            <Link
+            <Link style={{ textDecoration: "none" }}
                 to={isLoggedIn ? "/profile" : "/login"}
                 className={`bottom-nav-item ${activeItem === "profile" ? "active" : ""}`}
                 onClick={() => handleItemClick("profile", onProfileClick)}
