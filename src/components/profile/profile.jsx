@@ -1,3 +1,4 @@
+
 import { Box, Stack, Container, Card, CardContent, Typography, Button } from "@mui/material"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
@@ -67,10 +68,10 @@ const Profile = () => {
                                 margin: "0 auto",
                                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                                 borderRadius: "15px",
+                                backgroundColor: "#f0f0f0",
                             }}
                         >
                             <CardContent sx={{ padding: "30px" }}>
-                                {/* Cashback balance and orders button */}
                                 <Box
                                     sx={{
                                         display: "flex",
