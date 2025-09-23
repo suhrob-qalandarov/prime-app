@@ -1,0 +1,50 @@
+.status-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.status-btn {
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.status-btn.active {
+    background-color: #f5f5f5 !important;
+    color: #333 !important;
+    font-weight: bold !important;
+}
+
+.orders-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.order-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Scrollbar styling */
+.orders-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.orders-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.orders-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.orders-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
