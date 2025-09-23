@@ -1,5 +1,3 @@
-"use client"
-
 import { Box, Card, CardContent, Typography, Button, Stack } from "@mui/material"
 import { useState, useEffect } from "react"
 import OrderService from "../../service/order"
@@ -91,9 +89,23 @@ const UserOrder = ({ user }) => {
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 borderRadius: "15px",
                 marginLeft: "20px",
+                "@media (min-width: 769px)": {
+                    marginLeft: "0px",
+                },
             }}
         >
             <CardContent sx={{ padding: "30px" }}>
+                <Typography
+                    variant="h5"
+                    sx={{
+                        fontWeight: "bold",
+                        color: "var(--burgundy-dark)",
+                        marginBottom: "20px",
+                    }}
+                >
+                    Buyurtmalar
+                </Typography>
+
                 {/* Status buttons */}
                 <Box className="status-buttons" sx={{ marginBottom: "20px" }}>
                     <Button
