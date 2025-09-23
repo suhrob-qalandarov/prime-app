@@ -80,6 +80,11 @@
     transform: scale(1.05);
 }
 
+.code-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .spinner {
     display: none;
     width: 24px;
@@ -102,4 +107,32 @@
     border-radius: 10px;
     margin-bottom: 20px;
     font-weight: 500;
+    padding: 12px 16px;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
