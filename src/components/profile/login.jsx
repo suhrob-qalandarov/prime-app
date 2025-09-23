@@ -51,8 +51,8 @@ const Login = () => {
             const { token, userRes } = response
 
             // Save to localStorage
-            localStorage.setItem("token", token)
-            localStorage.setItem("user", JSON.stringify(userRes))
+            localStorage.setItem("prime-token", token)
+            localStorage.setItem("prime-user", JSON.stringify(userRes))
 
             setSuccessMessage("Muvaffaqiyatli kirildi!")
 

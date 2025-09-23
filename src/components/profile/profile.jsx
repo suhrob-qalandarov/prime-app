@@ -9,7 +9,7 @@ const Profile = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const userData = localStorage.getItem("user")
+        const userData = localStorage.getItem("prime-user")
         if (userData) {
             setUser(JSON.parse(userData))
         }
