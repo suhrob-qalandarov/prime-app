@@ -5,12 +5,19 @@ import AuthService from "../../service/auth"
 import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+    const token = localStorage.getItem("prime-token")
     const [code, setCode] = useState(["", "", "", "", "", ""])
     const [errorMessage, setErrorMessage] = useState("")
     const [successMessage, setSuccessMessage] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const inputRefs = useRef([])
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (token) {
+            navigate("/profile")
+        }
+    })
 
     const handleInputChange = (index, value) => {
         if (value.length > 1) return // Prevent multiple characters
