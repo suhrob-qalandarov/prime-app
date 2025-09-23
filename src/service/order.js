@@ -11,6 +11,17 @@ const OrderService= {
             throw error
         }
     },
+
+    // Get orders by phone number
+    async getOrdersByPhoneNumber(phoneNumber) {
+        try {
+            const response = await axios.get(`/orders/by/${phoneNumber}`)
+            return response.data
+        } catch (error) {
+            console.error("Error fetching orders:", error)
+            throw error
+        }
+    }
 }
 
 export default OrderService
