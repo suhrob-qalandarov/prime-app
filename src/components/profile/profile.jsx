@@ -1,6 +1,7 @@
 import { Box, Stack, Container, Card, CardContent, Typography, Button } from "@mui/material"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import UserOrder from "./user-order";
 
 const Profile = () => {
     const [user, setUser] = useState(null)
@@ -58,79 +59,82 @@ const Profile = () => {
             </Stack>
 
             <Stack sx={{ padding: "40px 20px", minHeight: "60vh" }}>
-                <Container maxWidth="md">
-                    <Card
-                        sx={{
-                            maxWidth: 400,
-                            margin: "0 auto",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                            borderRadius: "15px",
-                        }}
-                    >
-                        <CardContent sx={{ padding: "30px" }}>
-                            {/* Cashback balance and orders button */}
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                    marginBottom: "30px",
-                                    paddingBottom: "20px",
-                                    borderBottom: "1px solid #eee",
-                                }}
-                            >
-                                <Typography
-                                    variant="h5"
+                <Box sx={{ display: "flex", gap: "0px", justifyContent: "center", flexWrap: "wrap" }}>
+                    <Container maxWidth="md">
+                        <Card
+                            sx={{
+                                maxWidth: 400,
+                                margin: "0 auto",
+                                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                                borderRadius: "15px",
+                            }}
+                        >
+                            <CardContent sx={{ padding: "30px" }}>
+                                {/* Cashback balance and orders button */}
+                                <Box
                                     sx={{
-                                        fontWeight: "bold",
-                                        color: "var(--burgundy-dark)",
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        marginBottom: "30px",
+                                        paddingBottom: "20px",
+                                        borderBottom: "1px solid #eee",
                                     }}
                                 >
-                                    Shaxsiy ma'lumotlar
-                                </Typography>
-                            </Box>
-
-                            {/* User information */}
-                            <Box sx={{ textAlign: "left" }}>
-                                <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                                    <Box>
-                                        <Typography variant="body1"
-                                                    sx={{
-                                                        fontWeight: "800",
-                                                        fontSize: "18px",
-                                                        marginBottom: "-10px",
-                                                    }}>
-                                            {user.firstName || "NaN"}
-                                        </Typography>
-                                    </Box>
-                                    <Box>
-                                        <Typography variant="body3"
-                                                    sx={{
-                                                        fontSize: "15px",
-                                                        fontWeight: "500"
-                                        }}>
-                                            {user.phone || ""}
-                                        </Typography>
-                                    </Box>
-                                    <Button
-                                        variant="contained"
+                                    <Typography
+                                        variant="h5"
                                         sx={{
-                                            width: "30%",
-                                            fontWeight: "300",
-                                            marginTop: "10px",
-                                            backgroundColor: "var(--burgundy-color)",
-                                            "&:hover": {
-                                                backgroundColor: "var(--burgundy-dark)",
-                                            },
+                                            fontWeight: "bold",
+                                            color: "var(--burgundy-dark)",
                                         }}
                                     >
-                                        Yangilash
-                                    </Button>
+                                        Shaxsiy ma'lumotlar
+                                    </Typography>
                                 </Box>
-                            </Box>
-                        </CardContent>
-                    </Card>
-                </Container>
+
+                                {/* User information */}
+                                <Box sx={{ textAlign: "left" }}>
+                                    <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                                        <Box>
+                                            <Typography variant="body1"
+                                                        sx={{
+                                                            fontWeight: "800",
+                                                            fontSize: "18px",
+                                                            marginBottom: "-10px",
+                                                        }}>
+                                                {user.firstName || "NaN"}
+                                            </Typography>
+                                        </Box>
+                                        <Box>
+                                            <Typography variant="body3"
+                                                        sx={{
+                                                            fontSize: "15px",
+                                                            fontWeight: "500"
+                                                        }}>
+                                                {user.phone || ""}
+                                            </Typography>
+                                        </Box>
+                                        <Button
+                                            variant="contained"
+                                            sx={{
+                                                width: "30%",
+                                                fontWeight: "300",
+                                                marginTop: "10px",
+                                                backgroundColor: "var(--burgundy-color)",
+                                                "&:hover": {
+                                                    backgroundColor: "var(--burgundy-dark)",
+                                                },
+                                            }}
+                                        >
+                                            Yangilash
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            </CardContent>
+                        </Card>
+                    </Container>
+                    <UserOrder user={user} />
+                </Box>
             </Stack>
         </Stack>
     )
