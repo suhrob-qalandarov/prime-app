@@ -1,11 +1,23 @@
 
-import { Box, Stack, Container, Card, CardContent, Typography, Button } from "@mui/material"
+import {
+    Box,
+    Stack,
+    Container,
+    Card,
+    CardContent,
+    Typography,
+    Button,
+    Dialog,
+    DialogTitle,
+    DialogContent, DialogActions
+} from "@mui/material"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import UserOrder from "./user-order";
 
 const Profile = () => {
     const [user, setUser] = useState(null)
+    const [quitModal, setQuitModal] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -14,6 +26,21 @@ const Profile = () => {
             setUser(JSON.parse(userData))
         }
     }, [])
+
+    const handleQuitOpenModal = () => {
+        setQuitModal(true)
+    }
+
+    const handleQuitCloseModal = () => {
+        setQuitModal(false)
+    }
+
+    const handleLogout = () => {
+        localStorage.removeItem("prime-token")
+        localStorage.removeItem("prime-user")
+        navigate("/login")
+    }
+
 
     if (!user) {
         navigate("/login")
@@ -119,6 +146,7 @@ const Profile = () => {
                                 </Box>
                                 <Button
                                     variant="text"
+                                    onClick={handleQuitOpenModal}
                                     sx={{
                                         width: "30%",
                                         fontWeight: "300",
@@ -159,6 +187,27 @@ const Profile = () => {
                     <UserOrder user={user} />
                 </Box>
             </Stack>
+            <Dialog
+                open={quitModal}
+                onClose={handleQuitCloseModal}
+                aria-labelledby="logout-dialog-title"
+                aria-describedby="logout-dialog-description"
+            >
+                <DialogTitle id="logout-dialog-title">Chiqish</DialogTitle>
+                <DialogContent>
+                    <Typography id="logout-dialog-description">
+                        Rostan ham chiqib ketmoqchimisiz?
+                    </Typography>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleQuitCloseModal} color="primary">
+                        Yo'q
+                    </Button>
+                    <Button onClick={handleLogout} color="error" autoFocus>
+                        Ha
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Stack>
     )
 }
