@@ -1,4 +1,3 @@
-"use client"
 
 import { Box, Card, CardContent, Typography, Button, Stack } from "@mui/material"
 import { useState, useEffect } from "react"
@@ -86,31 +85,45 @@ const UserOrder = ({ user }) => {
     return (
         <Card
             sx={{
-                minWidth: 650,
-                maxWidth: 700,
+                minWidth: { xs: "100%", sm: "100%", md: 650 },
+                maxWidth: { xs: "100%", sm: "100%", md: 700 },
+                width: { xs: "100%", sm: "100%", md: "auto" },
                 margin: "0 auto",
+                marginTop: { xs: "10px", sm: "10px", md: "10px" },
+                marginLeft: { xs: 0, sm: 0, md: "-200px" },
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 borderRadius: "15px",
-                marginLeft: "-200px",
                 "@media (min-width: 769px)": {
                     marginTop: "10px",
                 },
             }}
         >
-            <CardContent sx={{ padding: "30px" }}>
+            <CardContent sx={{
+                padding: { xs: "20px", sm: "25px", md: "30px" }
+            }}>
                 <Typography
                     variant="h5"
                     sx={{
                         fontWeight: "bold",
                         color: "var(--burgundy-dark)",
-                        marginBottom: "20px",
+                        marginBottom: { xs: "15px", sm: "15px", md: "20px" },
+                        fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.5rem" },
                     }}
                 >
                     Buyurtmalar
                 </Typography>
 
                 {/* Status buttons */}
-                <Box className="status-buttons" sx={{ marginBottom: "20px" }}>
+                <Box
+                    className="status-buttons"
+                    sx={{
+                        marginBottom: { xs: "15px", sm: "15px", md: "20px" },
+                        display: "flex",
+                        flexDirection: { xs: "column", sm: "row" },
+                        alignItems: { xs: "stretch", sm: "center" },
+                        gap: { xs: "10px", sm: 0 },
+                    }}
+                >
                     <Button
                         className={`status-btn ${activeStatus === "pending" ? "active" : ""}`}
                         onClick={() => setActiveStatus("pending")}
@@ -118,10 +131,11 @@ const UserOrder = ({ user }) => {
                             backgroundColor: activeStatus === "pending" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "pending" ? "#333" : "#666",
                             fontWeight: activeStatus === "pending" ? "bold" : "normal",
-                            marginRight: "10px",
-                            padding: "8px 16px",
+                            marginRight: { xs: 0, sm: 0, md: "10px" },
+                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
+                            width: { xs: "100%", sm: "auto" },
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -136,10 +150,11 @@ const UserOrder = ({ user }) => {
                             backgroundColor: activeStatus === "confirmed" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "confirmed" ? "#333" : "#666",
                             fontWeight: activeStatus === "confirmed" ? "bold" : "normal",
-                            marginRight: "10px",
-                            padding: "8px 16px",
+                            marginRight: { xs: 0, sm: 0, md: "10px" },
+                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
+                            width: { xs: "100%", sm: "auto" },
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -154,9 +169,10 @@ const UserOrder = ({ user }) => {
                             backgroundColor: activeStatus === "shipped" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "shipped" ? "#333" : "#666",
                             fontWeight: activeStatus === "shipped" ? "bold" : "normal",
-                            padding: "8px 16px",
+                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
+                            width: { xs: "100%", sm: "auto" },
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -169,13 +185,21 @@ const UserOrder = ({ user }) => {
                 {/* Orders list */}
                 <Box className="orders-container">
                     {loading ? (
-                        <Typography sx={{ textAlign: "center", color: "#666", padding: "40px" }}>Yuklanmoqda...</Typography>
+                        <Typography sx={{
+                            textAlign: "center",
+                            color: "#666",
+                            padding: { xs: "20px", sm: "30px", md: "40px" }
+                        }}>Yuklanmoqda...</Typography>
                     ) : currentOrders.length === 0 ? (
-                        <Typography sx={{ textAlign: "center", color: "#666", padding: "40px" }}>
+                        <Typography sx={{
+                            textAlign: "center",
+                            color: "#666",
+                            padding: { xs: "20px", sm: "30px", md: "40px" }
+                        }}>
                             Bunday statusli buyurtmalar yo'q
                         </Typography>
                     ) : (
-                        <Stack spacing={2}>
+                        <Stack spacing={{ xs: 1.5, sm: 2 }}>
                             {currentOrders.map((order) => (
                                 <Card
                                     key={order.id}
@@ -186,26 +210,37 @@ const UserOrder = ({ user }) => {
                                         boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                                     }}
                                 >
-                                    <CardContent sx={{ padding: "25px" }}>
+                                    <CardContent sx={{
+                                        padding: { xs: "15px", sm: "20px", md: "25px" }
+                                    }}>
                                         {/* Order header */}
                                         <Box
                                             sx={{
                                                 display: "flex",
-                                                justifyContent: "space-between",
+                                                justifyContent: { xs: "space-between", sm: "space-between" },
                                                 alignItems: "center",
-                                                marginBottom: "10px",
+                                                flexDirection: { xs: "column", sm: "row" },
+                                                gap: { xs: "10px", sm: 0 },
+                                                marginBottom: { xs: "10px", sm: "10px", md: "10px" },
                                             }}
                                         >
-                                            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                                            <Typography
+                                                variant="h6"
+                                                sx={{
+                                                    fontWeight: "bold",
+                                                    textAlign: { xs: "center", sm: "left" },
+                                                    fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.25rem" },
+                                                }}
+                                            >
                                                 Buyurtma №{order.id}
                                             </Typography>
                                             <Box
                                                 sx={{
                                                     backgroundColor: getStatusColor(activeStatus),
                                                     color: "white",
-                                                    padding: "4px 12px",
+                                                    padding: { xs: "6px 12px", sm: "4px 12px", md: "4px 12px" },
                                                     borderRadius: "12px",
-                                                    fontSize: "12px",
+                                                    fontSize: { xs: "11px", sm: "12px", md: "12px" },
                                                     fontWeight: "bold",
                                                 }}
                                             >
@@ -214,7 +249,15 @@ const UserOrder = ({ user }) => {
                                         </Box>
 
                                         {/* Order date */}
-                                        <Typography variant="body2" sx={{ color: "#666", marginBottom: "15px" }}>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
+                                                color: "#666",
+                                                marginBottom: { xs: "10px", sm: "10px", md: "15px" },
+                                                textAlign: { xs: "center", sm: "left" },
+                                                fontSize: { xs: "0.875rem", sm: "0.875rem" },
+                                            }}
+                                        >
                                             {formatDate(order.createdAt)}
                                         </Typography>
 
@@ -224,33 +267,51 @@ const UserOrder = ({ user }) => {
                                                 display: "flex",
                                                 justifyContent: "space-between",
                                                 alignItems: "center",
-                                                marginBottom: "15px",
+                                                flexDirection: { xs: "column", sm: "row" },
+                                                gap: { xs: "8px", sm: 0 },
+                                                marginBottom: { xs: "10px", sm: "10px", md: "15px" },
                                             }}
                                         >
-                                            <Typography variant="body1">
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    textAlign: { xs: "center", sm: "left" },
+                                                    fontSize: { xs: "0.9rem", sm: "1rem" },
+                                                }}
+                                            >
                                                 {order.orderItems.reduce((total, item) => total + item.count, 0)} ta mahsulot
                                             </Typography>
-                                            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                                            <Typography
+                                                variant="h6"
+                                                sx={{
+                                                    fontWeight: "bold",
+                                                    textAlign: { xs: "center", sm: "right" },
+                                                    fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.25rem" },
+                                                }}
+                                            >
                                                 Jami: {order.totalSum.toLocaleString()} So'm
                                             </Typography>
                                         </Box>
 
                                         {/* Order details button */}
-                                        <Button
-                                            variant="contained"
-                                            sx={{
-                                                backgroundColor: "#333",
-                                                color: "white",
-                                                borderRadius: "20px",
-                                                textTransform: "none",
-                                                padding: "8px 20px",
-                                                "&:hover": {
-                                                    backgroundColor: "#555",
-                                                },
-                                            }}
-                                        >
-                                            Buyurtma ma'lumotlari
-                                        </Button>
+                                        <Box sx={{ display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+                                            <Button
+                                                variant="contained"
+                                                sx={{
+                                                    backgroundColor: "#333",
+                                                    color: "white",
+                                                    borderRadius: "20px",
+                                                    textTransform: "none",
+                                                    padding: { xs: "8px 16px", sm: "8px 20px" },
+                                                    fontSize: { xs: "0.875rem", sm: "1rem" },
+                                                    "&:hover": {
+                                                        backgroundColor: "#555",
+                                                    },
+                                                }}
+                                            >
+                                                Buyurtma ma'lumotlari
+                                            </Button>
+                                        </Box>
                                     </CardContent>
                                 </Card>
                             ))}
