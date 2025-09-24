@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Card, CardContent, Typography, Button, Stack } from "@mui/material"
 import { useState, useEffect } from "react"
 import OrderService from "../../service/order"
@@ -84,13 +86,13 @@ const UserOrder = ({ user }) => {
     return (
         <Card
             sx={{
-                maxWidth: 600,
+                maxWidth: 800,
                 margin: "0 auto",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 borderRadius: "15px",
-                marginLeft: "20px",
+                marginLeft: "5px",
                 "@media (min-width: 769px)": {
-                    marginLeft: "0px",
+                    marginTop: "10px",
                 },
             }}
         >
