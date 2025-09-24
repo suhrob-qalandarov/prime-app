@@ -1,4 +1,3 @@
-
 import { Box, Card, CardContent, Typography, Button, Stack } from "@mui/material"
 import { useState, useEffect } from "react"
 import OrderService from "../../service/order"
@@ -85,12 +84,12 @@ const UserOrder = ({ user }) => {
     return (
         <Card
             sx={{
-                minWidth: { xs: "100%", sm: "100%", md: 650 },
-                maxWidth: { xs: "100%", sm: "100%", md: 700 },
-                width: { xs: "100%", sm: "100%", md: "auto" },
+                minWidth: { xs: "100%", sm: "100%", md: 650, lg: 700 },
+                maxWidth: { xs: "100%", sm: "100%", md: 800, lg: 900 },
+                width: { xs: "100%", sm: "100%", md: "100%", lg: "auto" },
                 margin: "0 auto",
-                marginTop: { xs: "10px", sm: "10px", md: "10px" },
-                marginLeft: { xs: 0, sm: 0, md: "-200px" },
+                marginTop: { xs: "10px", sm: "10px", md: "10px", lg: "10px" },
+                marginLeft: { xs: 0, sm: 0, md: 0, lg: "-200px" },
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 borderRadius: "15px",
                 "@media (min-width: 769px)": {
@@ -99,15 +98,15 @@ const UserOrder = ({ user }) => {
             }}
         >
             <CardContent sx={{
-                padding: { xs: "20px", sm: "25px", md: "30px" }
+                padding: { xs: "20px", sm: "25px", md: "30px", lg: "30px" }
             }}>
                 <Typography
                     variant="h5"
                     sx={{
                         fontWeight: "bold",
                         color: "var(--burgundy-dark)",
-                        marginBottom: { xs: "15px", sm: "15px", md: "20px" },
-                        fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.5rem" },
+                        marginBottom: { xs: "15px", sm: "15px", md: "20px", lg: "20px" },
+                        fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.5rem", lg: "1.5rem" },
                     }}
                 >
                     Buyurtmalar
@@ -117,11 +116,11 @@ const UserOrder = ({ user }) => {
                 <Box
                     className="status-buttons"
                     sx={{
-                        marginBottom: { xs: "15px", sm: "15px", md: "20px" },
+                        marginBottom: { xs: "15px", sm: "15px", md: "20px", lg: "20px" },
                         display: "flex",
-                        flexDirection: { xs: "column", sm: "row" },
-                        alignItems: { xs: "stretch", sm: "center" },
-                        gap: { xs: "10px", sm: 0 },
+                        flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
+                        alignItems: { xs: "stretch", sm: "center", md: "center", lg: "center" },
+                        gap: { xs: "10px", sm: "10px", md: "10px", lg: "10px" },
                     }}
                 >
                     <Button
@@ -131,11 +130,12 @@ const UserOrder = ({ user }) => {
                             backgroundColor: activeStatus === "pending" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "pending" ? "#333" : "#666",
                             fontWeight: activeStatus === "pending" ? "bold" : "normal",
-                            marginRight: { xs: 0, sm: 0, md: "10px" },
-                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px" },
+                            marginRight: { xs: 0, sm: 0, md: "10px", lg: "10px" },
+                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px", lg: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
-                            width: { xs: "100%", sm: "auto" },
+                            width: { xs: "100%", sm: "auto", md: "auto", lg: "auto" },
+                            fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -150,11 +150,12 @@ const UserOrder = ({ user }) => {
                             backgroundColor: activeStatus === "confirmed" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "confirmed" ? "#333" : "#666",
                             fontWeight: activeStatus === "confirmed" ? "bold" : "normal",
-                            marginRight: { xs: 0, sm: 0, md: "10px" },
-                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px" },
+                            marginRight: { xs: 0, sm: 0, md: "10px", lg: "10px" },
+                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px", lg: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
-                            width: { xs: "100%", sm: "auto" },
+                            width: { xs: "100%", sm: "auto", md: "auto", lg: "auto" },
+                            fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -169,10 +170,11 @@ const UserOrder = ({ user }) => {
                             backgroundColor: activeStatus === "shipped" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "shipped" ? "#333" : "#666",
                             fontWeight: activeStatus === "shipped" ? "bold" : "normal",
-                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px" },
+                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px", lg: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
-                            width: { xs: "100%", sm: "auto" },
+                            width: { xs: "100%", sm: "auto", md: "auto", lg: "auto" },
+                            fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -188,18 +190,18 @@ const UserOrder = ({ user }) => {
                         <Typography sx={{
                             textAlign: "center",
                             color: "#666",
-                            padding: { xs: "20px", sm: "30px", md: "40px" }
+                            padding: { xs: "20px", sm: "30px", md: "40px", lg: "40px" }
                         }}>Yuklanmoqda...</Typography>
                     ) : currentOrders.length === 0 ? (
                         <Typography sx={{
                             textAlign: "center",
                             color: "#666",
-                            padding: { xs: "20px", sm: "30px", md: "40px" }
+                            padding: { xs: "20px", sm: "30px", md: "40px", lg: "40px" }
                         }}>
                             Bunday statusli buyurtmalar yo'q
                         </Typography>
                     ) : (
-                        <Stack spacing={{ xs: 1.5, sm: 2 }}>
+                        <Stack spacing={{ xs: 1.5, sm: 2, md: 2, lg: 2 }}>
                             {currentOrders.map((order) => (
                                 <Card
                                     key={order.id}
@@ -211,25 +213,25 @@ const UserOrder = ({ user }) => {
                                     }}
                                 >
                                     <CardContent sx={{
-                                        padding: { xs: "15px", sm: "20px", md: "25px" }
+                                        padding: { xs: "15px", sm: "20px", md: "25px", lg: "25px" }
                                     }}>
                                         {/* Order header */}
                                         <Box
                                             sx={{
                                                 display: "flex",
-                                                justifyContent: { xs: "space-between", sm: "space-between" },
+                                                justifyContent: { xs: "space-between", sm: "space-between", md: "space-between", lg: "space-between" },
                                                 alignItems: "center",
-                                                flexDirection: { xs: "column", sm: "row" },
-                                                gap: { xs: "10px", sm: 0 },
-                                                marginBottom: { xs: "10px", sm: "10px", md: "10px" },
+                                                flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
+                                                gap: { xs: "10px", sm: 0, md: 0, lg: 0 },
+                                                marginBottom: { xs: "10px", sm: "10px", md: "10px", lg: "10px" },
                                             }}
                                         >
                                             <Typography
                                                 variant="h6"
                                                 sx={{
                                                     fontWeight: "bold",
-                                                    textAlign: { xs: "center", sm: "left" },
-                                                    fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.25rem" },
+                                                    textAlign: { xs: "center", sm: "left", md: "left", lg: "left" },
+                                                    fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.25rem", lg: "1.25rem" },
                                                 }}
                                             >
                                                 Buyurtma №{order.id}
@@ -238,9 +240,9 @@ const UserOrder = ({ user }) => {
                                                 sx={{
                                                     backgroundColor: getStatusColor(activeStatus),
                                                     color: "white",
-                                                    padding: { xs: "6px 12px", sm: "4px 12px", md: "4px 12px" },
+                                                    padding: { xs: "6px 12px", sm: "4px 12px", md: "4px 12px", lg: "4px 12px" },
                                                     borderRadius: "12px",
-                                                    fontSize: { xs: "11px", sm: "12px", md: "12px" },
+                                                    fontSize: { xs: "11px", sm: "12px", md: "12px", lg: "12px" },
                                                     fontWeight: "bold",
                                                 }}
                                             >
@@ -253,9 +255,9 @@ const UserOrder = ({ user }) => {
                                             variant="body2"
                                             sx={{
                                                 color: "#666",
-                                                marginBottom: { xs: "10px", sm: "10px", md: "15px" },
-                                                textAlign: { xs: "center", sm: "left" },
-                                                fontSize: { xs: "0.875rem", sm: "0.875rem" },
+                                                marginBottom: { xs: "10px", sm: "10px", md: "15px", lg: "15px" },
+                                                textAlign: { xs: "center", sm: "left", md: "left", lg: "left" },
+                                                fontSize: { xs: "0.875rem", sm: "0.875rem", md: "0.875rem", lg: "0.875rem" },
                                             }}
                                         >
                                             {formatDate(order.createdAt)}
@@ -267,16 +269,16 @@ const UserOrder = ({ user }) => {
                                                 display: "flex",
                                                 justifyContent: "space-between",
                                                 alignItems: "center",
-                                                flexDirection: { xs: "column", sm: "row" },
-                                                gap: { xs: "8px", sm: 0 },
-                                                marginBottom: { xs: "10px", sm: "10px", md: "15px" },
+                                                flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
+                                                gap: { xs: "8px", sm: 0, md: 0, lg: 0 },
+                                                marginBottom: { xs: "10px", sm: "10px", md: "15px", lg: "15px" },
                                             }}
                                         >
                                             <Typography
                                                 variant="body1"
                                                 sx={{
-                                                    textAlign: { xs: "center", sm: "left" },
-                                                    fontSize: { xs: "0.9rem", sm: "1rem" },
+                                                    textAlign: { xs: "center", sm: "left", md: "left", lg: "left" },
+                                                    fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
                                                 }}
                                             >
                                                 {order.orderItems.reduce((total, item) => total + item.count, 0)} ta mahsulot
@@ -285,8 +287,8 @@ const UserOrder = ({ user }) => {
                                                 variant="h6"
                                                 sx={{
                                                     fontWeight: "bold",
-                                                    textAlign: { xs: "center", sm: "right" },
-                                                    fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.25rem" },
+                                                    textAlign: { xs: "center", sm: "right", md: "right", lg: "right" },
+                                                    fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.25rem", lg: "1.25rem" },
                                                 }}
                                             >
                                                 Jami: {order.totalSum.toLocaleString()} So'm
@@ -294,7 +296,7 @@ const UserOrder = ({ user }) => {
                                         </Box>
 
                                         {/* Order details button */}
-                                        <Box sx={{ display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+                                        <Box sx={{ display: "flex", justifyContent: { xs: "center", sm: "flex-start", md: "flex-start", lg: "flex-start" } }}>
                                             <Button
                                                 variant="contained"
                                                 sx={{
@@ -302,8 +304,8 @@ const UserOrder = ({ user }) => {
                                                     color: "white",
                                                     borderRadius: "20px",
                                                     textTransform: "none",
-                                                    padding: { xs: "8px 16px", sm: "8px 20px" },
-                                                    fontSize: { xs: "0.875rem", sm: "1rem" },
+                                                    padding: { xs: "8px 16px", sm: "8px 20px", md: "8px 20px", lg: "8px 20px" },
+                                                    fontSize: { xs: "0.875rem", sm: "1rem", md: "1rem", lg: "1rem" },
                                                     "&:hover": {
                                                         backgroundColor: "#555",
                                                     },
