@@ -86,11 +86,12 @@ const UserOrder = ({ user }) => {
     return (
         <Card
             sx={{
-                maxWidth: 800,
+                minWidth: 650,
+                maxWidth: 700,
                 margin: "0 auto",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 borderRadius: "15px",
-                marginLeft: "5px",
+                marginLeft: "-200px",
                 "@media (min-width: 769px)": {
                     marginTop: "10px",
                 },
@@ -185,7 +186,7 @@ const UserOrder = ({ user }) => {
                                         boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                                     }}
                                 >
-                                    <CardContent sx={{ padding: "20px" }}>
+                                    <CardContent sx={{ padding: "25px" }}>
                                         {/* Order header */}
                                         <Box
                                             sx={{
