@@ -1,4 +1,4 @@
-import {Box, Button, Snackbar, Stack} from "@mui/material"
+import {Box, Button, LinearProgress, Snackbar, Stack} from "@mui/material"
 import "./login.css"
 import { useState, useRef, useEffect } from "react"
 import AuthService from "../../service/auth"
@@ -10,8 +10,8 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("")
     const [successMessage, setSuccessMessage] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const [openSnackbar, setOpenSnackbar] = useState(true)
-    const [progress, setProgress] = useState(1000000)
+    const [openSnackbar, setOpenSnackbar] = useState(false)
+    const [progress, setProgress] = useState(100)
     const inputRefs = useRef([])
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
@@ -216,6 +216,16 @@ const Login = () => {
                             <path d="M11.983 0a12.206 12.206 0 00-8.51 3.653A11.8 11.8 0 000 12.207 11.779 11.779 0 0011.8 24h.214A12.111 12.111 0 0024 11.791 11.766 11.766 0 0011.983 0zM10.5 16.542a1.476 1.476 0 011.449-1.53h.027a1.527 1.527 0 011.523 1.47 1.475 1.475 0 01-1.449 1.53h-.027a1.529 1.529 0 01-1.523-1.47zM11 12.5v-6a1 1 0 012 0v6a1 1 0 11-2 0z" />
                         </svg>
                         <span>Siz hisobingizdan chiqdingiz!</span>
+                        <div style={{ position: "absolute", bottom: "-12px", left: 0, right: 0, height: "4px", backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
+                            <div
+                                style={{
+                                    width: `${progress}%`,
+                                    height: "4px",
+                                    backgroundColor: "red",
+                                    transition: "width 0.1s linear",
+                                }}
+                            />
+                        </div>
                     </div>
                 }
                 action={
