@@ -59,13 +59,15 @@ const Profile = () => {
                 </Container>
             </Stack>
 
-            <Stack sx={{ padding: "40px 20px", minHeight: "60vh" }}>
+            <Stack sx={{ padding: "20px 20px", minHeight: "60vh" }}>
                 <Box sx={{ display: "flex", gap: "0px", justifyContent: "center", flexWrap: "wrap" }}>
-                    <Container maxWidth="md">
+                    <Container maxWidth="md" sx={{ padding: "0px", margin: "0px" }} className="container-custom">
                         <Card
                             sx={{
                                 maxWidth: 330,
                                 margin: "0 auto",
+                                marginRight: "-20px",
+                                marginTop: "10px",
                                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                                 borderRadius: "15px",
                                 backgroundColor: "#f0f0f0",
@@ -114,20 +116,6 @@ const Profile = () => {
                                                 {user.phone || ""}
                                             </Typography>
                                         </Box>
-                                        {/*<Button
-                                            variant="contained"
-                                            sx={{
-                                                width: "30%",
-                                                fontWeight: "300",
-                                                marginTop: "10px",
-                                                backgroundColor: "var(--burgundy-color)",
-                                                "&:hover": {
-                                                    backgroundColor: "var(--burgundy-dark)",
-                                                },
-                                            }}
-                                        >
-                                            Yangilash
-                                        </Button>*/}
                                     </Box>
                                 </Box>
                                 <Button
@@ -135,12 +123,28 @@ const Profile = () => {
                                     sx={{
                                         width: "30%",
                                         fontWeight: "300",
-                                        marginTop: "-85px",
+                                        marginTop: "-100px",
                                         left: "160px",
                                         color: "var(--burgundy-color)",
                                     }}
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M124,216a12,12,0,0,1-12,12H48a12,12,0,0,1-12-12V40A12,12,0,0,1,48,28h64a12,12,0,0,1,0,24H60V204h52A12,12,0,0,1,124,216Zm108.49-96.49-40-40a12,12,0,0,0-17,17L195,116H112a12,12,0,0,0,0,24h83l-19.52,19.51a12,12,0,0,0,17,17l40-40A12,12,0,0,0,232.49,119.51Z"></path></svg>
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{
+                                        width: "40%",
+                                        fontWeight: "200",
+                                        fontSize: "12px",
+                                        right: "80px",
+                                        marginTop: "10px",
+                                        backgroundColor: "var(--burgundy-color)",
+                                        "&:hover": {
+                                            backgroundColor: "var(--burgundy-dark)",
+                                        },
+                                    }}
+                                >
+                                    Yangilash
                                 </Button>
                             </CardContent>
                         </Card>
