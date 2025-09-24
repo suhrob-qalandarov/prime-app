@@ -32,6 +32,7 @@ const Login = () => {
                     return prevProgress - (100 / 50)
                 })
             }, 100)
+            navigate("/login")
         }
     }, [token, navigate, isLogout])
 
