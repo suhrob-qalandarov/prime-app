@@ -9,10 +9,7 @@ import {
     Button,
     Dialog,
     DialogTitle,
-    DialogContent,
-    DialogActions,
-    Snackbar,
-    LinearProgress
+    DialogContent, DialogActions
 } from "@mui/material"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
@@ -21,8 +18,6 @@ import UserOrder from "./user-order";
 const Profile = () => {
     const [user, setUser] = useState(null)
     const [quitModal, setQuitModal] = useState(false)
-    const [openSnackbar, setOpenSnackbar] = useState(false)
-    const [progress, setProgress] = useState(100)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -40,28 +35,10 @@ const Profile = () => {
         setQuitModal(false)
     }
 
-    const handleCloseSnackbar = () => {
-        setOpenSnackbar(false)
-        setProgress(100)
-    }
-
     const handleLogout = () => {
         localStorage.removeItem("prime-token")
         localStorage.removeItem("prime-user")
-        setQuitModal(false)
-        setOpenSnackbar(true)
-
-        const timer = setInterval(() => {
-            setProgress((prevProgress) => {
-                if (prevProgress <= 0) {
-                    clearInterval(timer)
-                    setOpenSnackbar(false)
-                    navigate("/login")
-                    return 0
-                }
-                return prevProgress - (100 / 50)
-            })
-        }, 100)
+        navigate("/login?logout=true")
     }
 
     if (!user) {
@@ -232,49 +209,6 @@ const Profile = () => {
                     </Button>
                 </DialogActions>
             </Dialog>
-
-            {/* Snackbar */}
-            <Snackbar
-                open={openSnackbar}
-                onClose={handleCloseSnackbar}
-                anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                sx={{
-                    "& .MuiSnackbarContent-root": {
-                        backgroundColor: "#4CAF50",
-                        color: "white",
-                        fontWeight: "bold",
-                        borderRadius: "8px",
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-                        padding: "16px",
-                        minWidth: "200px",
-                    },
-                }}
-                message={
-                    <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                        <Typography>Muvaffaqiyatli!</Typography>
-                        <LinearProgress
-                            variant="determinate"
-                            value={progress}
-                            sx={{
-                                backgroundColor: "rgba(255,255,255,0.3)",
-                                "& .MuiLinearProgress-bar": {
-                                    backgroundColor: "white",
-                                },
-                            }}
-                        />
-                    </Box>
-                }
-                action={
-                    <Button
-                        color="inherit"
-                        size="small"
-                        onClick={handleCloseSnackbar}
-                        sx={{ fontWeight: "bold" }}
-                    >
-                        X
-                    </Button>
-                }
-            />
         </Stack>
     )
 }
