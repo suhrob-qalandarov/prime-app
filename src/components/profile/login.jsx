@@ -87,7 +87,7 @@ const Login = () => {
 
             // Navigate to profile after 1 second
             setTimeout(() => {
-                navigate("/profile")
+                navigate("/profile?login=true")
             }, 1000)
         } catch (error) {
             setErrorMessage("Noto'g'ri kod qayta urunib ko'ring!")
