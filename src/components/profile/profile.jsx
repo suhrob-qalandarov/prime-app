@@ -21,7 +21,7 @@ const Profile = () => {
     const [quitModal, setQuitModal] = useState(false)
     const [openSnackbar, setOpenSnackbar] = useState(false)
     const [progress, setProgress] = useState(100)
-    const [searchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const isLogin = searchParams.get("login") === "true"
     const navigate = useNavigate()
 
@@ -39,12 +39,12 @@ const Profile = () => {
                     return prevProgress - (100 / 50)
                 })
             }, 100)
-            navigate("/profile")
+            setSearchParams({}, { replace: true });
         }
         if (userData) {
             setUser(JSON.parse(userData))
         }
-    }, [navigate, isLogin])
+    }, [isLogin, setSearchParams])
 
     const handleCloseSnackbar = () => {
         setOpenSnackbar(false)
