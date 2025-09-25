@@ -11,12 +11,13 @@ const UserOrder = ({ user }) => {
     })
     const [activeStatus, setActiveStatus] = useState("pending")
     const [loading, setLoading] = useState(true)
+    const [isFetching, setFetching] = useState(false)
 
     useEffect(() => {
-        if (user && user.telegramId) {
-            fetchOrders()
+        if (!isFetching) {
+            fetchOrders().then(r => setFetching(true))
         }
-    }, [user])
+    }, [isFetching, setFetching])
 
     const fetchOrders = async () => {
         try {
