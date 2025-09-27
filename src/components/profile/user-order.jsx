@@ -22,7 +22,7 @@ const UserOrder = ({ user }) => {
     const fetchOrders = async () => {
         try {
             setLoading(true)
-            const response = await OrderService.getOrdersByTelegramId(user.telegramId)
+            const response = await OrderService.getOrdersById(user.id)
             setOrders(response)
         } catch (error) {
             console.error("Error fetching orders:", error)
