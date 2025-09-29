@@ -14,16 +14,46 @@ const UserOrder = ({ user }) => {
     const [isFetching, setFetching] = useState(false)
 
     useEffect(() => {
-        if (!isFetching) {
-            fetchOrders().then(r => setFetching(true))
+        const fetchedOrdersDate = localStorage.getItem("fetched-orders-date")
+        const userOrdersData = localStorage.getItem("prime-user-orders")
+
+        try {
+            const now = Date.now()
+            const threeHours = 3 * 60 * 60 * 1000
+
+            if (userOrdersData && fetchedOrdersDate) {
+                const parsedOrders = JSON.parse(userOrdersData)
+                const lastFetched = parseInt(fetchedOrdersDate, 10)
+
+                if (now - lastFetched > threeHours) {
+                    // 3 soatdan oshgan -> yangidan olib kelamiz
+                    fetchOrders().then(() => setFetching(true))
+                } else {
+                    // Cached data yangicha -> localStorage dan olamiz
+                    setOrders(parsedOrders)
+                }
+            } else {
+                // Umuman ma'lumot yo'q -> API'dan olish
+                if (!isFetching) {
+                    fetchOrders().then(() => setFetching(true))
+                }
+            }
+        } catch (e) {
+            console.error("Error parsing orders:", e)
+        } finally {
+            setLoading(false)
         }
     }, [isFetching, setFetching])
+
+
 
     const fetchOrders = async () => {
         try {
             setLoading(true)
             const response = await OrderService.getOrdersById(user.id)
             setOrders(response)
+            localStorage.setItem("prime-user-orders", JSON.stringify(response))
+            localStorage.setItem("fetched-orders-date", Date.now().toString())
         } catch (error) {
             console.error("Error fetching orders:", error)
         } finally {
