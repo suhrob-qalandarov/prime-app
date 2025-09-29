@@ -1,9 +1,9 @@
 import { Box, Card, CardContent, Typography, Button, Stack } from "@mui/material"
-import { useState, useEffect } from "react"
+import {useState, useEffect, useImperativeHandle, forwardRef} from "react"
 import OrderService from "../../service/order"
 import "./user-order.css"
 
-const UserOrder = ({ user }) => {
+const UserOrder = forwardRef(({ user }, ref) => {
     const [orders, setOrders] = useState({
         pendingOrders: [],
         confirmedOrders: [],
@@ -60,6 +60,10 @@ const UserOrder = ({ user }) => {
             setLoading(false)
         }
     }
+
+    useImperativeHandle(ref, () => ({
+        fetchOrders,
+    }))
 
     const formatDate = (dateString) => {
         const date = new Date(dateString)
@@ -354,6 +358,6 @@ const UserOrder = ({ user }) => {
             </CardContent>
         </Card>
     )
-}
+})
 
 export default UserOrder

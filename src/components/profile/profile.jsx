@@ -12,7 +12,7 @@ import {
     DialogContent, DialogActions,
     Snackbar,
 } from "@mui/material"
-import { useState, useEffect } from "react"
+import {useState, useEffect, useRef} from "react"
 import {useNavigate, useSearchParams} from "react-router-dom"
 import UserOrder from "./user-order";
 
@@ -24,6 +24,7 @@ const Profile = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const isLogin = searchParams.get("login") === "true"
     const navigate = useNavigate()
+    const userOrderRef = useRef()
 
     useEffect(() => {
         const userData = localStorage.getItem("prime-user")
@@ -53,6 +54,11 @@ const Profile = () => {
 
     const handleQuitOpenModal = () => {
         setQuitModal(true)
+    }
+
+    const handleUpdateButton = async () => {
+        await userOrderRef.current.fetchOrders()
+        navigate("/profile")
     }
 
     const handleQuitCloseModal = () => {
@@ -192,6 +198,7 @@ const Profile = () => {
                                 </Button>
                                 <Button
                                     variant="contained"
+                                    onClick={handleUpdateButton}
                                     sx={{
                                         width: "40%",
                                         fontWeight: "200",
@@ -209,7 +216,7 @@ const Profile = () => {
                             </CardContent>
                         </Card>
                     </Container>
-                    <UserOrder user={user} />
+                    <UserOrder user={user} ref={userOrderRef}/>
                 </Box>
             </Stack>
 
