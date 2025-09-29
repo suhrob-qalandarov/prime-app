@@ -62,6 +62,8 @@ const Profile = () => {
     const handleLogout = () => {
         localStorage.removeItem("prime-token")
         localStorage.removeItem("prime-user")
+        localStorage.removeItem("prime-user-orders")
+        localStorage.removeItem("fetched-orders-date")
         navigate("/login?logout=true")
     }
 
