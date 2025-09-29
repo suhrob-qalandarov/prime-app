@@ -33,7 +33,23 @@ const OrderService= {
             console.error("Error fetching orders:", error)
             throw error
         }
-    }
+    },
+
+    // User confirm order
+    async confirmOrder(orderData) {
+        try {
+            const token = localStorage.getItem('prime-token');
+            const response = await axios.post(`/order`, orderData, {
+                headers: {
+                    Authorization: `${token}`,
+                },
+            });
+            return response.data
+        } catch (error) {
+            console.error("Error creating order:", error)
+            throw error
+        }
+    },
 }
 
 export default OrderService
