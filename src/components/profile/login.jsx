@@ -84,9 +84,16 @@ const Login = () => {
 
             const { token, userRes } = response
 
+            const { ordersRes, ...userWithoutOrders } = userRes
+
             // Save to localStorage
             localStorage.setItem("prime-token", token)
-            localStorage.setItem("prime-user", JSON.stringify(userRes))
+            // Save user without orders
+            localStorage.setItem("prime-user", JSON.stringify(userWithoutOrders))
+
+            // Save orders separately
+            localStorage.setItem("prime-user-orders", JSON.stringify(ordersRes))
+            localStorage.setItem("fetched-orders-date", Date.now().toString())
 
             // Navigate to profile after 1 second
             setTimeout(() => {
