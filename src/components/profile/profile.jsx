@@ -32,7 +32,7 @@ const Profile = () => {
     const userOrderRef = useRef()
 
     useEffect(() => {
-        const userData = localStorage.getItem("prime-user")
+        setUser(JSON.parse(localStorage.getItem("prime-user")))
         if (isLogin) {
             setOpenSnackbar(true)
             const timer = setInterval(() => {
@@ -63,10 +63,12 @@ const Profile = () => {
             setSearchParams({}, { replace: true });
         }
 
-        if (userData) {
-            setUser(JSON.parse(userData) || "{}")
+        /*try {
+            user.id
+        } catch (e) {
+            navigate("/login")
         }
-
+*/
         setLoading(false)
     }, [isLogin, setSearchParams])
 
