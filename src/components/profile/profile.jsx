@@ -64,7 +64,7 @@ const Profile = () => {
         }
 
         if (userData) {
-            setUser(JSON.parse(userData))
+            setUser(JSON.parse(userData) || "{}")
         }
 
         setLoading(false)
@@ -87,7 +87,9 @@ const Profile = () => {
     const handleUpdateButton = async () => {
         setLoading(true)
         await userOrderRef.current.fetchOrders()
-        await AuthService.me(user.id)
+        if (user && user.id) {
+            await AuthService.me(user.id)
+        } else handleLogout()
         setLoading(false)
         navigate("/profile?refresh=true")
     }
@@ -104,32 +106,13 @@ const Profile = () => {
         navigate("/login?logout=true")
     }
 
-    if (!user) {
-        navigate("/login")
-        return (
-            <Stack>
-                <Stack className="page-header">
-                    <Container>
-                        <div className="page-header-content">
-                            <h1 className="page-title">Profil</h1>
-                            <nav className="breadcrumb-nav">
-                                <a href="/" className="breadcrumb-link">
-                                    Asosiy
-                                </a>
-                                <span className="breadcrumb-separator">/</span>
-                                <span className="breadcrumb-current">Profil</span>
-                            </nav>
-                        </div>
-                    </Container>
-                </Stack>
-                <Stack>
-                    <Box className="container-custom">
-                        <Typography>Ma'lumotlar yuklanmoqda...</Typography>
-                    </Box>
-                </Stack>
-            </Stack>
-        )
-    }
+/*
+    useEffect(() => {
+        if (!user) {
+            navigate("/login")
+        }
+    })
+*/
 
     return (
         <Stack>
@@ -199,7 +182,7 @@ const Profile = () => {
                                                                 fontSize: "18px",
                                                                 marginBottom: "-10px",
                                                             }}>
-                                                    {user.firstName || "NaN"}
+                                                    {user?.firstName || "NaN"}
                                                 </Typography>
                                             </Box>
                                             <Box>
@@ -208,7 +191,7 @@ const Profile = () => {
                                                                 fontSize: "15px",
                                                                 fontWeight: "500"
                                                             }}>
-                                                    {user.phone || ""}
+                                                    {user?.phone || ""}
                                                 </Typography>
                                             </Box>
                                         </Box>
