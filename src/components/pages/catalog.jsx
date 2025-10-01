@@ -14,9 +14,6 @@ const Catalog = () => {
 
     useEffect(() => {
         fetchCategories().then(r => setFetching(true))
-        if (isFetching) {
-            return
-        }
     },[isFetching, setFetching])
 
     const fetchCategories = async () => {
