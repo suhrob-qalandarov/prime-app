@@ -2,7 +2,7 @@ import axios from'./api'
 
 const AuthService = {
     async login (code) {
-        const response = await  axios.post(`/auth/code/${code}`)
+        const response = await  axios.post(`/auth/code/${code}`, {},{ withCredentials: true })
         return response.data
     },
 
