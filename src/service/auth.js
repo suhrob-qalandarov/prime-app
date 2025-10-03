@@ -7,7 +7,7 @@ const AuthService = {
     },
 
     async me (userId) {
-        const response = await  axios.get(`/user/${userId}`);
+        const response = await  axios.get(`/user/${userId}`,{ withCredentials: true });
         localStorage.setItem("prime-user", JSON.stringify(response.data))
     },
 }

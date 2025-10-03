@@ -5,7 +5,7 @@ const OrderService= {
     // Get orders by ID
     async getOrdersById(id) {
         try {
-            const response = await axios.get(`/orders/${id}`)
+            const response = await axios.get(`/order/${id}`, { withCredentials: true })
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
