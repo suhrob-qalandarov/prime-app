@@ -4,6 +4,6 @@ export {default as Profile} from "./profile/profile";
 export {default as Navbar} from "./header/navbar";
 export {default as HeaderTop} from "./header/header-top";
 export {default as Footer} from "./footer/footer";
-export {default as Catalog} from "./pages/catalog"
+export {default as Catalog} from "./pages/catalog/catalog"
 export {default as AboutUs} from './pages/aboutus/about-us'
 export {default as Contact} from "./pages/contact/contact"
