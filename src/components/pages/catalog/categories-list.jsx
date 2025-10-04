@@ -1,8 +1,6 @@
 import { Box, Button } from "@mui/material"
-import {useState} from "react";
 
 const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
-
     return (
         <Box
             sx={{
