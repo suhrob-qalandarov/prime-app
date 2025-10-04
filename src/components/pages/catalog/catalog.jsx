@@ -54,7 +54,7 @@ const Catalog = () => {
                 }}
             >
                 <Container>
-                    <CatalogPageHeader/>
+                    <CatalogPageHeader spotlight={spotlight}/>
                     <SpotlightList spotlights={spotlights} />
                     <Container>
                         <CategoriesList
