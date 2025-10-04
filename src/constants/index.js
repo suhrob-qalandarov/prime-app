@@ -5,8 +5,8 @@ export const payments = [
 
 export const spotlights = [
     {name : 'Kiyimlar', image : '/images/spotlights/clothes3.jpeg',  url: 'clothes'},
-    {name : 'Aksessuarlar', image : '/images/spotlights/accessories.jpeg',  url: 'accessory'},
-    {name : 'Oyoq kiyimlar', image : '/images/spotlights/shoes3.jpeg',  url: 'sneakers'},
+    {name : 'Aksessuarlar', image : '/images/spotlights/acc2.jpeg',  url: 'accessory'},
+    {name : 'Oyoq kiyimlar', image : '/images/spotlights/shoes4.jpeg',  url: 'sneakers'},
     {name : 'Duvoykalar', image : '/images/spotlights/duvoyka.jpeg',  url: 'collections'},
 ]
 
