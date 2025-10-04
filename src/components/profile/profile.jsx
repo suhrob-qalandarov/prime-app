@@ -200,6 +200,7 @@ const Profile = () => {
                                     </Box>
                                     <Button
                                         variant="text"
+                                        disableRipple
                                         onClick={handleQuitOpenModal}
                                         sx={{
                                             width: "30%",
@@ -221,6 +222,7 @@ const Profile = () => {
                                     </Button>
                                     <Button
                                         variant="contained"
+                                        disableRipple
                                         onClick={handleUpdateButton}
                                         sx={{
                                             width: "40%",
@@ -308,6 +310,7 @@ const Profile = () => {
                 }
                 action={
                     <Button
+                        disableRipple
                         onClick={handleCloseSnackbar}
                         sx={{
                             position: "absolute",
@@ -378,6 +381,7 @@ const Profile = () => {
                 }
                 action={
                     <Button
+                        disableRipple
                         onClick={handleCloseSnackbar}
                         sx={{
                             position: "absolute",
