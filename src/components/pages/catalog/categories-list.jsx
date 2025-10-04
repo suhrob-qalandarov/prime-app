@@ -1,8 +1,7 @@
 import { Box, Button } from "@mui/material"
 import {useState} from "react";
 
-const CategoriesList = ({ categories }) => {
-    const [selectedCategory, setSelectedCategory] = useState(null)
+const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
 
     return (
         <Box
@@ -37,7 +36,7 @@ const CategoriesList = ({ categories }) => {
                     variant="text"
                     key={category.id}
                     disableRipple
-                    onClick={() => setSelectedCategory(category.id)}
+                    onClick={() => onCategorySelect(category.id)}
                     sx={{
                         minWidth: 140,
                         flex: "0 0 auto",
