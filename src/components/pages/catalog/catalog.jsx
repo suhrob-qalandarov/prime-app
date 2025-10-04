@@ -1,4 +1,4 @@
-import {Stack, Container, Button, Box} from "@mui/material";
+import {Stack, Container, Button, Box, useMediaQuery} from "@mui/material";
 import {Link, useSearchParams} from "react-router-dom";
 import {spotlights} from "../../../constants";
 import CategoryService from "../../../service/catalog";
@@ -7,13 +7,17 @@ import {useEffect, useState} from "react";
 import SpotlightList from "./spotlight-list";
 import Product from "./product";
 import CatalogPageHeader from "./catalog-page-header";
+import {useTheme} from "@mui/material/styles";
 
 const Catalog = () => {
     const [categoriesData, setCategoriesData] = useState([])
     const [searchParams] = useSearchParams()
     const [isFetching, setFetching] = useState(false)
 
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null)
+
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
     const param = [...searchParams.keys()][0]
     const spotlight = spotlights.find((cat) => cat.url === param)
@@ -38,9 +42,9 @@ const Catalog = () => {
     }
 
     const handleCategorySelect = (categoryId) => {
-        setSelectedCategory(categoryId);
+        setSelectedCategory(categoryId)
         console.log(categoryId)
-    };
+    }
 
     return (
         <Stack>
@@ -54,20 +58,44 @@ const Catalog = () => {
                 }}
             >
                 <Container>
-                    <CatalogPageHeader spotlight={spotlight}/>
-                    <SpotlightList spotlights={spotlights} spotlight={spotlight} />
-                    <Container>
-                        <CategoriesList
-                            categories={categoriesData}
-                            onCategorySelect={handleCategorySelect}
-                            selectedCategory={selectedCategory}
-                        />
-                    </Container>
+                    <CatalogPageHeader spotlight={spotlight} />
+                    {isMobile ? (
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: 2,
+                                marginBottom: "16px",
+                                paddingBottom: "10px",
+                            }}
+                        >
+                            <Box sx={{ flex: 1 }}>
+                                <SpotlightList spotlights={spotlights} spotlight={spotlight} isMobile={isMobile} />
+                            </Box>
+                            <Box sx={{ flex: 1 }}>
+                                <CategoriesList
+                                    categories={categoriesData}
+                                    onCategorySelect={handleCategorySelect}
+                                    selectedCategory={selectedCategory}
+                                    isMobile={isMobile}
+                                />
+                            </Box>
+                        </Box>
+                    ) : (
+                        <>
+                            <SpotlightList spotlights={spotlights} spotlight={spotlight} isMobile={isMobile} />
+                            <Container>
+                                <CategoriesList
+                                    categories={categoriesData}
+                                    onCategorySelect={handleCategorySelect}
+                                    selectedCategory={selectedCategory}
+                                    isMobile={isMobile}
+                                />
+                            </Container>
+                        </>
+                    )}
                 </Container>
             </Stack>
-            {selectedCategory && (
-                <Product selectedCategory={selectedCategory} />
-            )}
+            {selectedCategory && <Product selectedCategory={selectedCategory} />}
         </Stack>
     )
 }
