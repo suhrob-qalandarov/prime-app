@@ -13,7 +13,7 @@ const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
                 gap: 2,
                 alignItems: "center",
                 py: 1,
-                maxHeight: { xs: "120px", sm: "150px", md: "200px" },
+                maxHeight: { xs: "120px", sm: "150px", md: "400px" },
                 overflowY: "auto",
                 overflowX: "hidden",
                 "&::-webkit-scrollbar": {
