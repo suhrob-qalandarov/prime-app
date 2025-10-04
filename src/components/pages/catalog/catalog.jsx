@@ -5,11 +5,15 @@ import CategoryService from "../../../service/catalog";
 import CategoriesList from "./categories-list";
 import {useEffect, useState} from "react";
 import SpotlightList from "./spotlight-list";
+import Product from "./product";
+import CatalogPageHeader from "./catalog-page-header";
 
 const Catalog = () => {
     const [categoriesData, setCategoriesData] = useState([])
     const [searchParams] = useSearchParams()
     const [isFetching, setFetching] = useState(false)
+
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
     const param = [...searchParams.keys()][0]
     const spotlight = spotlights.find((cat) => cat.url === param)
@@ -33,6 +37,11 @@ const Catalog = () => {
         }
     }
 
+    const handleCategorySelect = (categoryId) => {
+        setSelectedCategory(categoryId);
+        console.log(categoryId)
+    };
+
     return (
         <Stack>
             <Stack
@@ -45,46 +54,17 @@ const Catalog = () => {
                 }}
             >
                 <Container>
-                    <Stack
-                        sx={{
-                            marginTop: "16px",
-                            textAlign: "center",
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                fontFamily: "Noto Sans, sans-serif",
-                                fontSize: "2.5rem",
-                                fontWeight: "700",
-                                color: "#6b0f2a",
-                                marginBottom: "0px",
-                                textTransform: "uppercase",
-                                letterSpacing: "1px",
-                            }}
-                        >
-                            {spotlight ? spotlight.name : "Katalog"}
-                        </Box>
-                        <Box
-                            sx={{
-                                fontFamily: "Noto Sans, sans-serif",
-                                fontSize: "1.1rem",
-                                fontWeight: "300",
-                                color: "#6b0f2a",
-                                marginBottom: "8px",
-                                letterSpacing: "1px",
-                                marginTop: "10px",
-                            }}
-                        >
-                            <Link to="/" className="breadcrumb-link">
-                                Asosiy
-                            </Link>
-                            <span className="breadcrumb-separator">/</span>
-                            <span className="breadcrumb-current">{spotlight ? spotlight.name : "Katalog"}</span>
-                        </Box>
-                    </Stack>
+                    <CatalogPageHeader/>
                     <SpotlightList spotlights={spotlights} />
                     <Container>
-                        <CategoriesList categories={categoriesData} />
+                        <CategoriesList
+                            categories={categoriesData}
+                            onCategorySelect={handleCategorySelect}
+                            selectedCategory={selectedCategory}
+                        />
+                        {selectedCategory && (
+                            <Product selectedCategory={selectedCategory} />
+                        )}
                     </Container>
                 </Container>
             </Stack>
