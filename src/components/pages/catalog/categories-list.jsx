@@ -1,23 +1,18 @@
-import { Box, Button, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Box, Button, Select, MenuItem, FormControl } from "@mui/material"
 
-const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+const CategoriesList = ({ categories, onCategorySelect, selectedCategory, isMobile }) => {
     return (
         <Box
             sx={{
                 display: "flex",
                 justifyContent: "center",
-                flexDirection: isMobile ? "column" : "row", // Mobil uchun column, kompyuter uchun row
+                flexDirection: isMobile ? "column" : "row",
                 flexWrap: isMobile ? "nowrap" : "wrap",
                 gap: 2,
                 alignItems: "center",
-                py: 1,
-                maxHeight: { xs: "120px", sm: "150px", md: "400px" },
-                overflowY: isMobile ? "hidden" : "auto", // Mobil uchun scroll o‘chiriladi
+                py: isMobile ? 0 : 1,
+                maxHeight: { xs: "auto", sm: "auto", md: "400px" },
+                overflowY: isMobile ? "hidden" : "auto",
                 overflowX: "hidden",
                 "&::-webkit-scrollbar": {
                     width: "6px",
@@ -35,26 +30,37 @@ const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
             }}
         >
             {isMobile ? (
-                // Telefon va planshet uchun Select box
-                <FormControl fullWidth sx={{ marginBottom: "10px" }}>
-                    <InputLabel id="category-select-label">{selectedCategory? "" : "Kategoriyani tanlang"}</InputLabel>
+                <FormControl fullWidth>
                     <Select
-                        labelId="category-select-label"
-                        label="Kategoriyani tanlang"
+                        displayEmpty
                         value={selectedCategory || ""}
                         onChange={(e) => onCategorySelect(e.target.value)}
                         sx={{
-                            backgroundColor: "transparent",
+                            backgroundColor: "var(--light-color)",
                             color: "#0033aa",
                             fontFamily: "Noto Sans, sans-serif",
+                            textTransform: "uppercase",
                             fontSize: "16px",
+                            borderRadius: "8px",
                             "& .MuiSelect-select": {
-                                padding: "10px",
+                                padding: "12px 14px",
+                            },
+                            "& .MuiOutlinedInput-notchedOutline": {
+                                border: "none",
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                                border: "none",
+                            },
+                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                                border: "none",
                             },
                         }}
-                     variant={"filled"}>
+                        variant={"filled"}>
+                        <MenuItem value="" disabled>
+                            KATEGORIYALAR
+                        </MenuItem>
                         {categories.map((category) => (
-                            <MenuItem key={category.id} value={category.id}>
+                            <MenuItem key={category.id} value={category.id} sx={{textTransform: "uppercase",}}>
                                 {category.name}
                             </MenuItem>
                         ))}
@@ -77,7 +83,7 @@ const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
                             color: selectedCategory === category.id ? "black" : "#0033aa",
                             fontFamily: "Noto Sans, sans-serif",
                             fontSize: "16px",
-                            textTransform: "none",
+                            textTransform: "uppercase",
                             whiteSpace: "nowrap",
                             "&:hover": {
                                 backgroundColor: "transparent",
@@ -108,4 +114,4 @@ const CategoriesList = ({ categories, onCategorySelect, selectedCategory }) => {
     );
 };
 
-export default CategoriesList;
+export default CategoriesList
