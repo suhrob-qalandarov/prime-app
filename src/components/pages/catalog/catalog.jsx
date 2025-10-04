@@ -55,19 +55,19 @@ const Catalog = () => {
             >
                 <Container>
                     <CatalogPageHeader spotlight={spotlight}/>
-                    <SpotlightList spotlights={spotlights} />
+                    <SpotlightList spotlights={spotlights} spotlight={spotlight} />
                     <Container>
                         <CategoriesList
                             categories={categoriesData}
                             onCategorySelect={handleCategorySelect}
                             selectedCategory={selectedCategory}
                         />
-                        {selectedCategory && (
-                            <Product selectedCategory={selectedCategory} />
-                        )}
                     </Container>
                 </Container>
             </Stack>
+            {selectedCategory && (
+                <Product selectedCategory={selectedCategory} />
+            )}
         </Stack>
     )
 }
