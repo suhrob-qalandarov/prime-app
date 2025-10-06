@@ -20,18 +20,18 @@ const Catalog = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
     const param = [...searchParams.keys()][0]
-    const spotlight = spotlights.find((cat) => cat.url === param)
+    const [selectedSpotlight, setSelectedSpotlight] = useState(spotlights.find((cat) => cat.url === param) || null);
 
     useEffect(() => {
-        localStorage.getItem("prime-categories")
-        fetchCategories().then((r) => setFetching(true))
-    }, [isFetching, setFetching])
+        fetchCategories().then(r => setFetching(false))
+    }, [selectedSpotlight])
+
 
     const fetchCategories = async () => {
         try {
             let data
-            if (spotlight) {
-                data = await CategoryService.getCategoriesBySpotlightName(spotlight.name)
+            if (selectedSpotlight) {
+                data = await CategoryService.getCategoriesBySpotlightName(selectedSpotlight.name)
             } else {
                 data = await CategoryService.getCategories()
             }
@@ -43,7 +43,7 @@ const Catalog = () => {
 
     const handleCategorySelect = (categoryId) => {
         setSelectedCategory(categoryId)
-        console.log(categoryId)
+        setSelectedSpotlight(null);
     }
 
     return (
@@ -58,7 +58,7 @@ const Catalog = () => {
                 }}
             >
                 <Container>
-                    <CatalogPageHeader spotlight={spotlight} />
+                    <CatalogPageHeader spotlight={selectedSpotlight} />
                     {isMobile ? (
                         <Box
                             sx={{
@@ -69,7 +69,7 @@ const Catalog = () => {
                             }}
                         >
                             <Box sx={{ flex: 1 }}>
-                                <SpotlightList spotlights={spotlights} spotlight={spotlight} isMobile={isMobile} />
+                                <SpotlightList spotlights={spotlights} spotlight={selectedSpotlight} isMobile={isMobile} />
                             </Box>
                             <Box sx={{ flex: 1 }}>
                                 <CategoriesList
@@ -82,7 +82,7 @@ const Catalog = () => {
                         </Box>
                     ) : (
                         <>
-                            <SpotlightList spotlights={spotlights} spotlight={spotlight} isMobile={isMobile} />
+                            <SpotlightList spotlights={spotlights} spotlight={selectedSpotlight} isMobile={isMobile} />
                             <Container>
                                 <CategoriesList
                                     categories={categoriesData}
