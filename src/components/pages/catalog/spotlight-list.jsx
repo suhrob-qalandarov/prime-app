@@ -7,6 +7,7 @@ const SpotlightList = ({ spotlights, spotlight, isMobile }) => {
                 <FormControl fullWidth>
                     <Select
                         displayEmpty
+                        variant="filled"
                         value={spotlight ? spotlight.name : ""}
                         onChange={(e) => {
                             const selectedSpot = spotlights.find((spot) => spot.name === e.target.value)
@@ -25,14 +26,20 @@ const SpotlightList = ({ spotlights, spotlight, isMobile }) => {
                             "& .MuiSelect-select": {
                                 padding: "12px 14px",
                             },
-                            "& .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
+                            "&::before, &::after": {
+                                display: "none",
                             },
-                            "&:hover .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
+                            "&:hover::before": {
+                                borderBottom: "none !important",
                             },
-                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
+                            "&.Mui-focused": {
+                                backgroundColor: "var(--light-color)",
+                            },
+                            "& .MuiFilledInput-root": {
+                                backgroundColor: "transparent !important",
+                            },
+                            "& .MuiSelect-filled.Mui-focused": {
+                                backgroundColor: "transparent !important",
                             },
                         }}
                     >
