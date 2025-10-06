@@ -35,9 +35,11 @@ const CategoriesList = ({ categories, onCategorySelect, selectedCategory, isMobi
                         displayEmpty
                         value={selectedCategory || ""}
                         onChange={(e) => onCategorySelect(e.target.value)}
+                        variant="filled"
                         sx={{
                             backgroundColor: "var(--light-color)",
                             color: "#0033aa",
+                            fontWeight: "bold",
                             fontFamily: "Noto Sans, sans-serif",
                             textTransform: "uppercase",
                             fontSize: "16px",
@@ -45,22 +47,36 @@ const CategoriesList = ({ categories, onCategorySelect, selectedCategory, isMobi
                             "& .MuiSelect-select": {
                                 padding: "12px 14px",
                             },
-                            "& .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
+                            "&::before, &::after": {
+                                display: "none",
                             },
-                            "&:hover .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
+                            "&:hover::before": {
+                                borderBottom: "none !important",
                             },
-                            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
+                            "&.Mui-focused": {
+                                backgroundColor: "var(--light-color)",
+                            },
+                            "& .MuiFilledInput-root": {
+                                backgroundColor: "transparent !important",
+                            },
+                            "& .MuiSelect-filled.Mui-focused": {
+                                backgroundColor: "transparent !important",
                             },
                         }}
-                        variant={"filled"}>
-                        <MenuItem value="" disabled>
+                    >
+
+                    <MenuItem value="" disabled>
                             KATEGORIYALAR
                         </MenuItem>
                         {categories.map((category) => (
-                            <MenuItem key={category.id} value={category.id} sx={{textTransform: "uppercase",}}>
+                            <MenuItem
+                                key={category.id}
+                                value={category.id}
+                                sx={{
+                                    textTransform: "uppercase",
+
+                                }}
+                            >
                                 {category.name}
                             </MenuItem>
                         ))}
