@@ -1,6 +1,6 @@
 "use client"
 
-import { Link } from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import NavbarIcons from "./navbar/navbar-icons"
 import NavbarLinks from "./navbar/navbar-links"
 import "./navbar.css"
@@ -14,13 +14,14 @@ const Navbar = () => {
     const [cartCount, setCartCount] = useState(0)
     const [modal, setModal] = useState(null)
     const [sidebarOpen, setSidebarOpen] = useState(false) // Added sidebar state
+    const navigate = useNavigate()
 
     const handleCartClick = () => {
         setModal("cart")
     }
 
     const handleCategoriesClick = () => {
-        console.log("Categories clicked from bottom nav")
+        navigate("/catalog")
     }
 
     const handleSearchClick = () => {
