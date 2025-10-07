@@ -165,10 +165,10 @@ const Login = () => {
                         fontFamily: "Noto Sans",
                     }}
                 >
-                    <a className="login-bot-name" href="https://t.me/ooddiiy_bot" target="_blank" rel="noopener noreferrer">
-                        @prime_77_bot
+                    <a className="login-bot-name" href="https://t.me/prime77uzBot" target="_blank" rel="noopener noreferrer">
+                        @prime77uzbot
                     </a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;telegram botiga kiring va 1 daqiqalik
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;telegram botiga kiring va 2 daqiqalik
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     kodingizni oling.
                 </Box>
