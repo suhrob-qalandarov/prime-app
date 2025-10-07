@@ -9,21 +9,33 @@ const Product = ({ selectedCategory }) => {
 
     // Tanlangan kategoriyaga qarab mahsulotlarni olish
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                // ProductService orqali serverdan mahsulotlarni olish
-                const data = await ProductService.getProductsByCategoryId(selectedCategory);
-                setProducts(data.content); // Mahsulotlar ro‘yxatini yangilash
-                setTotalPages(data.totalPages); // Jami sahifalar sonini yangilash
-            } catch (error) {
-                console.error("Error fetching products:", error);
-            }
-        };
-
         if (selectedCategory) {
-            fetchProducts();
+            fetchProductsByCategory();
+        } else {
+            fetchProducts()
         }
-    }, [selectedCategory]); // selectedCategory o‘zgarganda qayta yuklash
+    }, [selectedCategory]);
+
+    const fetchProductsByCategory = async () => {
+        try {
+            // ProductService orqali serverdan mahsulotlarni olish
+            const data = await ProductService.getProductsByCategoryId(selectedCategory);
+            setProducts(data.content); // Mahsulotlar ro‘yxatini yangilash
+            setTotalPages(data.totalPages); // Jami sahifalar sonini yangilash
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    };
+
+    const fetchProducts = async () => {
+        try {
+            const data = await ProductService.getProducts();
+            setProducts(data.content);
+            setTotalPages(data.totalPages);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    };
 
     return (
         <Container sx={{ marginTop: "20px" }}>
