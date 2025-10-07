@@ -5,7 +5,7 @@ import CategoryService from "../../../service/catalog";
 import CategoriesList from "./categories-list";
 import {useEffect, useState} from "react";
 import SpotlightList from "./spotlight-list";
-import Product from "./product";
+import Product from "../product/product";
 import CatalogPageHeader from "./catalog-page-header";
 import {useTheme} from "@mui/material/styles";
 
