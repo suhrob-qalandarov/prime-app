@@ -202,11 +202,12 @@ const Profile = () => {
                                         disableRipple
                                         onClick={handleQuitOpenModal}
                                         sx={{
+                                            justifyContent: "flex-end",
                                             width: "30%",
                                             fontWeight: "300",
-                                            marginTop: "-100px",
+                                            marginTop: "-90px",
                                             left: "160px",
-                                            color: "var(--burgundy-color)",
+                                            color: "var(--burgundy-light)",
                                             "&:hover": {
                                                 backgroundColor: "transparent",
                                                 outline: "none",
