@@ -41,7 +41,7 @@ const Profile = () => {
             }
             setLoading(false);
         };
-        fetchUser().then(r => {
+        fetchUser().then(() => {
             if (isLogin) {
                 setOpenSnackbar(true)
                 const timer = setInterval(() => {
@@ -112,7 +112,7 @@ const Profile = () => {
     }
 
     const handleLogout = () => {
-        AuthService.logout().then(r => navigate("/login?logout=true"))
+        AuthService.logout().then(() => navigate("/login?logout=true"))
     }
 
     return (
