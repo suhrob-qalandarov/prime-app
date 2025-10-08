@@ -24,6 +24,7 @@ const Profile = () => {
     const [openSnackbar, setOpenSnackbar] = useState(false)
     const [refreshSnackbar, setRefreshSnackbar] = useState(false)
     const [progress, setProgress] = useState(100)
+    //const [updateCount, setUpdateCount] = useState(0)
     const [refSnackProgress, setRefSnackProgress] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const isLogin = searchParams.get("login") === "true"
@@ -87,13 +88,17 @@ const Profile = () => {
     }
 
     const handleUpdateButton = async () => {
-        setLoading(true)
-        await userOrderRef.current.fetchOrders()
-        if (user && user.id) {
-            await AuthService.me(user.id)
-        } else handleLogout()
-        setLoading(false)
-        navigate("/profile?refresh=true")
+        let count = parseInt(localStorage.getItem("profile-update-count"))
+        if (count < 3){
+            setLoading(true)
+            await userOrderRef.current.fetchOrders()
+            if (user && user.id) {
+                await AuthService.me(user.id)
+            } else handleLogout()
+            setLoading(false)
+            localStorage.setItem("profile-update-count", (count ? parseInt(count) + 1 : 1).toString())
+            navigate("/profile?refresh=true")
+        }
     }
 
     const handleQuitCloseModal = () => {

@@ -90,6 +90,7 @@ const Login = () => {
             localStorage.setItem("prime-token", token)
             // Save user without orders
             localStorage.setItem("prime-user", JSON.stringify(userWithoutOrders))
+            localStorage.setItem("profile-update-count", "0")
 
             // Save orders separately
             localStorage.setItem("prime-user-orders", JSON.stringify(ordersRes))
