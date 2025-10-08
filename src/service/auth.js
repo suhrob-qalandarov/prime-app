@@ -22,12 +22,26 @@ const AuthService = {
         )
     },
 
-    async getUserFromLS () {
-        const user = localStorage.getItem("prime-user")
+    async getUserFromLS() {
+        const user = localStorage.getItem("prime-user");
         if (user) {
-            return JSON.parse(user)
+            try {
+                const parsedUser = JSON.parse(user);
+                console.log("Parsed user from localStorage:", parsedUser);
+                return {
+                    id: parsedUser.id || null,
+                    firstName: parsedUser.firstName || "Unknown",
+                    phone: parsedUser.phone || "Unknown",
+                    roles: parsedUser.roles || [],
+                    isAdmin: parsedUser.isAdmin || false
+                };
+            } catch (error) {
+                console.error("Failed to parse prime-user:", error);
+                return null;
+            }
         }
-        return null
+        console.log("No user found in localStorage");
+        return null;
     },
 
     async getProfileUpdateCountFromLS () {
