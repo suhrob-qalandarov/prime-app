@@ -24,7 +24,6 @@ const Profile = () => {
     const [openSnackbar, setOpenSnackbar] = useState(false)
     const [refreshSnackbar, setRefreshSnackbar] = useState(false)
     const [progress, setProgress] = useState(100)
-    //const [updateCount, setUpdateCount] = useState(0)
     const [refSnackProgress, setRefSnackProgress] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const isLogin = searchParams.get("login") === "true"
@@ -33,7 +32,7 @@ const Profile = () => {
     const userOrderRef = useRef()
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("prime-user")))
+        setUser(AuthService.getUserFromLS())
         if (isLogin) {
             setOpenSnackbar(true)
             const timer = setInterval(() => {
@@ -88,7 +87,7 @@ const Profile = () => {
     }
 
     const handleUpdateButton = async () => {
-        let count = parseInt(localStorage.getItem("profile-update-count"))
+        let count = AuthService.getProfileUpdateCountFromLS()
         if (count < 3){
             setLoading(true)
             await userOrderRef.current.fetchOrders()
@@ -106,8 +105,7 @@ const Profile = () => {
     }
 
     const handleLogout = () => {
-        AuthService.logout()
-        navigate("/login?logout=true")
+        AuthService.logout().then(r => navigate("/login?logout=true"))
     }
 
 /*

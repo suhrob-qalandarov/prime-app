@@ -17,8 +17,20 @@ const AuthService = {
         localStorage.removeItem("prime-user-orders")
         localStorage.removeItem("profile-update-count")
         localStorage.removeItem("fetched-orders-date")
-        const response = await  axios.post(`/auth/logout`, {},{ withCredentials: true })
+        await axios.post(`/auth/logout`, {}, {withCredentials: true})
     },
+
+    async getUserFromLS () {
+        const user = localStorage.getItem("prime-user")
+        if (user) {
+            return JSON.parse(user)
+        }
+        return null
+    },
+
+    async getProfileUpdateCountFromLS () {
+        return parseInt(localStorage.getItem("profile-update-count") || 0)
+    }
 }
 
 export default AuthService
