@@ -7,7 +7,11 @@ const AuthService = {
     },
 
     async me (userId) {
-        const response = await  axios.get(`/user/${userId}`,{ withCredentials: true });
+        const response = await  axios.get(`/user/${userId}`,{ withCredentials: true }, {
+            headers: {
+                Authorization: `${localStorage.getItem('prime-token')}`,
+            },
+        });
         localStorage.setItem("prime-user", JSON.stringify(response.data))
     },
 }
