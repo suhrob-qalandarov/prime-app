@@ -1,4 +1,3 @@
-
 import {
     Box,
     Stack,
@@ -98,7 +97,7 @@ const Profile = () => {
             if (user && user.id) {
                 await AuthService.me(user.id);
                 const updatedUser = await AuthService.getUserFromLS();
-                setUser(updatedUser); // Update user state
+                setUser(updatedUser);
             } else {
                 handleLogout();
             }
@@ -115,14 +114,6 @@ const Profile = () => {
     const handleLogout = () => {
         AuthService.logout().then(r => navigate("/login?logout=true"))
     }
-
-/*
-    useEffect(() => {
-        if (!user) {
-            navigate("/login")
-        }
-    })
-*/
 
     return (
         <Stack>
@@ -228,24 +219,38 @@ const Profile = () => {
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M124,216a12,12,0,0,1-12,12H48a12,12,0,0,1-12-12V40A12,12,0,0,1,48,28h64a12,12,0,0,1,0,24H60V204h52A12,12,0,0,1,124,216Zm108.49-96.49-40-40a12,12,0,0,0-17,17L195,116H112a12,12,0,0,0,0,24h83l-19.52,19.51a12,12,0,0,0,17,17l40-40A12,12,0,0,0,232.49,119.51Z"></path></svg>
                                     </Button>
-                                    <Button
-                                        variant="contained"
-                                        disableRipple
-                                        onClick={handleUpdateButton}
-                                        sx={{
-                                            width: "40%",
-                                            fontWeight: "200",
-                                            fontSize: "12px",
-                                            right: "80px",
-                                            marginTop: "10px",
-                                            backgroundColor: "var(--burgundy-color)",
-                                            "&:hover": {
-                                                backgroundColor: "var(--burgundy-dark)",
-                                            },
-                                        }}
-                                    >
-                                        Yangilash
-                                    </Button>
+                                    <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "10px", justifyContent: "flex-start", marginTop: 0 }}>
+                                        <Button
+                                            variant="contained"
+                                            disableRipple
+                                            onClick={handleUpdateButton}
+                                            sx={{
+                                                width: { xs: "100%", sm: "40%" },
+                                                fontWeight: "200",
+                                                fontSize: "12px",
+                                                color: "var(--light-color)",
+                                                backgroundColor: "var(--burgundy-color)",
+                                            }}
+                                        >
+                                            Yangilash
+                                        </Button>
+                                        {user?.isAdmin && (
+                                            <Button
+                                                variant="contained"
+                                                disableRipple
+                                                onClick={() => window.open('https://admin.howdy.uz', '_blank')}
+                                                sx={{
+                                                    width: { xs: "100%", sm: "40%" },
+                                                    fontWeight: "200",
+                                                    fontSize: "12px",
+                                                    color: "var(--light-color)",
+                                                    backgroundColor: "#0033aa",
+                                                }}
+                                            >
+                                                Panel
+                                            </Button>
+                                        )}
+                                    </Box>
                                 </div>}
                             </CardContent>
                         </Card>
