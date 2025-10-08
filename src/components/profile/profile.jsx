@@ -267,7 +267,7 @@ const Profile = () => {
                 aria-labelledby="logout-dialog-title"
                 aria-describedby="logout-dialog-description"
             >
-                <DialogTitle id="logout-dialog-title">Tizimdan Chiqish</DialogTitle>
+                <DialogTitle id="logout-dialog-title">Tizimdan chiqish</DialogTitle>
                 <DialogContent>
                     <Typography id="logout-dialog-description">
                         Hisobdan chiqmoqchimisiz?
