@@ -91,18 +91,22 @@ const Profile = () => {
     }
 
     const handleUpdateButton = async () => {
-        let count = AuthService.getProfileUpdateCountFromLS()
-        if (count < 3){
-            setLoading(true)
-            await userOrderRef.current.fetchOrders()
+        let count = await AuthService.getProfileUpdateCountFromLS();
+        if (count < 3) {
+            setLoading(true);
+            await userOrderRef.current.fetchOrders();
             if (user && user.id) {
-                await AuthService.me(user.id)
-            } else handleLogout()
-            setLoading(false)
-            localStorage.setItem("profile-update-count", (count ? parseInt(count) + 1 : 1).toString())
-            navigate("/profile?refresh=true")
+                await AuthService.me(user.id);
+                const updatedUser = await AuthService.getUserFromLS();
+                setUser(updatedUser); // Update user state
+            } else {
+                handleLogout();
+            }
+            setLoading(false);
+            localStorage.setItem("profile-update-count", (count ? parseInt(count) + 1 : 1).toString());
+            navigate("/profile?refresh=true");
         }
-    }
+    };
 
     const handleQuitCloseModal = () => {
         setQuitModal(false)
