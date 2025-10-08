@@ -12,12 +12,14 @@ const AuthService = {
     },
 
     async logout () {
-        localStorage.removeItem("prime-token")
-        localStorage.removeItem("prime-user")
-        localStorage.removeItem("prime-user-orders")
-        localStorage.removeItem("profile-update-count")
-        localStorage.removeItem("fetched-orders-date")
-        await axios.post(`/auth/logout`, {}, {withCredentials: true})
+        await axios.post(`/auth/logout`, {}, {withCredentials: true}).then(() => {
+                localStorage.removeItem("prime-token")
+                localStorage.removeItem("prime-user")
+                localStorage.removeItem("prime-user-orders")
+                localStorage.removeItem("profile-update-count")
+                localStorage.removeItem("fetched-orders-date")
+            }
+        )
     },
 
     async getUserFromLS () {
