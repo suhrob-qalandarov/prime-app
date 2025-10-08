@@ -152,14 +152,25 @@ const UserOrder = forwardRef(({ user }, ref) => {
                 </Typography>
 
                 {/* Status buttons */}
+                {/* Status buttons */}
                 <Box
                     className="status-buttons"
                     sx={{
                         marginBottom: { xs: "15px", sm: "15px", md: "20px", lg: "20px" },
                         display: "flex",
-                        flexDirection: { xs: "column", sm: "row", md: "row", lg: "row" },
-                        alignItems: { xs: "stretch", sm: "center", md: "center", lg: "center" },
-                        gap: { xs: "10px", sm: "10px", md: "10px", lg: "10px" },
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: { xs: "8px", sm: "8px", md: "10px", lg: "10px" },
+                        flexWrap: "nowrap",
+                        overflowX: "auto",
+                        paddingBottom: "5px",
+                        "&::-webkit-scrollbar": {
+                            height: "4px",
+                        },
+                        "&::-webkit-scrollbar-thumb": {
+                            backgroundColor: "#ccc",
+                            borderRadius: "4px",
+                        },
                     }}
                 >
                     <Button
@@ -169,12 +180,12 @@ const UserOrder = forwardRef(({ user }, ref) => {
                             backgroundColor: activeStatus === "pending" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "pending" ? "#333" : "#666",
                             fontWeight: activeStatus === "pending" ? "bold" : "normal",
-                            marginRight: { xs: 0, sm: 0, md: "10px", lg: "10px" },
-                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px", lg: "8px 16px" },
+                            padding: { xs: "6px 12px", sm: "6px 12px", md: "8px 16px", lg: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
-                            width: { xs: "100%", sm: "auto", md: "auto", lg: "auto" },
-                            fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
+                            minWidth: { xs: "80px", sm: "100px", md: "100px", lg: "100px" },
+                            fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1rem", lg: "1rem" },
+                            flexShrink: 1,
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -189,12 +200,12 @@ const UserOrder = forwardRef(({ user }, ref) => {
                             backgroundColor: activeStatus === "confirmed" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "confirmed" ? "#333" : "#666",
                             fontWeight: activeStatus === "confirmed" ? "bold" : "normal",
-                            marginRight: { xs: 0, sm: 0, md: "10px", lg: "10px" },
-                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px", lg: "8px 16px" },
+                            padding: { xs: "6px 12px", sm: "6px 12px", md: "8px 16px", lg: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
-                            width: { xs: "100%", sm: "auto", md: "auto", lg: "auto" },
-                            fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
+                            minWidth: { xs: "80px", sm: "100px", md: "100px", lg: "100px" },
+                            fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1rem", lg: "1rem" },
+                            flexShrink: 1,
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
@@ -209,11 +220,12 @@ const UserOrder = forwardRef(({ user }, ref) => {
                             backgroundColor: activeStatus === "shipped" ? "#f5f5f5" : "transparent",
                             color: activeStatus === "shipped" ? "#333" : "#666",
                             fontWeight: activeStatus === "shipped" ? "bold" : "normal",
-                            padding: { xs: "10px", sm: "8px 16px", md: "8px 16px", lg: "8px 16px" },
+                            padding: { xs: "6px 12px", sm: "6px 12px", md: "8px 16px", lg: "8px 16px" },
                             borderRadius: "20px",
                             textTransform: "none",
-                            width: { xs: "100%", sm: "auto", md: "auto", lg: "auto" },
-                            fontSize: { xs: "0.9rem", sm: "1rem", md: "1rem", lg: "1rem" },
+                            minWidth: { xs: "80px", sm: "100px", md: "100px", lg: "100px" },
+                            fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1rem", lg: "1rem" },
+                            flexShrink: 1,
                             "&:hover": {
                                 backgroundColor: "#f0f0f0",
                             },
