@@ -32,44 +32,48 @@ const Profile = () => {
     const userOrderRef = useRef()
 
     useEffect(() => {
-        setUser(AuthService.getUserFromLS())
-        if (isLogin) {
-            setOpenSnackbar(true)
-            const timer = setInterval(() => {
-                setProgress((prevProgress) => {
-                    if (prevProgress <= 0) {
-                        clearInterval(timer)
-                        setOpenSnackbar(false)
-                        return 0
-                    }
-                    return prevProgress - (100 / 50)
-                })
-            }, 100)
-            setSearchParams({}, { replace: true });
-        }
+        const fetchUser = async () => {
+            const userFromLS = await AuthService.getUserFromLS();
+            console.log("User from LS in useEffect:", userFromLS);
+            if (userFromLS && userFromLS.id) {
+                setUser(userFromLS);
+            } else {
+                navigate("/login");
+            }
+            setLoading(false);
+        };
+        fetchUser().then(r => {
+            if (isLogin) {
+                setOpenSnackbar(true)
+                const timer = setInterval(() => {
+                    setProgress((prevProgress) => {
+                        if (prevProgress <= 0) {
+                            clearInterval(timer)
+                            setOpenSnackbar(false)
+                            return 0
+                        }
+                        return prevProgress - (100 / 50)
+                    })
+                }, 100)
+                setSearchParams({}, { replace: true });
+            }
 
-        if (isUpdate) {
-            setRefreshSnackbar(true)
-            const timer = setInterval(() => {
-                setRefSnackProgress((prevProgress) => {
-                    if (prevProgress <= 0) {
-                        clearInterval(timer)
-                        setRefreshSnackbar(false)
-                        return 0
-                    }
-                    return prevProgress - (100 / 50)
-                })
-            }, 100)
-            setSearchParams({}, { replace: true });
-        }
-
-        /*try {
-            user.id
-        } catch (e) {
-            navigate("/login")
-        }
-*/
-        setLoading(false)
+            if (isUpdate) {
+                setRefreshSnackbar(true)
+                const timer = setInterval(() => {
+                    setRefSnackProgress((prevProgress) => {
+                        if (prevProgress <= 0) {
+                            clearInterval(timer)
+                            setRefreshSnackbar(false)
+                            return 0
+                        }
+                        return prevProgress - (100 / 50)
+                    })
+                }, 100)
+                setSearchParams({}, { replace: true });
+            }
+            setLoading(false)
+        });
     }, [isLogin, setSearchParams])
 
     const handleCloseSnackbar = () => {
@@ -184,7 +188,7 @@ const Profile = () => {
                                                                 fontSize: "18px",
                                                                 marginBottom: "-10px",
                                                             }}>
-                                                    {user?.firstName || "NaN"}
+                                                    {user?.firstName}
                                                 </Typography>
                                             </Box>
                                             <Box>
@@ -193,7 +197,7 @@ const Profile = () => {
                                                                 fontSize: "15px",
                                                                 fontWeight: "500"
                                                             }}>
-                                                    {user?.phone || ""}
+                                                    {user?.phone}
                                                 </Typography>
                                             </Box>
                                         </Box>
