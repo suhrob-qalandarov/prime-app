@@ -1,5 +1,5 @@
 import {Stack, Container, Button, Box, useMediaQuery} from "@mui/material";
-import {Link, useSearchParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import {spotlights} from "../../../constants";
 import CategoryService from "../../../service/catalog";
 import CategoriesList from "./categories-list";
