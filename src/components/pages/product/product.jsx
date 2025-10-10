@@ -84,7 +84,6 @@ const Product = ({ selectedCategory }) => {
                                             flexDirection: "column",
                                             transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                                             "&:hover": {
-                                                transform: "translateY(-6px)",
                                                 "& .product-image": {
                                                     transform: "scale(1.08)",
                                                 },
