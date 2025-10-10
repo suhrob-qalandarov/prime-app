@@ -1,6 +1,7 @@
 import axios from 'axios'
+import urls from "../constants/urls";
 
-axios.defaults.baseURL = 'https://api.howdy.uz/api/v1/'
+axios.defaults.baseURL = urls.apiBaseUrl
 axios.defaults.withCredentials = true;
 
 export default axios

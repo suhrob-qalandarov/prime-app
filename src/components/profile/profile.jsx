@@ -15,6 +15,7 @@ import {useState, useEffect, useRef} from "react"
 import {useNavigate, useSearchParams} from "react-router-dom"
 import UserOrder from "./user-order";
 import AuthService from "../../service/auth";
+import urls from "../../constants/urls";
 
 const Profile = () => {
     const [user, setUser] = useState(null)
@@ -239,7 +240,7 @@ const Profile = () => {
                                             <Button
                                                 variant="contained"
                                                 disableRipple
-                                                onClick={() => window.open('https://admin.howdy.uz', '_blank')}
+                                                onClick={() => window.open(urls.adminDashboardUrl, '_blank')}
                                                 sx={{
                                                     width: { xs: "100%", sm: "40%" },
                                                     fontWeight: "200",
