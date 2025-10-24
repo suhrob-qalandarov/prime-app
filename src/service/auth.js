@@ -12,7 +12,7 @@ const AuthService = {
     },
 
     async logout () {
-        await axios.post(`/auth/logout`, {}, {withCredentials: true}).then(() => {
+        await axios.post(`/v2/auth/logout`, {}, {withCredentials: true}).then(() => {
                 localStorage.removeItem("prime-token")
                 localStorage.removeItem("prime-user")
                 localStorage.removeItem("prime-user-orders")
