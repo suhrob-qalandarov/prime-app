@@ -5,7 +5,7 @@ const OrderService= {
     // Get orders by ID
     async getOrdersById(id) {
         try {
-            const response = await axios.get(`/order/${id}`, { withCredentials: true })
+            const response = await axios.get(`/v1/order/${id}`, { withCredentials: true })
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
@@ -16,7 +16,7 @@ const OrderService= {
     // Get orders by telegram ID
     async getOrdersByTelegramId(telegramId) {
         try {
-            const response = await axios.get(`/orders/by/telegramId/${telegramId}`)
+            const response = await axios.get(`/v1/orders/by/telegramId/${telegramId}`)
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
@@ -27,7 +27,7 @@ const OrderService= {
     // Get orders by phone number
     async getOrdersByPhoneNumber(phoneNumber) {
         try {
-            const response = await axios.get(`/orders/by/phoneNumber/${phoneNumber}`)
+            const response = await axios.get(`/v1/orders/by/phoneNumber/${phoneNumber}`)
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
@@ -39,7 +39,7 @@ const OrderService= {
     async confirmOrder(orderData) {
         try {
             const token = localStorage.getItem('prime-token');
-            const response = await axios.post(`/order`, orderData, {
+            const response = await axios.post(`/v1/order`, orderData, {
                 headers: {
                     Authorization: `${token}`,
                 },

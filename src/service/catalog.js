@@ -5,7 +5,7 @@ const CategoryService = {
     // Get categories
     async getCategories() {
         try {
-            const response = await axios.get(`/category`)
+            const response = await axios.get(`/v1/category`)
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
@@ -15,7 +15,7 @@ const CategoryService = {
 
     async getCategoriesBySpotlightName(name) {
         try {
-            const response = await axios.get(`/category/${name}`)
+            const response = await axios.get(`/v1/category/${name}`)
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
