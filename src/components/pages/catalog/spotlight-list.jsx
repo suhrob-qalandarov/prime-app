@@ -77,7 +77,7 @@ const SpotlightList = ({ spotlights, spotlight, isMobile }) => {
                                         fontWeight: "bold",
                                         fontFamily: "Noto Sans, sans-serif",
                                         fontSize: "18px",
-                                        textTransform: "none",
+                                        textTransform: "uppercase",
                                         "&:hover": {},
                                     }}
                                 >
