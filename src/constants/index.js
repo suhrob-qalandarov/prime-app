@@ -4,10 +4,10 @@ export const payments = [
 ]
 
 export const spotlights = [
-    {name : 'Kiyimlar', image : '/images/spotlights/clothes3.jpeg',  url: 'clothes'},
-    {name : 'Aksessuarlar', image : '/images/spotlights/acc2.jpeg',  url: 'accessory'},
-    {name : 'Oyoq kiyimlar', image : '/images/spotlights/shoes4.jpeg',  url: 'sneakers'},
-    {name : 'Duvoykalar', image : '/images/spotlights/duvoyka.jpeg',  url: 'collections'},
+    {name : 'Kiyimlar', image : '/images/spotlights/kiyimlar.png',  url: 'clothes'},
+    {name : 'Aksessuarlar', image : '/images/spotlights/aksessuarlar.jpeg',  url: 'accessory'},
+    {name : 'Oyoq kiyimlar', image : '/images/spotlights/shoes5.jpeg',  url: 'sneakers'},
+    {name : 'Duvoykalar', image : '/images/spotlights/duvoykalar.jpeg',  url: 'collections'},
 ]
 
 export const brands = [
