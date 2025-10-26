@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Container, Box, Typography, Chip, Pagination } from "@mui/material"
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import ProductService from "../../../service/product"
 import urls from "../../../constants/urls"
 
@@ -177,26 +178,65 @@ const Product = ({ selectedCategory }) => {
                                         )}
 
                                         {statusConfig && (
-                                            <Chip
-                                                label={statusConfig.text}
+                                            <Box
                                                 sx={{
                                                     position: "absolute",
                                                     top: hasDiscount ? { xs: "36px", md: "42px" } : { xs: "10px", md: "12px" },
                                                     right: { xs: "10px", md: "12px" },
-                                                    backgroundColor: statusConfig.color,
-                                                    color: "white",
-                                                    fontWeight: 800,
-                                                    fontSize: { xs: "9px", md: "10px" },
-                                                    height: { xs: "22px", md: "26px" },
-                                                    px: { xs: 1, md: 1.5 },
-                                                    zIndex: 3,
-                                                    letterSpacing: "0.5px",
-                                                    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                                                    "& .MuiChip-label": {
-                                                        px: 0,
-                                                    },
+                                                    zIndex: 4,
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    gap: { xs: 0.75, md: 1 },
+                                                    alignItems: "flex-end",
                                                 }}
-                                            />
+                                            >
+                                                {/* Status Chip */}
+                                                <Chip
+                                                    label={statusConfig.text}
+                                                    sx={{
+                                                        backgroundColor: statusConfig.color,
+                                                        color: "white",
+                                                        fontWeight: 800,
+                                                        fontSize: { xs: "9px", md: "10px" },
+                                                        height: { xs: "22px", md: "26px" },
+                                                        px: { xs: 1, md: 1.5 },
+                                                        letterSpacing: "0.5px",
+                                                        boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                                                        "& .MuiChip-label": {
+                                                            px: 0,
+                                                        },
+                                                    }}
+                                                />
+
+                                                <Box
+                                                    sx={{
+                                                        display: { xs: "flex", md: "none" },
+                                                        alignItems: "center",
+                                                        justifyContent: "center",
+                                                        width: { xs: "32px", md: "40px" },
+                                                        height: { xs: "32px", md: "40px" },
+                                                        backgroundColor: "#f5f5dc",
+                                                        borderRadius: "6px",
+                                                        cursor: "pointer",
+                                                        transition: "all 0.3s ease",
+                                                        "&:hover": {
+                                                            backgroundColor: "#000",
+                                                            "& svg": {
+                                                                color: "#fff",
+                                                            },
+                                                        },
+                                                    }}
+                                                    onClick={() => handleQuickView(product.id)}
+                                                >
+                                                    <VisibilityIcon
+                                                        sx={{
+                                                            fontSize: { xs: "18px", md: "20px" },
+                                                            color: "#000",
+                                                            transition: "color 0.3s ease",
+                                                        }}
+                                                    />
+                                                </Box>
+                                            </Box>
                                         )}
 
                                         <Box
@@ -211,7 +251,7 @@ const Product = ({ selectedCategory }) => {
                                                 width: "100%",
                                                 height: "100%",
                                                 objectFit: "cover",
-                                                transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+                                                transition: "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
                                             }}
                                         />
 
@@ -219,6 +259,7 @@ const Product = ({ selectedCategory }) => {
                                             className="quick-view-overlay"
                                             onClick={() => handleQuickView(product.id)}
                                             sx={{
+                                                display: { xs: "none", md: "flex" },
                                                 position: "absolute",
                                                 bottom: 0,
                                                 left: 0,
@@ -226,7 +267,6 @@ const Product = ({ selectedCategory }) => {
                                                 background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%)",
                                                 opacity: 0,
                                                 transition: "opacity 0.4s ease",
-                                                display: "flex",
                                                 alignItems: "flex-end",
                                                 justifyContent: "center",
                                                 pb: { xs: 2, md: 3 },
@@ -319,11 +359,11 @@ const Product = ({ selectedCategory }) => {
                                                     display: "flex",
                                                     gap: { xs: 0.5, md: 0.75 },
                                                     flexWrap: "wrap",
-                                                    maxHeight: isHovered ? "100px" : "0px",
+                                                    maxHeight: { xs: "100px", md: isHovered ? "100px" : "0px" },
                                                     overflow: "hidden",
-                                                    opacity: isHovered ? 1 : 0,
+                                                    opacity: { xs: 1, md: isHovered ? 1 : 0 },
                                                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                                                    my: isHovered ? { xs: 0.75, md: 1 } : 0,
+                                                    my: { xs: 0.75, md: isHovered ? { xs: 0.75, md: 1 } : 0 },
                                                 }}
                                             >
                                                 {product.productSizes
