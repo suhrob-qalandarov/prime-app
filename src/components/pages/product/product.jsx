@@ -7,6 +7,7 @@ const Product = ({ selectedCategory }) => {
     const [products, setProducts] = useState([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
+    const [hoveredProductId, setHoveredProductId] = useState(null)
     const itemsPerPage = 5
 
     useEffect(() => {
@@ -97,10 +98,13 @@ const Product = ({ selectedCategory }) => {
                             const hasDiscount = product.status === "SALE" && product.discount > 0
                             const discountedPrice = calculateDiscountedPrice(product.price, product.discount)
                             const mainImage = product.attachmentKeys?.[0] || ""
+                            const isHovered = hoveredProductId === product.id
 
                             return (
                                 <Box
                                     key={product.id}
+                                    onMouseEnter={() => setHoveredProductId(product.id)}
+                                    onMouseLeave={() => setHoveredProductId(null)}
                                     sx={{
                                         position: "relative",
                                         cursor: "pointer",
@@ -262,41 +266,52 @@ const Product = ({ selectedCategory }) => {
                                             px: { xs: 0.5, md: 1 },
                                         }}
                                     >
-                                        {/* Category */}
-                                        {product.categoryName && (
-                                            <Typography
-                                                sx={{
-                                                    fontSize: { xs: "9px", md: "10px" },
-                                                    color: "#999",
-                                                    textTransform: "uppercase",
-                                                    letterSpacing: "1px",
-                                                    fontWeight: 600,
-                                                }}
-                                            >
-                                                {product.categoryName}
-                                            </Typography>
-                                        )}
-
-                                        {/* Product Name */}
-                                        <Typography
+                                        <Box
                                             sx={{
-                                                fontSize: { xs: "13px", md: "15px" },
-                                                fontWeight: 600,
-                                                color: "#1a1a1a",
-                                                lineHeight: 1.3,
-                                                minHeight: { xs: "32px", md: "40px" },
-                                                display: "-webkit-box",
-                                                WebkitLineClamp: 2,
-                                                WebkitBoxOrient: "vertical",
-                                                overflow: "hidden",
-                                                transition: "color 0.3s ease",
-                                                "&:hover": {
-                                                    color: "#ff6b6b",
-                                                },
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                alignItems: "flex-start",
+                                                gap: { xs: 1, md: 1.5 },
                                             }}
                                         >
-                                            {product.name}
-                                        </Typography>
+                                            {/* Product Name */}
+                                            <Typography
+                                                sx={{
+                                                    fontSize: { xs: "13px", md: "15px" },
+                                                    fontWeight: 600,
+                                                    color: "#1a1a1a",
+                                                    lineHeight: 1.3,
+                                                    flex: 1,
+                                                    display: "-webkit-box",
+                                                    WebkitLineClamp: 2,
+                                                    WebkitBoxOrient: "vertical",
+                                                    overflow: "hidden",
+                                                    transition: "color 0.3s ease",
+                                                    "&:hover": {
+                                                        color: "#ff6b6b",
+                                                    },
+                                                }}
+                                            >
+                                                {product.name}
+                                            </Typography>
+
+                                            {/* Category Name - Right side */}
+                                            {product.categoryName && (
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: { xs: "9px", md: "10px" },
+                                                        color: "#999",
+                                                        textTransform: "uppercase",
+                                                        letterSpacing: "1px",
+                                                        fontWeight: 600,
+                                                        whiteSpace: "nowrap",
+                                                        textAlign: "right",
+                                                    }}
+                                                >
+                                                    {product.categoryName}
+                                                </Typography>
+                                            )}
+                                        </Box>
 
                                         {product.productSizes && product.productSizes.length > 0 && (
                                             <Box
@@ -304,7 +319,11 @@ const Product = ({ selectedCategory }) => {
                                                     display: "flex",
                                                     gap: { xs: 0.5, md: 0.75 },
                                                     flexWrap: "wrap",
-                                                    mt: { xs: 0.75, md: 1 },
+                                                    maxHeight: isHovered ? "100px" : "0px",
+                                                    overflow: "hidden",
+                                                    opacity: isHovered ? 1 : 0,
+                                                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                                                    my: isHovered ? { xs: 0.75, md: 1 } : 0,
                                                 }}
                                             >
                                                 {product.productSizes
