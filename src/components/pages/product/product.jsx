@@ -1,6 +1,8 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { Container, Box, Typography, Chip, Pagination } from "@mui/material"
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityIcon from "@mui/icons-material/Visibility"
 import ProductService from "../../../service/product"
 import urls from "../../../constants/urls"
 
@@ -79,6 +81,16 @@ const Product = ({ selectedCategory }) => {
             maxWidth="xl"
             sx={{
                 py: { xs: 3, md: 5 },
+                "@keyframes slideUpQuickView": {
+                    "0%": {
+                        transform: "translateY(100%)",
+                        opacity: 0,
+                    },
+                    "100%": {
+                        transform: "translateY(0)",
+                        opacity: 1,
+                    },
+                },
             }}
         >
             {products.length > 0 ? (
@@ -119,6 +131,7 @@ const Product = ({ selectedCategory }) => {
                                             },
                                             "& .quick-view-overlay": {
                                                 opacity: 1,
+                                                transform: "translateY(0)",
                                             },
                                         },
                                     }}
@@ -266,7 +279,18 @@ const Product = ({ selectedCategory }) => {
                                                 right: 0,
                                                 background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%)",
                                                 opacity: 0,
-                                                transition: "opacity 0.4s ease",
+                                                transform: "translateY(100%)",
+                                                transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                                                "@keyframes slideUpQuickView": {
+                                                    "0%": {
+                                                        transform: "translateY(100%)",
+                                                        opacity: 0,
+                                                    },
+                                                    "100%": {
+                                                        transform: "translateY(0)",
+                                                        opacity: 1,
+                                                    },
+                                                },
                                                 alignItems: "flex-end",
                                                 justifyContent: "center",
                                                 pb: { xs: 2, md: 3 },
