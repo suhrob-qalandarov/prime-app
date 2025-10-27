@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Container, Box, Typography, Chip, Pagination } from "@mui/material"
-import VisibilityIcon from "@mui/icons-material/Visibility"
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined"
 import ProductService from "../../../service/product"
 import urls from "../../../constants/urls"
 import QuickViewModal from "./modal/quick-view"
@@ -27,7 +27,7 @@ const Product = ({ selectedCategory }) => {
 
     const fetchProductsByCategory = async () => {
         try {
-            const data = await ProductService.getProductsByCategoryId(selectedCategory, 20)
+            const data = await ProductService.getProductsByCategoryId(selectedCategory, 12)
             setProducts(data.content)
             setTotalPages(data.totalPages)
             setPage(1)
@@ -67,7 +67,7 @@ const Product = ({ selectedCategory }) => {
     }
 
     const formatPrice = (price) => {
-        return new Intl.NumberFormat("uz-UZ").format(price) + " UZS"
+        return new Intl.NumberFormat("uz-UZ").format(price) + " So'm"
     }
 
     const handleQuickView = (productId) => {
@@ -219,7 +219,7 @@ const Product = ({ selectedCategory }) => {
                                                 }}
                                             >
                                                 {/* Status Chip */}
-                                                <Chip
+                                                {/*<Chip
                                                     label={statusConfig.text}
                                                     sx={{
                                                         backgroundColor: statusConfig.color,
@@ -234,7 +234,7 @@ const Product = ({ selectedCategory }) => {
                                                             px: 0,
                                                         },
                                                     }}
-                                                />
+                                                />*/}
 
                                                 <Box
                                                     sx={{
@@ -247,16 +247,10 @@ const Product = ({ selectedCategory }) => {
                                                         borderRadius: "6px",
                                                         cursor: "pointer",
                                                         transition: "all 0.3s ease",
-                                                        "&:hover": {
-                                                            backgroundColor: "#000",
-                                                            "& svg": {
-                                                                color: "#fff",
-                                                            },
-                                                        },
                                                     }}
                                                     onClick={() => handleQuickView(product.id)}
                                                 >
-                                                    <VisibilityIcon
+                                                    <VisibilityOutlinedIcon
                                                         sx={{
                                                             fontSize: { xs: "18px", md: "20px" },
                                                             color: "#000",
@@ -308,28 +302,24 @@ const Product = ({ selectedCategory }) => {
                                                 },
                                                 alignItems: "flex-end",
                                                 justifyContent: "center",
-                                                pb: { xs: 2, md: 3 },
+                                                pb: { md: 4 },
                                                 zIndex: 2,
                                             }}
                                         >
                                             <Box
                                                 sx={{
-                                                    backgroundColor: "white",
+                                                    backgroundColor: "var(--light-color)",
                                                     color: "#1a1a1a",
-                                                    px: { xs: 2.5, md: 3.5 },
+                                                    px: { xs: 2.5, md: 14.5 },
                                                     py: { xs: 1, md: 1.25 },
                                                     borderRadius: "50px",
                                                     fontWeight: 700,
                                                     fontSize: { xs: "11px", md: "13px" },
-                                                    letterSpacing: "0.5px",
+                                                    letterSpacing: "1px",
                                                     textTransform: "uppercase",
+                                                    fontFamily: "Noto Sans",
                                                     boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
                                                     transition: "all 0.3s ease",
-                                                    "&:hover": {
-                                                        backgroundColor: "#1a1a1a",
-                                                        color: "white",
-                                                        transform: "scale(1.05)",
-                                                    },
                                                 }}
                                             >
                                                 Quick View
@@ -357,7 +347,8 @@ const Product = ({ selectedCategory }) => {
                                         >
                                             <Typography
                                                 sx={{
-                                                    fontSize: { xs: "13px", md: "15px" },
+                                                    fontSize: { xs: "12px", md: "16px" },
+                                                    fontFamily: "Noto Sans",
                                                     fontWeight: 600,
                                                     color: "#1a1a1a",
                                                     lineHeight: 1.3,
@@ -367,9 +358,6 @@ const Product = ({ selectedCategory }) => {
                                                     WebkitBoxOrient: "vertical",
                                                     overflow: "hidden",
                                                     transition: "color 0.3s ease",
-                                                    "&:hover": {
-                                                        color: "#ff6b6b",
-                                                    },
                                                 }}
                                             >
                                                 {product.name}
@@ -378,7 +366,8 @@ const Product = ({ selectedCategory }) => {
                                             {product.brand && (
                                                 <Typography
                                                     sx={{
-                                                        fontSize: { xs: "9px", md: "10px" },
+                                                        fontSize: { xs: "9px", md: "11px" },
+                                                        fontFamily: "Noto Sans",
                                                         color: "#999",
                                                         textTransform: "uppercase",
                                                         letterSpacing: "1px",
@@ -392,7 +381,7 @@ const Product = ({ selectedCategory }) => {
                                             )}
                                         </Box>
 
-                                        {product.productSizes && product.productSizes.length > 0 && (
+                                        {/*{product.productSizes && product.productSizes.length > 0 && (
                                             <Box
                                                 sx={{
                                                     display: "flex",
@@ -434,7 +423,7 @@ const Product = ({ selectedCategory }) => {
                                                         />
                                                     ))}
                                             </Box>
-                                        )}
+                                        )}*/}
 
                                         <Box
                                             sx={{
@@ -442,15 +431,16 @@ const Product = ({ selectedCategory }) => {
                                                 alignItems: "center",
                                                 gap: { xs: 1, md: 1.5 },
                                                 flexWrap: "wrap",
-                                                mt: { xs: 0.5, md: 1 },
+                                                mt: 0,
                                             }}
                                         >
                                             <Typography
                                                 sx={{
-                                                    fontSize: { xs: "16px", md: "20px" },
-                                                    fontWeight: 800,
-                                                    color: hasDiscount ? "#ff6b6b" : "#1a1a1a",
-                                                    letterSpacing: "-0.5px",
+                                                    fontSize: { xs: "13px", md: "16px" },
+                                                    fontWeight: 600,
+                                                    fontFamily: "Noto Sans",
+                                                    color: "#1a1a1a",
+                                                    letterSpacing: "0.5px",
                                                 }}
                                             >
                                                 {formatPrice(hasDiscount ? discountedPrice : product.price)}
@@ -460,25 +450,26 @@ const Product = ({ selectedCategory }) => {
                                                 <>
                                                     <Typography
                                                         sx={{
-                                                            fontSize: { xs: "12px", md: "14px" },
-                                                            color: "#aaa",
+                                                            fontSize: { xs: "13px", md: "14px" },
+                                                            color: "#636262",
                                                             textDecoration: "line-through",
+                                                            textDecorationColor: "black",
                                                             fontWeight: 500,
+                                                            fontFamily: "Noto Sans",
                                                         }}
                                                     >
                                                         {formatPrice(product.price)}
                                                     </Typography>
                                                     <Chip
                                                         label={`-${product.discount}%`}
-                                                        size="small"
                                                         sx={{
-                                                            backgroundColor: "#ff6b6b",
-                                                            color: "white",
-                                                            fontWeight: 800,
-                                                            fontSize: { xs: "10px", md: "11px" },
-                                                            height: { xs: "20px", md: "22px" },
+                                                            backgroundColor: "rgba(189,236,118,0.87)",
+                                                            color: "black",
+                                                            fontWeight: 600,
+                                                            fontSize: "14px",
+                                                            height: "25px",
                                                             "& .MuiChip-label": {
-                                                                px: { xs: 0.75, md: 1 },
+                                                                px: 1.5,
                                                             },
                                                         }}
                                                     />
