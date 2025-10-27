@@ -88,6 +88,7 @@ const Product = ({ selectedCategory }) => {
         <Container
             maxWidth="xl"
             sx={{
+                px: { md: "130px" },
                 py: { xs: 3, md: 5 },
                 "@keyframes slideUpQuickView": {
                     "0%": {
@@ -387,7 +388,7 @@ const Product = ({ selectedCategory }) => {
                                                 sx={{
                                                     backgroundColor: "var(--light-color)",
                                                     color: "#1a1a1a",
-                                                    px: { xs: 2.5, md: 14.5 },
+                                                    px: { xs: 2.5, md: 12 },
                                                     py: { xs: 1, md: 1.25 },
                                                     borderRadius: "50px",
                                                     fontWeight: 700,
