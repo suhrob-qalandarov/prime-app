@@ -99,6 +99,20 @@ const Product = ({ selectedCategory }) => {
                         opacity: 1,
                     },
                 },
+                "@keyframes blurWave": {
+                    "0%": {
+                        filter: "blur(0px) translateX(0)",
+                        opacity: 1,
+                    },
+                    "50%": {
+                        filter: "blur(3px)",
+                        opacity: 0.8,
+                    },
+                    "100%": {
+                        filter: "blur(0px) translateX(100%)",
+                        opacity: 1,
+                    },
+                },
             }}
         >
             <QuickViewModal
@@ -168,25 +182,37 @@ const Product = ({ selectedCategory }) => {
                                             <Box
                                                 sx={{
                                                     position: "absolute",
-                                                    top: 0,
+                                                    bottom: 0,
                                                     left: 0,
                                                     right: 0,
-                                                    backgroundColor: "#ff6b6b",
+                                                    backgroundColor: "transparent",
                                                     color: "white",
                                                     py: { xs: 0.75, md: 1 },
                                                     overflow: "hidden",
                                                     zIndex: 3,
-                                                    boxShadow: "0 2px 8px rgba(255,107,107,0.3)",
+                                                    boxShadow: "none",
+                                                    backdropFilter: "blur(8px)",
+                                                    background: "linear-gradient(135deg, rgba(255,107,107,0.4) 0%, rgba(255,107,107,0.2) 100%)",
                                                 }}
                                             >
                                                 <Box
                                                     sx={{
                                                         display: "flex",
                                                         whiteSpace: "nowrap",
-                                                        animation: "scroll-banner 20s linear infinite",
-                                                        "@keyframes scroll-banner": {
-                                                            "0%": { transform: "translateX(0)" },
-                                                            "100%": { transform: "translateX(-50%)" },
+                                                        animation: "blurWave 3s ease-in-out infinite",
+                                                        "@keyframes blurWave": {
+                                                            "0%": {
+                                                                filter: "blur(0px)",
+                                                                opacity: 1,
+                                                            },
+                                                            "50%": {
+                                                                filter: "blur(2px)",
+                                                                opacity: 0.85,
+                                                            },
+                                                            "100%": {
+                                                                filter: "blur(0px)",
+                                                                opacity: 1,
+                                                            },
                                                         },
                                                     }}
                                                 >
@@ -196,6 +222,7 @@ const Product = ({ selectedCategory }) => {
                                                             fontWeight: 800,
                                                             letterSpacing: "1.5px",
                                                             textTransform: "uppercase",
+                                                            textShadow: "0 2px 4px rgba(0,0,0,0.3)",
                                                         }}
                                                     >
                                                         🔥 QAYNOQ CHEGIRMA {product.discount}% 🔥 &nbsp;&nbsp;&nbsp;&nbsp; 🔥 QAYNOQ CHEGIRMA{" "}
@@ -209,7 +236,7 @@ const Product = ({ selectedCategory }) => {
                                             <Box
                                                 sx={{
                                                     position: "absolute",
-                                                    top: hasDiscount ? { xs: "36px", md: "42px" } : { xs: "10px", md: "12px" },
+                                                    top: { xs: "10px", md: "12px" },
                                                     right: { xs: "10px", md: "12px" },
                                                     zIndex: 4,
                                                     display: "flex",
@@ -340,9 +367,10 @@ const Product = ({ selectedCategory }) => {
                                         <Box
                                             sx={{
                                                 display: "flex",
+                                                flexDirection: { xs: "column", md: "row" },
                                                 justifyContent: "space-between",
-                                                alignItems: "flex-start",
-                                                gap: { xs: 1, md: 1.5 },
+                                                alignItems: { xs: "flex-start", md: "flex-start" },
+                                                gap: { xs: 0.5, md: 1.5 },
                                             }}
                                         >
                                             <Typography
@@ -373,7 +401,8 @@ const Product = ({ selectedCategory }) => {
                                                         letterSpacing: "1px",
                                                         fontWeight: 600,
                                                         whiteSpace: "nowrap",
-                                                        textAlign: "right",
+                                                        textAlign: { xs: "left", md: "right" },
+                                                        width: { xs: "100%", md: "auto" },
                                                     }}
                                                 >
                                                     {product.brand}
