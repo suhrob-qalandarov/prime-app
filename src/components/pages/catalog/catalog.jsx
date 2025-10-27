@@ -1,5 +1,5 @@
 import { Stack, Container, Box, useMediaQuery } from "@mui/material"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useNavigate } from "react-router-dom"
 import { spotlights } from "../../../constants"
 import CategoryService from "../../../service/catalog"
 import CategoriesList from "./categories-list"
@@ -12,15 +12,17 @@ import { useTheme } from "@mui/material/styles"
 const Catalog = () => {
     const [categoriesData, setCategoriesData] = useState([])
     const [searchParams] = useSearchParams()
+    const navigate = useNavigate()
     const [isFetching, setFetching] = useState(false)
-
-    const [selectedCategory, setSelectedCategory] = useState(null)
 
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
     const param = [...searchParams.keys()][0]
     const [selectedSpotlight, setSelectedSpotlight] = useState(spotlights.find((cat) => cat.url === param) || null)
+
+    const categoryParam = searchParams.get("category")
+    const [selectedCategory, setSelectedCategory] = useState(categoryParam ? Number.parseInt(categoryParam) : null)
 
     useEffect(() => {
         fetchCategories().then((r) => setFetching(false))
@@ -42,6 +44,8 @@ const Catalog = () => {
 
     const handleCategorySelect = (categoryId) => {
         setSelectedCategory(categoryId)
+        const spotlightParam = param || ""
+        navigate(`?${spotlightParam}${categoryId ? `&category=${categoryId}` : ""}`)
     }
 
     return (
@@ -49,7 +53,7 @@ const Catalog = () => {
             <Stack
                 sx={{
                     backgroundColor: "#f0f0f0",
-                    marginTop: "70px",
+                    marginTop: "80px",
                     width: "100%",
                     minHeight: "200px",
                     paddingBottom: "8px",
