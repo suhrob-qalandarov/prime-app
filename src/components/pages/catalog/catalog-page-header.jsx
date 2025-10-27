@@ -5,7 +5,7 @@ const CatalogPageHeader = ({spotlight}) => {
     return (
         <Stack
             sx={{
-                marginTop: "16px",
+                marginTop: "10",
                 textAlign: "center",
             }}
         >
