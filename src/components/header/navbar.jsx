@@ -1,19 +1,16 @@
-"use client"
-
-import {Link, useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import NavbarIcons from "./navbar/navbar-icons"
 import NavbarLinks from "./navbar/navbar-links"
-import "./navbar.css"
 import { Stack } from "@mui/material"
 import BottomNavbar from "./bottom/bottom-navbar"
 import { useState } from "react"
 import CartModal from "../modals/cart-modal"
-import Sidebar from "./sidebar/sidebar" // Added sidebar import
+import Sidebar from "./sidebar/sidebar"
 
 const Navbar = () => {
     const [cartCount, setCartCount] = useState(0)
     const [modal, setModal] = useState(null)
-    const [sidebarOpen, setSidebarOpen] = useState(false) // Added sidebar state
+    const [sidebarOpen, setSidebarOpen] = useState(false)
     const navigate = useNavigate()
 
     const handleCartClick = () => {
@@ -29,38 +26,30 @@ const Navbar = () => {
     }
 
     const handleProfileClick = () => {
-        // Changed from handleMessageClick to handleProfileClick
         console.log("Profile clicked from bottom nav")
     }
 
     const toggleSidebar = () => {
-        // Added sidebar toggle function
         setSidebarOpen(!sidebarOpen)
     }
 
     return (
         <>
-            <Stack className="container" style={{ backgroundColor: "#f0f0f0" }}>
+            <Stack className="bg-[#f8f9fb] w-full">
                 <div
-                    className="main-header"
-                    id="main-header"
-                    sx={{
-                        position: "sticky",
-                        top: 0,
-                        zIndex: 999,
-                    }}
+                    className="fixed top-5 left-0 right-0 z-[999] transition-all duration-300 w-full bg-[#f8f9fb]"
                 >
-                    <div className="container-custom">
-                        <div className="row align-items-center">
-                            <div className="mobile-menu-toggle" onClick={toggleSidebar}>
-                                <div className="hamburger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                    <div className="px-6 lg:px-[80px]">
+                        <div className="flex items-center justify-between h-20">
+                            <div className="lg:hidden cursor-pointer p-2.5 z-[1000]" onClick={toggleSidebar}>
+                                <div className="flex flex-col gap-1">
+                                    <span className="w-[25px] h-[3px] bg-[#8b1538] rounded-sm transition-all duration-300"></span>
+                                    <span className="w-[25px] h-[3px] bg-[#8b1538] rounded-sm transition-all duration-300"></span>
+                                    <span className="w-[25px] h-[3px] bg-[#8b1538] rounded-sm transition-all duration-300"></span>
                                 </div>
                             </div>
 
-                            <Link to={"/"} className="col-lg-3 logo-container" style={{ textDecoration: "none" }}>
+                            <Link to={"/"} className="no-underline flex-shrink-0">
                                 <h1
                                     id="main-logo"
                                     style={{
@@ -77,8 +66,8 @@ const Navbar = () => {
                                             color: "rgba(160,27,71,0.9)",
                                         }}
                                     >
-                    77
-                  </span>
+                                        77
+                                    </span>
                                 </h1>
                             </Link>
                             <NavbarLinks />
@@ -95,7 +84,7 @@ const Navbar = () => {
                 onCartClick={handleCartClick}
                 onCategoriesClick={handleCategoriesClick}
                 onSearchClick={handleSearchClick}
-                onProfileClick={handleProfileClick} // Changed from onMessageClick to onProfileClick
+                onProfileClick={handleProfileClick}
             />
             <CartModal isOpen={modal === "cart"} onClose={() => setModal(null)} />
         </>
