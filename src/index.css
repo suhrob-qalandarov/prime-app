@@ -1,8 +1,6 @@
-/*
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*/
 
 /* ======================================================
    GLOBAL STYLES
@@ -60,4 +58,48 @@ body {
 .container-custom {
   padding-left: 200px;
   padding-right: 200px;
+}
+
+/* ======================================================
+   GLOBAL TAILWIND STYLES
+====================================================== */
+
+@layer base {
+    :root {
+        --transition: all 0.3s ease;
+    }
+
+    * {
+        @apply m-0 p-0 box-border;
+    }
+
+    html {
+        @apply scroll-smooth;
+        scroll-padding-top: 80px;
+    }
+
+    body {
+        /* using hex colors directly instead of custom classes */
+        @apply font-sans overflow-x-hidden leading-relaxed;
+        color: #232526;
+        background-color: #f5f5dc;
+    }
+}
+
+@layer components {
+    /* Hide scrollbar utility */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        /* removed invalid @apply, using CSS property directly */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Custom container with padding */
+    .container-custom {
+        @apply px-[200px];
+    }
 }
