@@ -1,13 +1,9 @@
-"use client"
-
 import { useState } from "react"
-import { Link } from "react-router-dom" // Added Link import for profile navigation
-import "./bottom-navbar.css"
+import { Link } from "react-router-dom"
 
 const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchClick, onProfileClick }) => {
-    // Changed onMessageClick to onProfileClick
     const [activeItem, setActiveItem] = useState("")
-    const isLoggedIn = Boolean(localStorage.getItem("prime-token")) // Added login check
+    const isLoggedIn = Boolean(localStorage.getItem("prime-token"))
 
     const handleItemClick = (itemName, callback) => {
         setActiveItem(itemName)
@@ -15,9 +11,11 @@ const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchC
     }
 
     return (
-        <div className="mobile-bottom-nav">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#8b1538] flex justify-around items-center p-0 z-[1025] lg:hidden">
             <div
-                className={`bottom-nav-item ${activeItem === "categories" ? "active" : ""}`}
+                className={`flex flex-col items-center gap-0 cursor-pointer p-2 rounded-lg transition-all duration-300 text-[#8b1538] min-w-[70px] ${
+                    activeItem === "categories" ? "bg-gray-100" : ""
+                }`}
                 onClick={() => handleItemClick("categories", onCategoriesClick)}
             >
                 <svg
@@ -37,14 +35,16 @@ const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchC
                     <path d="M9 3v18"></path>
                     <path d="M15 3v18"></path>
                 </svg>
-                <span>Kategoriyalar</span>
+                <span className="text-xs font-medium text-center leading-none">Kategoriyalar</span>
             </div>
 
             <div
-                className={`bottom-nav-item ${activeItem === "cart" ? "active" : ""}`}
+                className={`flex flex-col items-center gap-0 cursor-pointer p-3 rounded-lg transition-all duration-300 text-[#8b1538] min-w-[70px] ${
+                    activeItem === "cart" ? "bg-gray-100" : ""
+                }`}
                 onClick={() => handleItemClick("cart", onCartClick)}
             >
-                <div className="bottom-nav-icon-container">
+                <div className="relative flex items-center justify-center">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -60,24 +60,33 @@ const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchC
                         <path d="M3 6h18"></path>
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
-                    <div className={`bottom-nav-badge ${cartCount > 0 ? "show" : ""}`}>{cartCount}</div>
+                    {cartCount > 0 && (
+                        <div className="absolute -top-2 -right-2 bg-black text-white rounded-full w-4.5 h-4.5 text-xs flex items-center justify-center font-semibold">
+                            {cartCount}
+                        </div>
+                    )}
                 </div>
-                <span>Savat</span>
+                <span className="text-xs font-medium text-center leading-none">Savat</span>
             </div>
 
             <div
-                className={`bottom-nav-item ${activeItem === "search" ? "active" : ""}`}
+                className={`flex flex-col items-center gap-0 cursor-pointer p-3 rounded-lg transition-all duration-300 text-[#8b1538] min-w-[70px] ${
+                    activeItem === "search" ? "bg-gray-100" : ""
+                }`}
                 onClick={() => handleItemClick("search", onSearchClick)}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
                     <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
                 </svg>
-                <span>Qidirish</span>
+                <span className="text-xs font-medium text-center leading-none">Qidirish</span>
             </div>
 
-            <Link style={{ textDecoration: "none" }}
+            <Link
+                style={{ textDecoration: "none" }}
                 to={isLoggedIn ? "/profile" : "/login"}
-                className={`bottom-nav-item ${activeItem === "profile" ? "active" : ""}`}
+                className={`flex flex-col items-center gap-0 cursor-pointer p-2 rounded-lg transition-all duration-300 text-[#8b1538] min-w-[70px] no-underline ${
+                    activeItem === "profile" ? "bg-gray-100" : ""
+                }`}
                 onClick={() => handleItemClick("profile", onProfileClick)}
             >
                 <svg
@@ -94,7 +103,7 @@ const BottomNavbar = ({ cartCount = 0, onCartClick, onCategoriesClick, onSearchC
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                <span>Profil</span>
+                <span className="text-xs font-medium text-center leading-none">Profil</span>
             </Link>
         </div>
     )
