@@ -14,7 +14,7 @@ const Product = ({ selectedCategory }) => {
     const [hoveredProductId, setHoveredProductId] = useState(null)
     const [quickViewOpen, setQuickViewOpen] = useState(false)
     const [selectedProductId, setSelectedProductId] = useState(null)
-    const itemsPerPage = 5
+    const itemsPerPage = 20
 
     useEffect(() => {
         if (selectedCategory) {
@@ -27,7 +27,7 @@ const Product = ({ selectedCategory }) => {
 
     const fetchProductsByCategory = async () => {
         try {
-            const data = await ProductService.getProductsByCategoryId(selectedCategory)
+            const data = await ProductService.getProductsByCategoryId(selectedCategory, 20)
             setProducts(data.content)
             setTotalPages(data.totalPages)
             setPage(1)
@@ -38,7 +38,7 @@ const Product = ({ selectedCategory }) => {
 
     const fetchProducts = async () => {
         try {
-            const data = await ProductService.getProducts()
+            const data = await ProductService.getProducts(20)
             setProducts(data.content)
             setTotalPages(data.totalPages)
             setPage(1)

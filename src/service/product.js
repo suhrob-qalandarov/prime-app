@@ -1,11 +1,9 @@
 import axios from "./api.js"
 
 const ProductService = {
-
-    // Get products
-    async getProducts() {
+    async getProducts(limit = 20) {
         try {
-            const response = await axios.get(`/v1/product`)
+            const response = await axios.get(`/v1/product?limit=${limit}`)
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
@@ -13,10 +11,9 @@ const ProductService = {
         }
     },
 
-    // Get products by category
-    async getProductsByCategoryId(categoryId) {
+    async getProductsByCategoryId(categoryId, limit = 20) {
         try {
-            const response = await axios.get(`/v1/product/by-category/${categoryId}`)
+            const response = await axios.get(`/v1/product/by-category/${categoryId}?limit=${limit}`)
             return response.data
         } catch (error) {
             console.error("Error fetching orders:", error)
