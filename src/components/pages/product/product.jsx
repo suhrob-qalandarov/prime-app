@@ -375,7 +375,7 @@ const Product = ({ selectedCategory }) => {
                                                 {product.name}
                                             </Typography>
 
-                                            {product.categoryName && (
+                                            {product.brand && (
                                                 <Typography
                                                     sx={{
                                                         fontSize: { xs: "9px", md: "10px" },
@@ -387,7 +387,7 @@ const Product = ({ selectedCategory }) => {
                                                         textAlign: "right",
                                                     }}
                                                 >
-                                                    {product.categoryName}
+                                                    {product.brand}
                                                 </Typography>
                                             )}
                                         </Box>
