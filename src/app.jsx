@@ -1,5 +1,6 @@
 import {Route, Routes, useLocation} from "react-router-dom";
 import {Login, Catalog, AboutUs, Contact, Navbar, Footer, Home, Profile} from "./components/index";
+import {HeaderTop} from "./components";
 
 const App = () => {
     const location = useLocation();
@@ -7,6 +8,7 @@ const App = () => {
 
     return (
         <div>
+            <HeaderTop/>
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />}/>
