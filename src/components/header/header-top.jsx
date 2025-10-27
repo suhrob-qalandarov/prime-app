@@ -1,28 +1,15 @@
-import {Link} from "react-router-dom";
-import {Box, Stack} from "@mui/material";
+import { Box, Stack } from "@mui/material"
 
 const HeaderTop = () => {
     return (
-        <Stack className="top-header">
-            <Box className="container-custom">
-                <div className="row align-items-center">
-                    <div className="col-md-6"></div>
-                    <div className="col-md-6">
-                        <div className="d-flex align-items-center justify-content-end">
-                            <div className="social-icons me-4">
-                                <Link to={''} className="fab fa-telegram-plane"></Link>
-                                <Link to={''} className="fab fa-instagram"></Link>
-                            </div>
-                            <div>
-                                <i className="fas fa-phone-alt me-2"></i>
-                                <a href="tel:+998901234567">+998 90 123 45 67</a>
-                            </div>
-                        </div>
-                    </div>
+        <Stack sx={{ position: "sticky", top: "0", zIndex: 1001, backgroundColor: "#f0f0f0" }}>
+            <Box className="w-full overflow-hidden">
+                <div className="whitespace-nowrap text-red-500 text-sm font-semibold animate-marquee">
+                    {Array(20).fill("SAYT HOZIRDA TEST REJIMIDA ISHLAYAPTI!  •  XATOLIK HAQIDA SUPPORTGA YOZING!").join(" • ")}
                 </div>
             </Box>
         </Stack>
-    );
-};
+    )
+}
 
-export default HeaderTop;
+export default HeaderTop
