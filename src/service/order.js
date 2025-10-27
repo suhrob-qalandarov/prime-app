@@ -13,28 +13,6 @@ const OrderService= {
         }
     },
 
-    // Get orders by telegram ID
-    async getOrdersByTelegramId(telegramId) {
-        try {
-            const response = await axios.get(`/v1/orders/by/telegramId/${telegramId}`)
-            return response.data
-        } catch (error) {
-            console.error("Error fetching orders:", error)
-            throw error
-        }
-    },
-
-    // Get orders by phone number
-    async getOrdersByPhoneNumber(phoneNumber) {
-        try {
-            const response = await axios.get(`/v1/orders/by/phoneNumber/${phoneNumber}`)
-            return response.data
-        } catch (error) {
-            console.error("Error fetching orders:", error)
-            throw error
-        }
-    },
-
     // User confirm order
     async confirmOrder(orderData) {
         try {
