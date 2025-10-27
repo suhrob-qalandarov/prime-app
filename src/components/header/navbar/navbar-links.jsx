@@ -1,6 +1,4 @@
 import { NavLink } from "react-router-dom"
-import "./navbar-links.css"
-import { Stack } from "@mui/material"
 
 const NavbarLinks = () => {
     const links = [
@@ -10,21 +8,29 @@ const NavbarLinks = () => {
     ]
 
     return (
-        <Stack className="col-lg-6">
-            <Stack className="navbar navbar-expand-lg">
-                <div className="collapse navbar-collapse justify-content-start">
-                    <ul className="navbar-nav">
-                        {links.map(({ to, label }) => (
-                            <li className="nav-item" key={to}>
-                                <NavLink to={to} className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                                    {label}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </Stack>
-        </Stack>
+        <div className="hidden lg:flex col-span-6 justify-start">
+            <ul className="flex gap-4 list-none m-0 p-0">
+                {links.map(({ to, label }) => (
+                    <li key={to}>
+                        <NavLink
+                            to={to}
+                            className={({ isActive }) => `
+                                relative px-5 py-1 font-bold text-[#8b1538] 
+                                transition-all duration-300 rounded-lg text-sm
+                                no-underline
+                                ${isActive ? "text-black" : "hover:text-black"}
+                                after:content-[''] after:absolute after:bottom-[-4px] after:left-1/2 
+                                after:w-0 after:h-0.5 after:bg-[#a01b47] after:transition-all 
+                                after:duration-300 after:-translate-x-1/2 after:rounded-sm
+                                hover:after:w-[70%]
+                            `}
+                        >
+                            {label}
+                        </NavLink>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
 
