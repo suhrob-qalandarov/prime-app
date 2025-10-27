@@ -1,13 +1,13 @@
-import {Stack, Container, Button, Box, useMediaQuery} from "@mui/material";
-import {useSearchParams} from "react-router-dom";
-import {spotlights} from "../../../constants";
-import CategoryService from "../../../service/catalog";
-import CategoriesList from "./categories-list";
-import {useEffect, useState} from "react";
-import SpotlightList from "./spotlight-list";
-import Product from "../product/product";
-import CatalogPageHeader from "./catalog-page-header";
-import {useTheme} from "@mui/material/styles";
+import { Stack, Container, Box, useMediaQuery } from "@mui/material"
+import { useSearchParams } from "react-router-dom"
+import { spotlights } from "../../../constants"
+import CategoryService from "../../../service/catalog"
+import CategoriesList from "./categories-list"
+import { useEffect, useState } from "react"
+import SpotlightList from "./spotlight-list"
+import Product from "../product/product"
+import CatalogPageHeader from "./catalog-page-header"
+import { useTheme } from "@mui/material/styles"
 
 const Catalog = () => {
     const [categoriesData, setCategoriesData] = useState([])
@@ -20,12 +20,11 @@ const Catalog = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
     const param = [...searchParams.keys()][0]
-    const [selectedSpotlight, setSelectedSpotlight] = useState(spotlights.find((cat) => cat.url === param) || null);
+    const [selectedSpotlight, setSelectedSpotlight] = useState(spotlights.find((cat) => cat.url === param) || null)
 
     useEffect(() => {
-        fetchCategories().then(r => setFetching(false))
+        fetchCategories().then((r) => setFetching(false))
     }, [selectedSpotlight])
-
 
     const fetchCategories = async () => {
         try {
@@ -43,7 +42,6 @@ const Catalog = () => {
 
     const handleCategorySelect = (categoryId) => {
         setSelectedCategory(categoryId)
-        setSelectedSpotlight(null);
     }
 
     return (
@@ -95,7 +93,7 @@ const Catalog = () => {
                     )}
                 </Container>
             </Stack>
-            {selectedCategory && <Product selectedCategory={selectedCategory} />}
+            <Product selectedCategory={selectedCategory} />
         </Stack>
     )
 }
