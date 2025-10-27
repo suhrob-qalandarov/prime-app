@@ -1,16 +1,19 @@
-"use client"
-
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Container, Box, Typography, Chip, Pagination } from "@mui/material"
 import VisibilityIcon from "@mui/icons-material/Visibility"
 import ProductService from "../../../service/product"
 import urls from "../../../constants/urls"
+import QuickViewModal from "./modal/quick-view"
 
 const Product = ({ selectedCategory }) => {
+    const navigate = useNavigate()
     const [products, setProducts] = useState([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
     const [hoveredProductId, setHoveredProductId] = useState(null)
+    const [quickViewOpen, setQuickViewOpen] = useState(false)
+    const [selectedProductId, setSelectedProductId] = useState(null)
     const itemsPerPage = 5
 
     useEffect(() => {
@@ -68,7 +71,12 @@ const Product = ({ selectedCategory }) => {
     }
 
     const handleQuickView = (productId) => {
-        console.log("Quick view for product:", productId)
+        setSelectedProductId(productId)
+        setQuickViewOpen(true)
+    }
+
+    const handleProductClick = (productId) => {
+        navigate(`/product?id=${productId}`)
     }
 
     const handlePageChange = (event, value) => {
@@ -93,6 +101,13 @@ const Product = ({ selectedCategory }) => {
                 },
             }}
         >
+            <QuickViewModal
+                isOpen={quickViewOpen}
+                onClose={() => setQuickViewOpen(false)}
+                productId={selectedProductId}
+                products={products}
+            />
+
             {products.length > 0 ? (
                 <Box>
                     <Box
@@ -323,11 +338,13 @@ const Product = ({ selectedCategory }) => {
                                     </Box>
 
                                     <Box
+                                        onClick={() => handleProductClick(product.id)}
                                         sx={{
                                             display: "flex",
                                             flexDirection: "column",
                                             gap: { xs: 0.5, md: 0.75 },
                                             px: { xs: 0.5, md: 1 },
+                                            cursor: "pointer",
                                         }}
                                     >
                                         <Box
@@ -338,7 +355,6 @@ const Product = ({ selectedCategory }) => {
                                                 gap: { xs: 1, md: 1.5 },
                                             }}
                                         >
-                                            {/* Product Name */}
                                             <Typography
                                                 sx={{
                                                     fontSize: { xs: "13px", md: "15px" },
@@ -359,7 +375,6 @@ const Product = ({ selectedCategory }) => {
                                                 {product.name}
                                             </Typography>
 
-                                            {/* Category Name - Right side */}
                                             {product.categoryName && (
                                                 <Typography
                                                     sx={{
