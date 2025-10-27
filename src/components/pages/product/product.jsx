@@ -113,6 +113,20 @@ const Product = ({ selectedCategory }) => {
                         opacity: 1,
                     },
                 },
+                "@keyframes wavyTop": {
+                    "0%": {
+                        clipPath:
+                            "polygon(0 0%, 2% 2%, 4% 0%, 6% 2%, 8% 0%, 10% 2%, 12% 0%, 14% 2%, 16% 0%, 18% 2%, 20% 0%, 22% 2%, 24% 0%, 26% 2%, 28% 0%, 30% 2%, 32% 0%, 34% 2%, 36% 0%, 38% 2%, 40% 0%, 42% 2%, 44% 0%, 46% 2%, 48% 0%, 50% 2%, 52% 0%, 54% 2%, 56% 0%, 58% 2%, 60% 0%, 62% 2%, 64% 0%, 66% 2%, 68% 0%, 70% 2%, 72% 0%, 74% 2%, 76% 0%, 78% 2%, 80% 0%, 82% 2%, 84% 0%, 86% 2%, 88% 0%, 90% 2%, 92% 0%, 94% 2%, 96% 0%, 98% 2%, 100% 0%, 100% 100%, 0 100%)",
+                    },
+                    "50%": {
+                        clipPath:
+                            "polygon(0 2%, 2% 0%, 4% 2%, 6% 0%, 8% 2%, 10% 0%, 12% 2%, 14% 0%, 16% 2%, 18% 0%, 20% 2%, 22% 0%, 24% 2%, 26% 0%, 28% 2%, 30% 0%, 32% 2%, 34% 0%, 36% 2%, 38% 0%, 40% 2%, 42% 0%, 44% 2%, 46% 0%, 48% 2%, 50% 0%, 52% 2%, 54% 0%, 56% 2%, 58% 0%, 60% 2%, 62% 0%, 64% 2%, 66% 0%, 68% 2%, 70% 0%, 72% 2%, 74% 0%, 76% 2%, 78% 0%, 80% 2%, 82% 0%, 84% 2%, 86% 0%, 88% 2%, 90% 0%, 92% 2%, 94% 0%, 96% 2%, 98% 0%, 100% 2%, 100% 100%, 0 100%)",
+                    },
+                    "100%": {
+                        clipPath:
+                            "polygon(0 0%, 2% 2%, 4% 0%, 6% 2%, 8% 0%, 10% 2%, 12% 0%, 14% 2%, 16% 0%, 18% 2%, 20% 0%, 22% 2%, 24% 0%, 26% 2%, 28% 0%, 30% 2%, 32% 0%, 34% 2%, 36% 0%, 38% 2%, 40% 0%, 42% 2%, 44% 0%, 46% 2%, 48% 0%, 50% 2%, 52% 0%, 54% 2%, 56% 0%, 58% 2%, 60% 0%, 62% 2%, 64% 0%, 66% 2%, 68% 0%, 70% 2%, 72% 0%, 74% 2%, 76% 0%, 78% 2%, 80% 0%, 82% 2%, 84% 0%, 86% 2%, 88% 0%, 90% 2%, 92% 0%, 94% 2%, 96% 0%, 98% 2%, 100% 0%, 100% 100%, 0 100%)",
+                    },
+                },
             }}
         >
             <QuickViewModal
@@ -192,26 +206,21 @@ const Product = ({ selectedCategory }) => {
                                                     zIndex: 3,
                                                     boxShadow: "none",
                                                     backdropFilter: "blur(8px)",
-                                                    background: "linear-gradient(135deg, rgba(255,107,107,0.4) 0%, rgba(255,107,107,0.2) 100%)",
+                                                    background: "transparent",
+                                                    animation: "wavyTop 4s ease-in-out infinite",
                                                 }}
                                             >
                                                 <Box
                                                     sx={{
                                                         display: "flex",
                                                         whiteSpace: "nowrap",
-                                                        animation: "blurWave 3s ease-in-out infinite",
-                                                        "@keyframes blurWave": {
+                                                        animation: "scrollText 3s linear infinite",
+                                                        "@keyframes scrollText": {
                                                             "0%": {
-                                                                filter: "blur(0px)",
-                                                                opacity: 1,
-                                                            },
-                                                            "50%": {
-                                                                filter: "blur(2px)",
-                                                                opacity: 0.85,
+                                                                transform: "translateX(0)",
                                                             },
                                                             "100%": {
-                                                                filter: "blur(0px)",
-                                                                opacity: 1,
+                                                                transform: "translateX(-50%)",
                                                             },
                                                         },
                                                     }}
@@ -223,10 +232,51 @@ const Product = ({ selectedCategory }) => {
                                                             letterSpacing: "1.5px",
                                                             textTransform: "uppercase",
                                                             textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            gap: "6px",
                                                         }}
                                                     >
-                                                        🔥 QAYNOQ CHEGIRMA {product.discount}% 🔥 &nbsp;&nbsp;&nbsp;&nbsp; 🔥 QAYNOQ CHEGIRMA{" "}
-                                                        {product.discount}% 🔥 &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="1em"
+                                                            height="1em"
+                                                            fill="#A91D3A"
+                                                            viewBox="0 0 256 256"
+                                                        >
+                                                            <path d="M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z"></path>
+                                                        </svg>
+                                                        QAYNOQ CHEGIRMA {product.discount}%
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="1em"
+                                                            height="1em"
+                                                            fill="#A91D3A"
+                                                            viewBox="0 0 256 256"
+                                                        >
+                                                            <path d="M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z"></path>
+                                                        </svg>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="1em"
+                                                            height="1em"
+                                                            fill="#A91D3A"
+                                                            viewBox="0 0 256 256"
+                                                        >
+                                                            <path d="M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z"></path>
+                                                        </svg>
+                                                        QAYNOQ CHEGIRMA {product.discount}%
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="1em"
+                                                            height="1em"
+                                                            fill="#A91D3A"
+                                                            viewBox="0 0 256 256"
+                                                        >
+                                                            <path d="M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z"></path>
+                                                        </svg>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
                                                     </Typography>
                                                 </Box>
                                             </Box>
@@ -457,26 +507,33 @@ const Product = ({ selectedCategory }) => {
                                         <Box
                                             sx={{
                                                 display: "flex",
-                                                alignItems: "center",
-                                                gap: { xs: 1, md: 1.5 },
+                                                flexDirection: { xs: "column", md: "row" }, // Mobilda vertikal, desktopda gorizontal
+                                                alignItems: { xs: "flex-start", md: "center" }, // Desktopda markazlash
+                                                gap: { xs: 0.5, md: 1.5 }, // Mobilda kichikroq masofa, desktopda kattaroq
                                                 flexWrap: "wrap",
                                                 mt: 0,
                                             }}
                                         >
-                                            <Typography
+                                            <Box
                                                 sx={{
-                                                    fontSize: { xs: "13px", md: "16px" },
-                                                    fontWeight: 600,
-                                                    fontFamily: "Noto Sans",
-                                                    color: "#1a1a1a",
-                                                    letterSpacing: "0.5px",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: { xs: 0.75, md: 1 },
                                                 }}
                                             >
-                                                {formatPrice(hasDiscount ? discountedPrice : product.price)}
-                                            </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: { xs: "13px", md: "16px" },
+                                                        fontWeight: 600,
+                                                        fontFamily: "Noto Sans",
+                                                        color: "#1a1a1a",
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    {formatPrice(hasDiscount ? discountedPrice : product.price)}
+                                                </Typography>
 
-                                            {hasDiscount && (
-                                                <>
+                                                {hasDiscount && (
                                                     <Typography
                                                         sx={{
                                                             fontSize: { xs: "13px", md: "14px" },
@@ -489,20 +546,23 @@ const Product = ({ selectedCategory }) => {
                                                     >
                                                         {formatPrice(product.price)}
                                                     </Typography>
-                                                    <Chip
-                                                        label={`-${product.discount}%`}
-                                                        sx={{
-                                                            backgroundColor: "rgba(189,236,118,0.87)",
-                                                            color: "black",
-                                                            fontWeight: 600,
-                                                            fontSize: "14px",
-                                                            height: "25px",
-                                                            "& .MuiChip-label": {
-                                                                px: 1.5,
-                                                            },
-                                                        }}
-                                                    />
-                                                </>
+                                                )}
+                                            </Box>
+
+                                            {hasDiscount && (
+                                                <Chip
+                                                    label={`-${product.discount}%`}
+                                                    sx={{
+                                                        backgroundColor: "rgba(189,236,118,0.87)",
+                                                        color: "black",
+                                                        fontWeight: 600,
+                                                        fontSize: "14px",
+                                                        height: "25px",
+                                                        "& .MuiChip-label": {
+                                                            px: 1.5,
+                                                        },
+                                                    }}
+                                                />
                                             )}
                                         </Box>
                                     </Box>
