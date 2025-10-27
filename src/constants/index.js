@@ -1,3 +1,9 @@
+export const links = [
+    { to: "/catalog", label: "KATALOG" },
+    { to: "/about-us", label: "BIZ HAQIMIZDA" },
+    { to: "/contact", label: "KONTAKTLAR" },
+];
+
 export const payments = [
     {name : 'Click', image : '/images/payments/click.webp'},
     {name : 'Payme', image : '/images/payments/payme.webp'}
