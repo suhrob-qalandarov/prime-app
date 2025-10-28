@@ -55,7 +55,7 @@ const Catalog = () => {
             <Stack
                 sx={{
                     backgroundColor: "#f0f0f0",
-                    marginTop: "80px",
+                    marginTop: "64px",
                     width: "100%",
                     minHeight: "200px",
                     paddingBottom: "8px",
