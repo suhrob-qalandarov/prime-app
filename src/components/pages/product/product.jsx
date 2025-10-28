@@ -88,7 +88,7 @@ const Product = ({ selectedCategory }) => {
         <Container
             maxWidth="xl"
             sx={{
-                px: { md: "130px" },
+                px: { xs: "10px", md: "120px" },
                 py: { xs: 3, md: 5 },
                 "@keyframes slideUpQuickView": {
                     "0%": {
@@ -201,14 +201,13 @@ const Product = ({ selectedCategory }) => {
                                                     left: 0,
                                                     right: 0,
                                                     backgroundColor: "transparent",
-                                                    color: "white",
-                                                    py: { xs: 0.75, md: 1 },
+                                                    color: "var(--light-color)",
+                                                    py: { xs: 0.75, md: 0.5 },
                                                     overflow: "hidden",
                                                     zIndex: 3,
                                                     boxShadow: "none",
-                                                    backdropFilter: "blur(8px)",
+                                                    backdropFilter: "blur(5px)",
                                                     background: "transparent",
-                                                    animation: "wavyTop 4s ease-in-out infinite",
                                                 }}
                                             >
                                                 <Box
@@ -228,8 +227,9 @@ const Product = ({ selectedCategory }) => {
                                                 >
                                                     <Typography
                                                         sx={{
-                                                            fontSize: { xs: "10px", md: "11px" },
+                                                            fontSize: { xs: "10px", md: "13px" },
                                                             fontWeight: 800,
+                                                            fontFamily: "Noto Sans",
                                                             letterSpacing: "1.5px",
                                                             textTransform: "uppercase",
                                                             textShadow: "0 2px 4px rgba(0,0,0,0.3)",
