@@ -1,9 +1,9 @@
-import { useState } from "react"
-import {Link, NavLink, useNavigate} from "react-router-dom"
-import { Stack } from "@mui/material"
-import BottomNavbar from "./bottom/bottom-navbar"
-import CartModal from "../modals/cart-modal"
-import Sidebar from "./sidebar/sidebar"
+import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Stack } from "@mui/material";
+import BottomNavbar from "./bottom/bottom-navbar";
+import CartModal from "../modals/cart-modal";
+import Sidebar from "./sidebar/sidebar";
 import SearchModal from "../modals/search-modal";
 import { links } from "../../constants";
 
@@ -38,11 +38,9 @@ const Navbar = () => {
     return (
         <>
             <Stack className="bg-[#f8f9fb] w-full">
-                <div
-                    className="fixed top-5 left-0 right-0 z-[999] transition-all duration-300 w-full bg-[#f8f9fb]"
-                >
-                    <div className="px-6 lg:px-[80px]">
-                        <div className="flex items-center justify-between h-20">
+                <div className="fixed top-5 left-0 right-0 z-[999] transition-all duration-300 w-full bg-[#f8f9fb]">
+                    <div className="px-6 lg:px-[200px]">
+                        <div className="flex items-center justify-between h-16">
                             <div className="lg:hidden cursor-pointer p-2.5 z-[1000]" onClick={toggleSidebar}>
                                 <div className="flex flex-col gap-1">
                                     <span className="w-[25px] h-[3px] bg-[#8b1538] rounded-sm transition-all duration-300"></span>
@@ -51,7 +49,10 @@ const Navbar = () => {
                                 </div>
                             </div>
 
-                            <Link to={"/"} className="no-underline flex-shrink-0">
+                            <Link
+                                to={"/"}
+                                className="no-underline flex-shrink-0 flex-1 flex justify-center lg:flex-none lg:justify-start"
+                            >
                                 <h1
                                     id="main-logo"
                                     style={{
@@ -84,10 +85,12 @@ const Navbar = () => {
                                                     no-underline
                                                     ${isActive ? "text-black" : "hover:text-black"}
                                                     after:content-[''] after:absolute after:bottom-[-4px] after:left-1/2
-                                                    after:w-0 after:h-0.5 after:bg-[#a01b47] after:transition-all
+                                                    after:h-0.5 after:bg-[#a01b47] after:transition-all
                                                     after:duration-300 after:-translate-x-1/2 after:rounded-sm
-                                                    hover:after:w-[70%]
-                                                    `}>
+                                                    ${isActive ? "after:w-[70%]" : "after:w-0 hover:after:w-[70%]"}
+                                                    `
+                                                }
+                                            >
                                                 {label}
                                             </NavLink>
                                         </li>
@@ -97,10 +100,7 @@ const Navbar = () => {
                             <div className="hidden lg:flex col-span-3">
                                 <div className="flex justify-end items-center w-full">
                                     <div className="flex items-center gap-4">
-                                        <button
-                                            className="p-2 text-[#8b1538]"
-                                            onClick={() => setModal("search")}
-                                        >
+                                        <button className="p-2 text-[#8b1538]" onClick={() => setModal("search")}>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -114,10 +114,7 @@ const Navbar = () => {
 
                                         <span className="text-[#8b1538] text-3xl font-light">|</span>
 
-                                        <Link
-                                            to={isLoggedIn ? "/profile" : "/login"}
-                                            className="p-2 text-[#8b1538] no-underline"
-                                        >
+                                        <Link to={isLoggedIn ? "/profile" : "/login"} className="p-2 text-[#8b1538] no-underline">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -129,10 +126,7 @@ const Navbar = () => {
                                             </svg>
                                         </Link>
 
-                                        <button
-                                            className="p-2 text-[#8b1538] relative"
-                                            onClick={() => setModal("cart")}
-                                        >
+                                        <button className="p-2 text-[#8b1538] relative" onClick={() => setModal("cart")}>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -152,6 +146,11 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
+                            <Link to={isLoggedIn ? "/profile" : "/login"} className="lg:hidden p-2 text-[#8b1538] no-underline">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#8b1538" viewBox="0 0 256 256">
+                                    <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+                                </svg>
+                            </Link>
                             <SearchModal isOpen={modal === "search"} onClose={() => setModal(null)} />
                             <CartModal isOpen={modal === "cart"} onClose={() => setModal(null)} />
                         </div>
